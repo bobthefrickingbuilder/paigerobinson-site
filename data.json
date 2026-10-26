@@ -451,13 +451,6 @@
      "media": 51
     },
     {
-     "src": "images/projects/turn-of-the-screw/05.jpg",
-     "thumb": "images/projects/turn-of-the-screw/05-t.jpg",
-     "w": 1440,
-     "h": 1800,
-     "media": 52
-    },
-    {
      "src": "images/projects/turn-of-the-screw/06.jpg",
      "thumb": "images/projects/turn-of-the-screw/06-t.jpg",
      "w": 1440,
@@ -472,25 +465,11 @@
      "media": 54
     },
     {
-     "src": "images/projects/turn-of-the-screw/08.jpg",
-     "thumb": "images/projects/turn-of-the-screw/08-t.jpg",
-     "w": 1800,
-     "h": 1201,
-     "media": 55
-    },
-    {
      "src": "images/projects/turn-of-the-screw/09.jpg",
      "thumb": "images/projects/turn-of-the-screw/09-t.jpg",
      "w": 1201,
      "h": 1800,
      "media": 56
-    },
-    {
-     "src": "images/projects/turn-of-the-screw/10.jpg",
-     "thumb": "images/projects/turn-of-the-screw/10-t.jpg",
-     "w": 1800,
-     "h": 1199,
-     "media": 57
     },
     {
      "src": "images/projects/turn-of-the-screw/11.jpg",
@@ -569,13 +548,6 @@
      "w": 1440,
      "h": 1800,
      "media": 68
-    },
-    {
-     "src": "images/projects/turn-of-the-screw/22.jpg",
-     "thumb": "images/projects/turn-of-the-screw/22-t.jpg",
-     "w": 1800,
-     "h": 1350,
-     "media": 69
     },
     {
      "src": "images/projects/turn-of-the-screw/23.jpg",
@@ -672,20 +644,6 @@
      "w": 1200,
      "h": 1800,
      "media": 45
-    },
-    {
-     "src": "images/projects/rape-of-lucretia/11.jpg",
-     "thumb": "images/projects/rape-of-lucretia/11-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 46
-    },
-    {
-     "src": "images/projects/rape-of-lucretia/12.jpg",
-     "thumb": "images/projects/rape-of-lucretia/12-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 47
     }
    ]
   },
@@ -728,20 +686,6 @@
      "media": 78
     },
     {
-     "src": "images/projects/suor-angelica/05.jpg",
-     "thumb": "images/projects/suor-angelica/05-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 80
-    },
-    {
-     "src": "images/projects/suor-angelica/06.jpg",
-     "thumb": "images/projects/suor-angelica/06-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 82
-    },
-    {
      "src": "images/projects/suor-angelica/07.jpg",
      "thumb": "images/projects/suor-angelica/07-t.jpg",
      "w": 1600,
@@ -754,13 +698,6 @@
      "w": 1600,
      "h": 1066,
      "media": 85
-    },
-    {
-     "src": "images/projects/suor-angelica/09.jpg",
-     "thumb": "images/projects/suor-angelica/09-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 86
     }
    ]
   },
@@ -773,13 +710,6 @@
    "kind": "opera",
    "focal": "65% 40%",
    "photos": [
-    {
-     "src": "images/projects/gianni-schicchi/01.jpg",
-     "thumb": "images/projects/gianni-schicchi/01-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 77
-    },
     {
      "src": "images/projects/gianni-schicchi/02.jpg",
      "thumb": "images/projects/gianni-schicchi/02-t.jpg",
@@ -821,13 +751,6 @@
      "media": 0
     },
     {
-     "src": "images/projects/light-in-the-piazza/02.jpg",
-     "thumb": "images/projects/light-in-the-piazza/02-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 1
-    },
-    {
      "src": "images/projects/light-in-the-piazza/03.jpg",
      "thumb": "images/projects/light-in-the-piazza/03-t.jpg",
      "w": 1800,
@@ -840,13 +763,6 @@
      "w": 1800,
      "h": 1200,
      "media": 3
-    },
-    {
-     "src": "images/projects/light-in-the-piazza/05.jpg",
-     "thumb": "images/projects/light-in-the-piazza/05-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 4
     },
     {
      "src": "images/projects/light-in-the-piazza/06.jpg",
@@ -985,13 +901,6 @@
      "w": 1350,
      "h": 1800,
      "media": 22
-    },
-    {
-     "src": "images/projects/misc/03.jpg",
-     "thumb": "images/projects/misc/03-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 23
     },
     {
      "src": "images/projects/misc/04.jpg",
