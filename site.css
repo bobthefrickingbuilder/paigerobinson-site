@@ -607,3 +607,10 @@ html.fog-in .pr-page{transform-origin:50% 0}
 @media (max-width:900px){.press-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (hover:none){.press-ph__actions{position:static;aspect-ratio:auto;background:none;opacity:1;justify-content:flex-start;padding:10px 0 0}
   .press-ph__btn{translate:none;color:var(--text-accent);background:none;border-color:currentColor;backdrop-filter:none}}
+
+/* Photos: the index now leads the page, with Press photos as its first entry; more air between the press captions and the stave */
+
+.proj-index__press .proj-index__title{font-family:var(--font-serif);font-style:italic}
+.proj-index__gem{display:inline-block;width:7px;height:7px;background:currentColor;transform:rotate(45deg) translateY(-2px)}
+#press{padding-top:0}
+#press>.stave{margin-top:clamp(72px,10vw,128px)}

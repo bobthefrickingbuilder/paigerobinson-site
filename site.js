@@ -71,7 +71,9 @@
     /* Photos: a program-style contents list, then one chapter per project */
     projectIndex: function (d) {
       var roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'];
-      return '<ol class="proj-index">' + d.projects.map(function (p, i) {
+      var press = $('#press .press-ph') ? '<li class="proj-index__press"><a href="#press"><span class="proj-index__num" aria-hidden="true"><span class="proj-index__gem"></span></span>' +
+        '<span class="proj-index__title">Press photos</span><span class="proj-index__leader" aria-hidden="true"></span><span class="proj-index__meta">Headshots · portraits</span></a></li>' : '';
+      return '<ol class="proj-index">' + press + d.projects.map(function (p, i) {
         return '<li><a href="#' + esc(p.slug) + '"><span class="proj-index__num">' + roman[i] + '</span>' +
           '<cite class="proj-index__title">' + esc(p.production) + '</cite><span class="proj-index__leader" aria-hidden="true"></span>' +
           '<span class="proj-index__meta">' + (p.year ? esc(p.year) + ' · ' : '') + p.photos.length + '</span></a></li>';
