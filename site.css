@@ -459,3 +459,7 @@ html.has-cursor .site-mname:hover .mono-mark__d{transform:translateX(-5.4px)}
 /* Enter: centred with the translate property so the fade-up animation (which animates transform) can never
    pull it off-centre; the extra left padding balances the trailing letter-spacing so the word sits dead centre */
 .pr-hero__enter{transform:none;translate:-50% 0;padding-left:calc(12px + .34em)}
+/* Never scroll sideways: the arrival settle (a 2.5% zoom) briefly made the page wider than the window, which
+   flashed a horizontal scrollbar and shifted the layout. clip (unlike hidden) keeps sticky elements working. */
+html,body{overflow-x:clip}
+html.fog-in .pr-page{transform-origin:50% 0}
