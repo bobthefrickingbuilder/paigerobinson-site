@@ -411,5 +411,702 @@
   "focal": "50% 50%"
  },
  "_season_help": "Season: one entry per performance or engagement, any order — the page sorts by date and moves past dates into 'Earlier this season' automatically. Fields: date (YYYY-MM-DD, required), time (HH:MM, 24h, optional), title (production or concert, required), role, company, venue, city, kind ('opera' | 'mt' | 'concert' | 'recital'), link (tickets or details URL), note (one short line). Leave the list empty and the page shows its placeholder.",
- "season": []
+ "season": [],
+ "projects": [
+  {
+   "slug": "turn-of-the-screw",
+   "production": "The Turn of the Screw",
+   "role": "Flora",
+   "company": "Opera de Montréal",
+   "year": "2026",
+   "kind": "opera",
+   "focal": "45% 45%",
+   "photos": [
+    {
+     "src": "images/projects/turn-of-the-screw/01.jpg",
+     "thumb": "images/projects/turn-of-the-screw/01-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 48
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/02.jpg",
+     "thumb": "images/projects/turn-of-the-screw/02-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 49
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/03.jpg",
+     "thumb": "images/projects/turn-of-the-screw/03-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 50
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/04.jpg",
+     "thumb": "images/projects/turn-of-the-screw/04-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 51
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/05.jpg",
+     "thumb": "images/projects/turn-of-the-screw/05-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 52
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/06.jpg",
+     "thumb": "images/projects/turn-of-the-screw/06-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 53
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/07.jpg",
+     "thumb": "images/projects/turn-of-the-screw/07-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 54
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/08.jpg",
+     "thumb": "images/projects/turn-of-the-screw/08-t.jpg",
+     "w": 1800,
+     "h": 1201,
+     "media": 55
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/09.jpg",
+     "thumb": "images/projects/turn-of-the-screw/09-t.jpg",
+     "w": 1201,
+     "h": 1800,
+     "media": 56
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/10.jpg",
+     "thumb": "images/projects/turn-of-the-screw/10-t.jpg",
+     "w": 1800,
+     "h": 1199,
+     "media": 57
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/11.jpg",
+     "thumb": "images/projects/turn-of-the-screw/11-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 58
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/12.jpg",
+     "thumb": "images/projects/turn-of-the-screw/12-t.jpg",
+     "w": 1201,
+     "h": 1800,
+     "media": 59
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/13.jpg",
+     "thumb": "images/projects/turn-of-the-screw/13-t.jpg",
+     "w": 1201,
+     "h": 1800,
+     "media": 60
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/14.jpg",
+     "thumb": "images/projects/turn-of-the-screw/14-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 61
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/15.jpg",
+     "thumb": "images/projects/turn-of-the-screw/15-t.jpg",
+     "w": 1800,
+     "h": 1201,
+     "media": 62
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/16.jpg",
+     "thumb": "images/projects/turn-of-the-screw/16-t.jpg",
+     "w": 1800,
+     "h": 1201,
+     "media": 63,
+     "lead": true
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/17.jpg",
+     "thumb": "images/projects/turn-of-the-screw/17-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 64
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/18.jpg",
+     "thumb": "images/projects/turn-of-the-screw/18-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 65
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/19.jpg",
+     "thumb": "images/projects/turn-of-the-screw/19-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 66
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/20.jpg",
+     "thumb": "images/projects/turn-of-the-screw/20-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 67
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/21.jpg",
+     "thumb": "images/projects/turn-of-the-screw/21-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 68
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/22.jpg",
+     "thumb": "images/projects/turn-of-the-screw/22-t.jpg",
+     "w": 1800,
+     "h": 1350,
+     "media": 69
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/23.jpg",
+     "thumb": "images/projects/turn-of-the-screw/23-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 70
+    },
+    {
+     "src": "images/projects/turn-of-the-screw/24.jpg",
+     "thumb": "images/projects/turn-of-the-screw/24-t.jpg",
+     "w": 1440,
+     "h": 1800,
+     "media": 71
+    }
+   ]
+  },
+  {
+   "slug": "rape-of-lucretia",
+   "production": "The Rape of Lucretia",
+   "role": "Lucia",
+   "company": "Opera McGill",
+   "year": "2026",
+   "kind": "opera",
+   "focal": "72% 30%",
+   "photos": [
+    {
+     "src": "images/projects/rape-of-lucretia/01.jpg",
+     "thumb": "images/projects/rape-of-lucretia/01-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 36
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/02.jpg",
+     "thumb": "images/projects/rape-of-lucretia/02-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 37
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/03.jpg",
+     "thumb": "images/projects/rape-of-lucretia/03-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 38
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/04.jpg",
+     "thumb": "images/projects/rape-of-lucretia/04-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 39
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/05.jpg",
+     "thumb": "images/projects/rape-of-lucretia/05-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 40,
+     "lead": true
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/06.jpg",
+     "thumb": "images/projects/rape-of-lucretia/06-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 41
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/07.jpg",
+     "thumb": "images/projects/rape-of-lucretia/07-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 42
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/08.jpg",
+     "thumb": "images/projects/rape-of-lucretia/08-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 43
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/09.jpg",
+     "thumb": "images/projects/rape-of-lucretia/09-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 44
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/10.jpg",
+     "thumb": "images/projects/rape-of-lucretia/10-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 45
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/11.jpg",
+     "thumb": "images/projects/rape-of-lucretia/11-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 46
+    },
+    {
+     "src": "images/projects/rape-of-lucretia/12.jpg",
+     "thumb": "images/projects/rape-of-lucretia/12-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 47
+    }
+   ]
+  },
+  {
+   "slug": "suor-angelica",
+   "production": "Suor Angelica",
+   "role": "Suor Osmina, Prima Cercatrici",
+   "company": "Opera 5",
+   "year": "2026",
+   "kind": "opera",
+   "focal": "40% 30%",
+   "photos": [
+    {
+     "src": "images/projects/suor-angelica/01.jpg",
+     "thumb": "images/projects/suor-angelica/01-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 74,
+     "lead": true
+    },
+    {
+     "src": "images/projects/suor-angelica/02.jpg",
+     "thumb": "images/projects/suor-angelica/02-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 75
+    },
+    {
+     "src": "images/projects/suor-angelica/03.jpg",
+     "thumb": "images/projects/suor-angelica/03-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 76
+    },
+    {
+     "src": "images/projects/suor-angelica/04.jpg",
+     "thumb": "images/projects/suor-angelica/04-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 78
+    },
+    {
+     "src": "images/projects/suor-angelica/05.jpg",
+     "thumb": "images/projects/suor-angelica/05-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 80
+    },
+    {
+     "src": "images/projects/suor-angelica/06.jpg",
+     "thumb": "images/projects/suor-angelica/06-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 82
+    },
+    {
+     "src": "images/projects/suor-angelica/07.jpg",
+     "thumb": "images/projects/suor-angelica/07-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 83
+    },
+    {
+     "src": "images/projects/suor-angelica/08.jpg",
+     "thumb": "images/projects/suor-angelica/08-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 85
+    },
+    {
+     "src": "images/projects/suor-angelica/09.jpg",
+     "thumb": "images/projects/suor-angelica/09-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 86
+    }
+   ]
+  },
+  {
+   "slug": "gianni-schicchi",
+   "production": "Gianni Schicchi",
+   "role": "Gherardino, Lauretta (Cover)",
+   "company": "Opera 5",
+   "year": "2026",
+   "kind": "opera",
+   "focal": "65% 40%",
+   "photos": [
+    {
+     "src": "images/projects/gianni-schicchi/01.jpg",
+     "thumb": "images/projects/gianni-schicchi/01-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 77
+    },
+    {
+     "src": "images/projects/gianni-schicchi/02.jpg",
+     "thumb": "images/projects/gianni-schicchi/02-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 79
+    },
+    {
+     "src": "images/projects/gianni-schicchi/03.jpg",
+     "thumb": "images/projects/gianni-schicchi/03-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 81,
+     "lead": true
+    },
+    {
+     "src": "images/projects/gianni-schicchi/04.jpg",
+     "thumb": "images/projects/gianni-schicchi/04-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 84
+    }
+   ]
+  },
+  {
+   "slug": "light-in-the-piazza",
+   "production": "The Light in the Piazza",
+   "role": "Clara",
+   "company": "Opera McGill",
+   "year": "2025",
+   "kind": "mt",
+   "focal": "45% 30%",
+   "photos": [
+    {
+     "src": "images/projects/light-in-the-piazza/01.jpg",
+     "thumb": "images/projects/light-in-the-piazza/01-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 0
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/02.jpg",
+     "thumb": "images/projects/light-in-the-piazza/02-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 1
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/03.jpg",
+     "thumb": "images/projects/light-in-the-piazza/03-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 2
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/04.jpg",
+     "thumb": "images/projects/light-in-the-piazza/04-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 3
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/05.jpg",
+     "thumb": "images/projects/light-in-the-piazza/05-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 4
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/06.jpg",
+     "thumb": "images/projects/light-in-the-piazza/06-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 5
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/07.jpg",
+     "thumb": "images/projects/light-in-the-piazza/07-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 6
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/08.jpg",
+     "thumb": "images/projects/light-in-the-piazza/08-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 7
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/09.jpg",
+     "thumb": "images/projects/light-in-the-piazza/09-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 8
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/10.jpg",
+     "thumb": "images/projects/light-in-the-piazza/10-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 9
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/11.jpg",
+     "thumb": "images/projects/light-in-the-piazza/11-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 10
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/12.jpg",
+     "thumb": "images/projects/light-in-the-piazza/12-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 11
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/13.jpg",
+     "thumb": "images/projects/light-in-the-piazza/13-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 12
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/14.jpg",
+     "thumb": "images/projects/light-in-the-piazza/14-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 13
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/15.jpg",
+     "thumb": "images/projects/light-in-the-piazza/15-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 14
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/16.jpg",
+     "thumb": "images/projects/light-in-the-piazza/16-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 15
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/17.jpg",
+     "thumb": "images/projects/light-in-the-piazza/17-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 16
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/18.jpg",
+     "thumb": "images/projects/light-in-the-piazza/18-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 17,
+     "lead": true
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/19.jpg",
+     "thumb": "images/projects/light-in-the-piazza/19-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 18
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/20.jpg",
+     "thumb": "images/projects/light-in-the-piazza/20-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 19
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/21.jpg",
+     "thumb": "images/projects/light-in-the-piazza/21-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 20
+    }
+   ]
+  },
+  {
+   "slug": "to-be-confirmed",
+   "production": "Production to be confirmed",
+   "role": "",
+   "company": "",
+   "year": "",
+   "kind": "",
+   "placeholder": true,
+   "focal": "45% 35%",
+   "photos": [
+    {
+     "src": "images/projects/to-be-confirmed/01.jpg",
+     "thumb": "images/projects/to-be-confirmed/01-t.jpg",
+     "w": 1350,
+     "h": 1800,
+     "media": 21
+    },
+    {
+     "src": "images/projects/to-be-confirmed/02.jpg",
+     "thumb": "images/projects/to-be-confirmed/02-t.jpg",
+     "w": 1350,
+     "h": 1800,
+     "media": 22
+    },
+    {
+     "src": "images/projects/to-be-confirmed/03.jpg",
+     "thumb": "images/projects/to-be-confirmed/03-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 23
+    },
+    {
+     "src": "images/projects/to-be-confirmed/04.jpg",
+     "thumb": "images/projects/to-be-confirmed/04-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 24
+    },
+    {
+     "src": "images/projects/to-be-confirmed/05.jpg",
+     "thumb": "images/projects/to-be-confirmed/05-t.jpg",
+     "w": 1350,
+     "h": 1800,
+     "media": 25
+    },
+    {
+     "src": "images/projects/to-be-confirmed/06.jpg",
+     "thumb": "images/projects/to-be-confirmed/06-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 26
+    },
+    {
+     "src": "images/projects/to-be-confirmed/07.jpg",
+     "thumb": "images/projects/to-be-confirmed/07-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 27
+    },
+    {
+     "src": "images/projects/to-be-confirmed/08.jpg",
+     "thumb": "images/projects/to-be-confirmed/08-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 28
+    },
+    {
+     "src": "images/projects/to-be-confirmed/09.jpg",
+     "thumb": "images/projects/to-be-confirmed/09-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 29
+    },
+    {
+     "src": "images/projects/to-be-confirmed/10.jpg",
+     "thumb": "images/projects/to-be-confirmed/10-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 30
+    },
+    {
+     "src": "images/projects/to-be-confirmed/11.jpg",
+     "thumb": "images/projects/to-be-confirmed/11-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 31
+    },
+    {
+     "src": "images/projects/to-be-confirmed/12.jpg",
+     "thumb": "images/projects/to-be-confirmed/12-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 32
+    },
+    {
+     "src": "images/projects/to-be-confirmed/13.jpg",
+     "thumb": "images/projects/to-be-confirmed/13-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 33
+    },
+    {
+     "src": "images/projects/to-be-confirmed/14.jpg",
+     "thumb": "images/projects/to-be-confirmed/14-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 34,
+     "lead": true
+    },
+    {
+     "src": "images/projects/to-be-confirmed/15.jpg",
+     "thumb": "images/projects/to-be-confirmed/15-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 35
+    }
+   ]
+  },
+  {
+   "slug": "recital",
+   "production": "In recital",
+   "role": "",
+   "company": "",
+   "year": "",
+   "kind": "recital",
+   "focal": "60% 35%",
+   "photos": [
+    {
+     "src": "images/projects/recital/01.jpg",
+     "thumb": "images/projects/recital/01-t.jpg",
+     "w": 1197,
+     "h": 1800,
+     "media": 72
+    },
+    {
+     "src": "images/projects/recital/02.jpg",
+     "thumb": "images/projects/recital/02-t.jpg",
+     "w": 1800,
+     "h": 1197,
+     "media": 73,
+     "lead": true
+    }
+   ]
+  }
+ ],
+ "_projects_help": "Photos page, one chapter per project, newest first. Each project: production, role, company, year, kind, focal (letterbox crop of the lead still), photos[] with src (full), thumb, w, h; the photo marked lead opens the chapter. 'media' is the photo's position in the Media folder, for reference. A project with placeholder:true is shown as 'to be confirmed'."
 }

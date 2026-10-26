@@ -58,6 +58,44 @@
           }).join('') + '</ul></div>';
       }).join('') + '</div>';
     },
+    /* Photos: a program-style contents list, then one chapter per project */
+    projectIndex: function (d) {
+      var roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'];
+      return '<ol class="proj-index">' + d.projects.map(function (p, i) {
+        return '<li><a href="#' + esc(p.slug) + '"><span class="proj-index__num">' + roman[i] + '</span>' +
+          '<cite class="proj-index__title">' + esc(p.production) + '</cite><span class="proj-index__leader" aria-hidden="true"></span>' +
+          '<span class="proj-index__meta">' + (p.year ? esc(p.year) + ' · ' : '') + p.photos.length + '</span></a></li>';
+      }).join('') + '</ol>';
+    },
+    projects: function (d) {
+      var roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'], k = 0;
+      return d.projects.map(function (p, pi) {
+        var label = p.production + (p.year ? ', ' + p.year : '');
+        var alt = function (n) { return p.placeholder ? 'Production photo ' + n + ', production to be confirmed' : 'Production photo ' + n + ' from ' + p.production + (p.company ? ' (' + p.company + (p.year ? ', ' + p.year : '') + ')' : ''); };
+        var lead = p.photos.filter(function (ph) { return ph.lead; })[0] || p.photos[0];
+        var shots = [lead].concat(p.photos.filter(function (ph) { return ph !== lead; }));
+        var meta = [p.role, p.company, p.year].filter(Boolean).map(esc).join(' · ');
+        var html = (pi ? '<div class="stave" aria-hidden="true"></div>' : '') +
+          '<section class="proj" id="' + esc(p.slug) + '" aria-labelledby="' + esc(p.slug) + '-h">' +
+          '<header class="proj__head" data-reveal><span class="proj__num">' + roman[pi] + ' · ' + p.photos.length + ' photos</span>' +
+          '<h2 class="proj__title" id="' + esc(p.slug) + '-h"><cite>' + esc(p.production) + '</cite></h2>' +
+          (meta ? '<p class="proj__meta">' + meta + '</p>' : '') +
+          (p.placeholder ? '<p class="site-note__kind">Placeholder · Title, role and year to be supplied</p>' : '') + '</header>';
+        shots.forEach(function (ph, n) {
+          var i = k++;
+          lightboxItems.push({ src: ph.src, alt: alt(n + 1), production: p.production, year: p.year, n: n + 1, of: shots.length });
+          if (n === 0) {
+            html += '<figure class="pr-still proj__lead" data-reveal><button type="button" class="pr-still__media pr-still__media--button" data-cursor data-cursor-label="View" data-parallax-root data-shot="' + i + '" aria-label="Open ' + esc(label) + ', photo 1 of ' + shots.length + '">' +
+              '<span class="pr-still__layer" data-depth=".18"><img class="pr-still__img" src="' + esc(ph.src) + '" alt="' + esc(alt(1)) + '" style="object-position:' + esc(p.focal || '50% 40%') + '" loading="' + (pi ? 'lazy' : 'eager') + '" decoding="async"></span>' +
+              '<span class="pr-still__vignette"></span><span class="pr-spot"></span></button></figure><div class="proj__grid">';
+          } else {
+            html += '<button type="button" class="proj__ph" style="--r:' + (ph.w / ph.h).toFixed(4) + '" data-cursor-label="View" data-shot="' + i + '" aria-label="Open ' + esc(label) + ', photo ' + (n + 1) + ' of ' + shots.length + '">' +
+              '<img src="' + esc(ph.thumb) + '" alt="' + esc(alt(n + 1)) + '" width="' + ph.w + '" height="' + ph.h + '" loading="lazy" decoding="async"></button>';
+          }
+        });
+        return html + '</div></section>';
+      }).join('');
+    },
     stills: function (d) {
       var n = d.stills.length;
       return d.stills.map(function (s, i) {
@@ -165,15 +203,18 @@
     });
   }
 
+  var lightboxItems = [];
   function render(d) {
-    gigs = [];
+    gigs = []; lightboxItems = [];
     $all('[data-render]').forEach(function (host) {
       var fn = T[host.getAttribute('data-render')];
-      if (fn) host.innerHTML = fn(d);
+      /* each section renders on its own: missing data or an error in one never blanks the others */
+      if (fn) { try { host.innerHTML = fn(d); } catch (err) { host.innerHTML = ''; if (window.console) console.warn('render ' + host.getAttribute('data-render'), err); } }
     });
     /* sections that only appear when they have something to show */
     $all('[data-season-past],[data-next]').forEach(function (sec) { var h = $('[data-render]', sec); sec.hidden = !(h && h.innerHTML.trim()); });
     if (d.stills && $('[data-render="stills"]')) bindLightbox(d.stills);
+    if (lightboxItems.length) bindLightbox(lightboxItems);
     bindStage();
     bindFilter();
     if (window.PRMotion) window.PRMotion.refresh();
@@ -243,7 +284,7 @@
     var n = stills.length, idx = 0, box = null, lastFocus = null;
     function show(i) {
       idx = (i + n) % n; var s = stills[idx];
-      $('.pr-lightbox__count', box).innerHTML = pad(idx + 1) + ' <span>/ ' + pad(n) + '</span>';
+      $('.pr-lightbox__count', box).innerHTML = pad(s.n || idx + 1) + ' <span>/ ' + pad(s.of || n) + '</span>';
       var im = $('img', box); im.src = s.src; im.alt = s.alt;
       $('.pr-lightbox__cap', box).innerHTML = '<cite class="pr-still__cap-prod">' + esc(s.production) + '</cite>' + (s.year ? '<span class="pr-still__cap-year">' + esc(s.year) + '</span>' : '');
     }
@@ -273,7 +314,7 @@
       else if (e.key === 'ArrowLeft') show(idx - 1);
       else if (e.key === 'Tab') { var f = $all('button', box), first = f[0], last = f[f.length - 1]; if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); } else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); } }
     });
-    document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-still]'); if (b) open(parseInt(b.getAttribute('data-still'), 10)); });
+    document.addEventListener('click', function (e) { var b = e.target.closest && e.target.closest('[data-still],[data-shot]'); if (b) open(parseInt(b.getAttribute('data-still') || b.getAttribute('data-shot'), 10)); });
   }
 
   /* ───── Contact form: FormSubmit over fetch, mailto fallback ───── */
@@ -372,7 +413,7 @@
 
   function init() {
     bindEnter(); bindCursor(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
-    if ($('[data-render]')) fetch('data.json').then(function (r) { return r.json(); }).then(render).catch(function () {
+    if ($('[data-render]')) fetch('data.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(render).catch(function () {
       $all('[data-render]').forEach(function (h) { if (!h.children.length) h.innerHTML = '<p class="site-note__text">Content could not be loaded.</p>'; });
     });
   }
