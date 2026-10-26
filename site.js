@@ -323,9 +323,21 @@
     var c = document.createElement('div'); c.className = 'cursor is-out'; c.setAttribute('aria-hidden', 'true');
     c.innerHTML = '<span class="cursor__dot"></span><span class="cursor__ring"><span class="cursor__label"></span></span>';
     document.body.appendChild(c); html.classList.add('has-cursor');
-    var label = $('.cursor__label', c), x = 0, y = 0, raf = 0, target = null;
+    var label = $('.cursor__label', c), dot = $('.cursor__dot', c), x = 0, y = 0, raf = 0, target = null, dock = null;
+    /* Logo dock: the monogram's diamond (6.41 units wide, centred at 37.62, 88.5 in its viewBox) slides 5.4 units
+       left in CSS; the cursor's diamond is drawn to the matching spot 5.4 units right and shrinks to the same size. */
+    var D = { cx: 37.62, cy: 88.5, w: 6.41, shift: 5.4, pull: 0.08 };
+    function docking() {
+      if (!dock) { dot.style.translate = ''; dot.style.scale = ''; return; }
+      var m = dock.getScreenCTM(); if (!m) return;
+      var sx = m.a * (D.cx + D.shift) + m.c * D.cy + m.e, sy = m.b * (D.cx + D.shift) + m.d * D.cy + m.f;
+      /* sit in the slot, leaning a few pixels toward the pointer */
+      var dx = (sx - x) * (1 - D.pull), dy = (sy - y) * (1 - D.pull);
+      dot.style.translate = dx.toFixed(1) + 'px ' + dy.toFixed(1) + 'px';
+      dot.style.scale = (D.w * m.a / (7 * Math.SQRT2)).toFixed(3);
+    }
     var DARK = '.home-hero,.band--forest,.site-closing,.pr-screen__house,.pr-footer,.pr-rail,.pr-mnav,.pr-overlay,.pr-lightbox,.pr-still__media,.stage-photo__frame,.headshots__frame,.about-portrait__frame,.home-feature__frame,.fog';
-    function place() { raf = 0; c.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)'; }
+    function place() { raf = 0; c.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)'; docking(); }
     function read(t) {
       if (!t || !t.closest) return;
       var view = t.closest('[data-cursor-label]');
@@ -334,6 +346,9 @@
       c.classList.toggle('is-link', !view && !!t.closest('a[href],button,label,[role="button"]'));
       c.classList.toggle('is-dark', !!t.closest(DARK));
       if (view) label.textContent = view.getAttribute('data-cursor-label');
+      var logo = t.closest('.site-rail__brand,.site-mname');
+      dock = logo ? $('.mono-mark', logo) : null;
+      c.classList.toggle('is-docked', !!dock);
     }
     try { var last = JSON.parse(sessionStorage.getItem('pr-cursor') || 'null'); if (last) { x = last.x; y = last.y; place(); c.classList.remove('is-out'); read(document.elementFromPoint(x, y)); } } catch (e) {}
     document.addEventListener('pointermove', function (e) {

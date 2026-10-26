@@ -439,3 +439,16 @@ html.has-cursor select{cursor:auto!important}
 .cursor.is-down .cursor__ring{scale:.86}
 .cursor.is-field,.cursor.is-out{opacity:0}
 @media (hover:none),(pointer:coarse){.cursor{display:none}}
+
+/* ───────── Logo dock ─────────
+   Hovering the PR monogram (where it's a link), its diamond eases left and the cursor's diamond detaches
+   from the ring and is drawn into the space beside it, so the pair sits centred under the letters.
+   Lengths on the SVG diamond are in the logo's own units (it is 6.4 units wide). */
+.mono-mark__d{transition:transform 600ms cubic-bezier(.22,1,.36,1)}
+html.has-cursor .site-rail__brand:hover .mono-mark__d,
+html.has-cursor .site-mname:hover .mono-mark__d{transform:translateX(-5.4px)}
+/* the dot's own offset and size animate only when they change (docking and release); ordinary tracking
+   moves the whole .cursor, so the dot never lags the ring */
+.cursor__dot{transition:background-color 300ms ease,opacity 300ms ease,translate 600ms cubic-bezier(.22,1,.36,1),scale 600ms cubic-bezier(.22,1,.36,1)}
+.cursor.is-docked .cursor__dot{opacity:1}
+.cursor.is-docked .cursor__ring{width:40px;height:40px;margin:-20px 0 0 -20px;background:transparent;opacity:.45}
