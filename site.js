@@ -63,7 +63,7 @@
       return d.stills.map(function (s, i) {
         var label = s.production + (s.year ? ', ' + s.year : '');
         return '<figure class="pr-still pr-still--' + esc(s.align) + '" style="width:' + esc(s.width) + '" data-reveal>' +
-          '<button type="button" class="pr-still__media pr-still__media--button" data-cursor data-parallax-root data-still="' + i + '" aria-label="Open still ' + (i + 1) + ' of ' + n + ': ' + esc(label) + '">' +
+          '<button type="button" class="pr-still__media pr-still__media--button" data-cursor data-cursor-label="View" data-parallax-root data-still="' + i + '" aria-label="Open still ' + (i + 1) + ' of ' + n + ': ' + esc(label) + '">' +
           '<span class="pr-still__layer" data-depth=".18"><img class="pr-still__img" src="' + esc(s.src) + '" alt="' + esc(s.alt) + '" style="object-position:' + esc(s.focal) + '" loading="' + (i < 2 ? 'eager' : 'lazy') + '" decoding="async"></span>' +
           '<span class="pr-still__vignette"></span><span class="pr-spot"></span></button>' +
           '<figcaption class="pr-still__cap"><cite class="pr-still__cap-prod">' + esc(s.production) + '</cite>' +
@@ -314,8 +314,46 @@
     window.addEventListener('pageshow', function (e) { if (e.persisted) { fog.classList.remove('is-rising'); if (hero) hero.classList.remove('is-fogging'); } });
   }
 
+  /* ───── Custom cursor ─────
+     Diamond dot that tracks exactly, thin ring that trails. Mulberry on ivory, champagne over dark panels and
+     photos; grows over links and buttons; shows a word over stills; steps aside for form fields. */
+  function bindCursor() {
+    if (!fine || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var c = document.createElement('div'); c.className = 'cursor is-out'; c.setAttribute('aria-hidden', 'true');
+    c.innerHTML = '<span class="cursor__dot"></span><span class="cursor__ring"><span class="cursor__label"></span></span>';
+    document.body.appendChild(c); html.classList.add('has-cursor');
+    var dot = $('.cursor__dot', c), ring = $('.cursor__ring', c), label = $('.cursor__label', c);
+    var x = -100, y = -100, rx = -100, ry = -100, raf = 0;
+    var DARK = '.home-hero,.band--forest,.site-closing,.pr-screen__house,.pr-footer,.pr-rail,.pr-mnav,.pr-overlay,.pr-lightbox,.pr-still__media,.stage-photo__frame,.headshots__frame,.about-portrait__frame,.home-feature__frame,.fog';
+    function loop() {
+      rx += (x - rx) * 0.18; ry += (y - ry) * 0.18;
+      ring.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)';
+      raf = Math.abs(x - rx) + Math.abs(y - ry) > 0.3 ? requestAnimationFrame(loop) : 0;
+    }
+    document.addEventListener('pointermove', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') return;
+      x = e.clientX; y = e.clientY;
+      dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+      if (c.classList.contains('is-out')) { rx = x; ry = y; c.classList.remove('is-out'); }
+      var t = e.target.closest ? e.target : null;
+      var field = t && t.closest('input,textarea,select');
+      var view = t && t.closest('[data-cursor-label]');
+      var link = t && t.closest('a[href],button,label,[role="button"]');
+      c.classList.toggle('is-field', !!field);
+      c.classList.toggle('is-view', !!view);
+      c.classList.toggle('is-link', !!link && !view);
+      c.classList.toggle('is-dark', !!(t && t.closest(DARK)));
+      if (view) label.textContent = view.getAttribute('data-cursor-label');
+      if (!raf) raf = requestAnimationFrame(loop);
+    }, { passive: true });
+    document.addEventListener('pointerdown', function () { c.classList.add('is-down'); });
+    document.addEventListener('pointerup', function () { c.classList.remove('is-down'); });
+    document.documentElement.addEventListener('pointerleave', function () { c.classList.add('is-out'); });
+    window.addEventListener('blur', function () { c.classList.add('is-out'); });
+  }
+
   function init() {
-    bindEnter(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
+    bindEnter(); bindCursor(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
     if ($('[data-render]')) fetch('data.json').then(function (r) { return r.json(); }).then(render).catch(function () {
       $all('[data-render]').forEach(function (h) { if (!h.children.length) h.innerHTML = '<p class="site-note__text">Content could not be loaded.</p>'; });
     });

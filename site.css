@@ -402,3 +402,39 @@ html[data-motion="off"] .fog{display:none}
 .stage-photo__frame img.is-on{opacity:1;transform:none}
 .stage-photo figcaption{margin-top:calc(clamp(10px,1.2vw,16px) + 16px);font-family:var(--font-serif);font-style:italic;font-size:1.0625rem;color:var(--text-muted);min-height:1.5em}
 @media (max-width:899px){.roles-stage{grid-template-columns:1fr}.stage-photo{display:none}}
+
+/* ───────── Hover life on photos ─────────
+   Photos keep their natural colour; hover answers with a slow settle-in zoom instead of a brightness change. */
+:root{--spotlight:radial-gradient(circle 320px at var(--cursor-x,50%) var(--cursor-y,50%),rgba(245,239,230,.32),rgba(245,239,230,0) 70%)}
+.pr-still__img,.headshots__frame img,.about-portrait__frame img,.home-feature__frame img{transition:transform 1400ms cubic-bezier(.22,1,.36,1),filter var(--dur-hover-slow) var(--ease)}
+.pr-still__media:hover .pr-still__img,.headshots__frame:hover img,.about-portrait:hover .about-portrait__frame img,.home-feature__photo:hover .home-feature__frame img{transform:scale(1.035)}
+.stage-photo:hover .stage-photo__frame img.is-on{transform:scale(1.03)}
+/* film-still captions: the hairline draws out and the index warms when the still is hovered */
+.pr-still__cap::before{transition:width 700ms cubic-bezier(.22,1,.36,1),background-color 500ms ease}
+.pr-still:hover .pr-still__cap::before{width:64px;background:var(--pr-sand)}
+/* season rows: the production title takes the accent */
+.gig .gig__title{transition:color var(--dur-hover) var(--ease)}
+.gig:hover .gig__title{color:var(--text-accent)}
+
+/* ───────── Custom cursor ─────────
+   A diamond dot (the stave's note) with a thin trailing ring. Mulberry on ivory, champagne on dark panels.
+   It grows over links and buttons and shows a word over stills. Mouse/trackpad only; form fields keep the
+   normal text cursor. The native cursor is hidden only once site.js has started it (html.has-cursor). */
+html.has-cursor,html.has-cursor *{cursor:none!important}
+html.has-cursor input,html.has-cursor textarea{cursor:text!important}
+html.has-cursor select{cursor:auto!important}
+.cursor{position:fixed;left:0;top:0;z-index:140;pointer-events:none;--c:var(--pr-mulberry);transition:opacity 300ms ease}
+.cursor.is-dark{--c:#D8BF8F}
+.cursor__dot,.cursor__ring{position:fixed;left:0;top:0;will-change:transform}
+.cursor__dot{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:var(--c);rotate:45deg;transition:background-color 300ms ease,opacity 300ms ease}
+.cursor__ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--c);border-radius:50%;display:flex;align-items:center;justify-content:center;
+  transition:width 500ms cubic-bezier(.22,1,.36,1),height 500ms cubic-bezier(.22,1,.36,1),margin 500ms cubic-bezier(.22,1,.36,1),background-color 400ms ease,border-color 300ms ease,opacity 300ms ease,scale 200ms ease}
+.cursor__label{font-family:var(--font-label);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--c);opacity:0;padding-left:.28em;transition:opacity 300ms ease}
+.cursor.is-link .cursor__ring{width:54px;height:54px;margin:-27px 0 0 -27px;background:color-mix(in srgb,var(--c) 10%,transparent)}
+.cursor.is-link .cursor__dot{opacity:0}
+.cursor.is-view .cursor__ring{width:88px;height:88px;margin:-44px 0 0 -44px;background:color-mix(in srgb,#031416 35%,transparent)}
+.cursor.is-view .cursor__label{opacity:1}
+.cursor.is-view .cursor__dot{opacity:0}
+.cursor.is-down .cursor__ring{scale:.86}
+.cursor.is-field,.cursor.is-out{opacity:0}
+@media (hover:none),(pointer:coarse){.cursor{display:none}}
