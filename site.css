@@ -566,3 +566,23 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .pr-footer__icon svg .fill{fill:currentColor;stroke:none}
 .pr-footer__icon:hover,.pr-footer__icon:focus-visible{opacity:1;color:var(--pr-cream,#F5EFE6);translate:0 -2px}
 .pr-footer__icon:focus-visible{outline:1px solid var(--pr-sand);outline-offset:2px}
+
+/* Smooth in-page scrolling everywhere (anchors, skip link, the Index button), unless the visitor prefers less motion */
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+#index,section[id]{scroll-margin-top:clamp(24px,6vh,64px)}
+
+/* Project index: the title underlines from the left and the row eases in on hover */
+.proj-index a{transition:padding-left 500ms cubic-bezier(.22,1,.36,1)}
+.proj-index__title{background:linear-gradient(currentColor,currentColor) left 100%/0 1px no-repeat;padding-bottom:2px;transition:color var(--dur-hover) var(--ease),background-size 500ms cubic-bezier(.22,1,.36,1)}
+.proj-index a:hover,.proj-index a:focus-visible{padding-left:10px}
+.proj-index a:hover .proj-index__title,.proj-index a:focus-visible .proj-index__title{color:var(--text-accent);background-size:100% 1px}
+.proj-index a:focus-visible{outline:none}
+
+/* "Index" button: rises in once the project list is out of view */
+.to-index{position:fixed;right:clamp(16px,3vw,40px);bottom:clamp(16px,4vh,40px);z-index:40;display:inline-flex;align-items:center;gap:10px;padding:12px 18px 11px;
+  font-family:var(--font-label);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--pr-sand);background:var(--velvet,#0C3E40);border:1px solid rgba(216,191,143,.4);
+  box-shadow:0 10px 30px -12px rgba(0,0,0,.45);opacity:0;translate:0 14px;pointer-events:none;transition:opacity 400ms var(--ease,ease),translate 500ms cubic-bezier(.22,1,.36,1),color 200ms,border-color 200ms}
+.to-index.is-shown{opacity:1;translate:0 0;pointer-events:auto}
+.to-index:hover,.to-index:focus-visible{color:#F5EFE6;border-color:var(--pr-sand)}
+.to-index__mark{width:6px;height:6px;background:currentColor;transform:rotate(45deg);transition:translate 300ms var(--ease,ease)}
+.to-index:hover .to-index__mark{translate:0 -3px}

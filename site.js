@@ -344,6 +344,16 @@
     });
   }
 
+  /* Photos: the "Index" button appears once the project list has scrolled away, and leads back to it */
+  function bindToIndex() {
+    var btn = $('.to-index'), nav = $('#index'); if (!btn || !nav || btn.__t) return; btn.__t = 1;
+    if (!('IntersectionObserver' in window)) { btn.classList.add('is-shown'); return; }
+    new IntersectionObserver(function (es) {
+      var e = es[0]; btn.classList.toggle('is-shown', !e.isIntersecting && e.boundingClientRect.top < 0);
+    }).observe(nav);
+    btn.addEventListener('click', function () { setTimeout(function () { var a = $('a', nav); if (a) a.focus({ preventScroll: true }); }, 700); });
+  }
+
   var lightboxItems = [];
   function render(d) {
     gigs = []; lightboxItems = [];
@@ -358,6 +368,7 @@
     if (lightboxItems.length) bindLightbox(lightboxItems);
     bindAudio();
     bindBioCopy();
+    bindToIndex();
     bindStage();
     bindFilter();
     if (window.PRMotion) window.PRMotion.refresh();
@@ -556,11 +567,28 @@
     window.addEventListener('pagehide', function () { try { sessionStorage.setItem('pr-cursor', JSON.stringify({ x: x, y: y })); } catch (e) {} });
   }
 
+  /* Arriving with a #section (Home → About's roles, a link to one project): start at the top, then glide down
+     once the page has rendered, instead of jumping */
+  var arrive = (location.hash || '').slice(1);
+  if (arrive && !/^main$/.test(arrive) && 'scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+  function glideToHash() {
+    if (!arrive) return;
+    var el = document.getElementById(decodeURIComponent(arrive)); arrive = '';
+    if (!el) return;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setTimeout(function () { el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }, reduce ? 0 : 450);
+  }
+
   function init() {
     bindEnter(); bindCursor(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
-    if ($('[data-render]')) fetch('data.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(render).catch(function () {
+    if ($('[data-render]')) fetch('data.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(render).then(glideToHash).catch(function () {
       $all('[data-render]').forEach(function (h) { if (!h.children.length) h.innerHTML = '<p class="site-note__text">Content could not be loaded.</p>'; });
+      glideToHash();
     });
+    else glideToHash();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
