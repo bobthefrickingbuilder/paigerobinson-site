@@ -650,3 +650,6 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .photos-top__index{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,40%);gap:clamp(32px,4.5vw,72px);align-items:stretch}
 .photos-top__photo img{object-position:74% 35%}
 @media (max-width:899px){.photos-top__index{grid-template-columns:1fr}}
+/* the stave between Press photos and the first production sits midway */
+#press{padding-bottom:0}
+#press>.stave{margin-bottom:clamp(72px,10vw,128px)}
