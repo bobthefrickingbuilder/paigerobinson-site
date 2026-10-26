@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>/* Arriving from the landing: start under the fog (CSS clears it) */try{if(sessionStorage.getItem("pr-fog")){sessionStorage.removeItem("pr-fog");if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("fog-in")}}catch(e){}
-addEventListener("pagereveal",function(e){if(e.viewTransition&&document.documentElement.classList.contains("fog-in")){var t=e.viewTransition;t.ready.catch(function(){});t.finished.catch(function(){});t.skipTransition()}});</script>
+addEventListener("pagereveal",function(e){if(e.viewTransition&&document.documentElement.classList.contains("fog-in")){var t=e.viewTransition,n=function(){};t.ready.catch(n);t.updateCallbackDone&&t.updateCallbackDone.catch(n);t.finished.catch(n);t.skipTransition()}});</script>
 <title>Home · Paige Robinson, soprano</title>
 <meta name="description" content="Paige Robinson, soprano. Based in Rochester, New York.">
 <meta property="og:title" content="Paige Robinson, soprano">
