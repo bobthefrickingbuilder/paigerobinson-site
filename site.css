@@ -614,3 +614,19 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .proj-index__gem{display:inline-block;width:7px;height:7px;background:currentColor;transform:rotate(45deg) translateY(-2px)}
 #press{padding-top:0}
 #press>.stave{margin-top:clamp(72px,10vw,128px)}
+
+/* Photos opening: title and index beside a still of Paige as Clara. The block fills the screen less a strip,
+   so the "Press photos" heading shows at the bottom on arrival and the photos begin just below the fold */
+.photos-top{--peek:104px;padding-top:clamp(40px,6vh,72px);padding-bottom:0;box-sizing:border-box}
+.photos-top__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,36%);gap:clamp(40px,6vw,104px);max-width:88rem;margin:0 auto;min-height:calc(100svh - var(--peek) - clamp(40px,6vh,72px))}
+.photos-top__text{display:flex;flex-direction:column;justify-content:space-between;gap:clamp(28px,4vh,48px);padding-bottom:clamp(36px,6vh,64px)}
+.photos-top .proj-index{margin:0;max-width:none}
+.photos-top__photo{position:relative;margin:0;min-height:0;overflow:hidden;background:var(--pr-forest-950)}
+.photos-top__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 22%}
+#press .site-sechead{margin-bottom:64px}
+@media (max-width:899px){.photos-top__grid{grid-template-columns:1fr;min-height:0}.photos-top__photo{display:none}.photos-top__text{padding-bottom:clamp(48px,8vw,72px)}}
+.photos-top__grid{padding-bottom:clamp(36px,6vh,64px);box-sizing:border-box}
+.photos-top__text{padding-bottom:0}
+.photos-top .proj-index a{padding-top:clamp(7px,1.3vh,13px);padding-bottom:clamp(7px,1.3vh,13px)}
+.photos-top .proj-index__title{font-size:clamp(1.25rem,1rem + .9vw,1.625rem);line-height:1.2}
+.photos-top__grid{padding-bottom:clamp(28px,4.5vh,48px)}
