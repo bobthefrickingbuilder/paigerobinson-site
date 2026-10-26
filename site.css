@@ -491,3 +491,6 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .proj__ph:hover img{transform:scale(1.04)}
 .proj__ph:focus-visible{outline:1px solid var(--pr-sand);outline-offset:4px}
 @media (max-width:640px){.proj__grid{gap:6px}.proj__ph{flex-basis:calc(var(--r) * 120px)}}
+/* Screening room caption */
+.pr-screen__cap{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:center;margin:0;font-size:14px;color:var(--text-muted)}
+.pr-screen__cap .pr-still__cap-year{font-family:var(--font-sans);font-size:13px;letter-spacing:.04em}

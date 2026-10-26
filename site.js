@@ -408,6 +408,8 @@
     document.addEventListener('pointerup', function () { c.classList.remove('is-down'); });
     document.documentElement.addEventListener('pointerleave', function () { c.classList.add('is-out'); });
     window.addEventListener('blur', function () { c.classList.add('is-out'); });
+    /* an embedded video has its own pointer: step aside rather than freeze at the frame's edge */
+    document.addEventListener('pointerover', function (e) { if (e.target.tagName === 'IFRAME') c.classList.add('is-out'); });
     window.addEventListener('pagehide', function () { try { sessionStorage.setItem('pr-cursor', JSON.stringify({ x: x, y: y })); } catch (e) {} });
   }
 
