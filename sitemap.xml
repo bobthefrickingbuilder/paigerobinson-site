@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace DOMAIN with the production domain once chosen. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://DOMAIN/</loc></url>
+  <url><loc>https://DOMAIN/home</loc></url>
+  <url><loc>https://DOMAIN/season</loc></url>
+  <url><loc>https://DOMAIN/photos</loc></url>
+  <url><loc>https://DOMAIN/about</loc></url>
+  <url><loc>https://DOMAIN/contact</loc></url>
+</urlset>

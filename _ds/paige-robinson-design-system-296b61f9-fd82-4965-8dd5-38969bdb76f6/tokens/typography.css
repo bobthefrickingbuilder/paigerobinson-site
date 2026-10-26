@@ -1,0 +1,34 @@
+/* Paige Robinson — type tokens. Playfair (light, high contrast, italic for emphasis + production titles). Hanken Grotesk (quiet labels + body). */
+:root{
+--font-serif:'Playfair','Bodoni 72',Didot,'Times New Roman',serif;
+--font-sans:'Hanken Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+--weight-light:300; /* @kind font */
+--weight-regular:400; /* @kind font */
+--weight-medium:500; /* @kind font */
+/* Scale (fluid). Display = the name. */
+--type-name:clamp(3.75rem,10.5vw,10.5rem); /* @kind font */
+--type-email:clamp(2rem,6.4vw,6.5rem); /* @kind font */
+--type-display:clamp(2.75rem,6vw,5.75rem); /* @kind font */
+--type-roles-line:clamp(2rem,4.6vw,4.25rem); /* @kind font */
+--type-h1:clamp(2.5rem,4.8vw,4.5rem); /* @kind font */
+--type-h2:clamp(1.875rem,3.2vw,2.75rem); /* @kind font */
+--type-h3:clamp(1.375rem,2vw,1.75rem); /* @kind font */
+--type-lead:clamp(1.25rem,1.6vw,1.5rem); /* @kind font */
+--type-body:1.0625rem; /* @kind font */
+--type-small:.9375rem; /* @kind font */
+--type-label:.75rem; /* @kind font */
+--type-micro:.6875rem; /* @kind font */
+--type-numeral-year:clamp(3rem,6vw,5.5rem); /* @kind font */
+--leading-tight:1.02; /* @kind font */
+--leading-display:1.08; /* @kind font */
+--leading-heading:1.18; /* @kind font */
+--leading-body:1.65; /* @kind font */
+--tracking-name:-.01em; /* @kind font */
+--tracking-label:.24em; /* @kind font */
+--tracking-eyebrow:.32em; /* @kind font */
+--tracking-soprano:.6em; /* @kind font */
+/* Semantic */
+--font-display:var(--font-serif);
+--font-body:var(--font-sans);
+--font-label:var(--font-sans);
+}

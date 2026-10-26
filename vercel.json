@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/roles",
+      "destination": "/about#roles",
+      "permanent": false
+    }
+  ]
+}

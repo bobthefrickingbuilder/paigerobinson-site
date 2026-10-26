@@ -1,0 +1,43 @@
+/* Paige Robinson — colour tokens. Dark only. Five hues + derived shades of those hues. */
+:root{
+/* Base palette (the only five hues) */
+--pr-forest:#0B3D2E;      /* primary background, hero. dominant */
+--pr-velvet:#1B4332;      /* raised surfaces, hover rows, form fields */
+--pr-moss:#2D6A4F;        /* hairlines, focus rings, hover accents. sparingly */
+--pr-sand:#DDBEA9;        /* candlelight: eyebrows, numerals, rules, glow */
+--pr-cream:#F2E9E4;       /* text */
+/* Derived shades (forest toward black) for vignettes, edges, letterbox */
+--pr-forest-700:#09332A;
+--pr-forest-800:#072920;
+--pr-forest-900:#051E17;
+--pr-forest-950:#03130E;  /* near-black green: letterbox, dissolve, lightbox */
+/* Derived alphas */
+--pr-cream-100:rgba(242,233,228,1);
+--pr-cream-92:rgba(242,233,228,.92);
+--pr-cream-85:rgba(242,233,228,.85);  /* lowest opacity allowed for body text */
+--pr-cream-40:rgba(242,233,228,.40);  /* dimmed lines (decorative state only) */
+--pr-cream-12:rgba(242,233,228,.12);
+--pr-sand-60:rgba(221,190,169,.60);
+--pr-sand-35:rgba(221,190,169,.35);
+--pr-sand-18:rgba(221,190,169,.18);
+--pr-sand-08:rgba(221,190,169,.08);
+--pr-moss-60:rgba(45,106,79,.60);
+
+/* Semantic aliases */
+--surface-page:var(--pr-forest);
+--surface-raised:var(--pr-velvet);
+--surface-field:var(--pr-velvet);
+--surface-deep:var(--pr-forest-950);
+--surface-scrim:rgba(3,19,14,.94);
+--text-primary:var(--pr-cream-100);
+--text-body:var(--pr-cream-92);
+--text-muted:var(--pr-cream-85);
+--text-dimmed:var(--pr-cream-40);
+--text-accent:var(--pr-sand);
+--rule-hairline:var(--pr-moss);
+--rule-candle:var(--pr-sand-35);
+--rule-candle-strong:var(--pr-sand);
+--focus-ring:var(--pr-moss);
+--accent-hover:var(--pr-moss);
+--glow-candle:var(--pr-sand-18);
+}

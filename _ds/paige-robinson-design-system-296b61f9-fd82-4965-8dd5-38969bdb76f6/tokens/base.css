@@ -1,0 +1,35 @@
+/* Paige Robinson — base element styles, reveal states, utilities. */
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--surface-page);color-scheme:dark}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body);font-size:var(--type-body);line-height:var(--leading-body);font-weight:var(--weight-light);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-variant-numeric:oldstyle-nums}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:var(--weight-light);color:var(--text-primary);line-height:var(--leading-heading);margin:0;text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+em,i,cite{font-style:italic}
+::selection{background:var(--pr-moss);color:var(--pr-cream)}
+a{color:var(--pr-cream);text-decoration:none;transition:color var(--dur-hover) var(--ease)}
+a:hover{color:var(--pr-sand)}
+:focus-visible{outline:1px solid var(--focus-ring);outline-offset:4px}
+img{display:block;max-width:100%}
+.pr-eyebrow{font-family:var(--font-label);font-size:var(--type-label);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--text-accent);font-weight:var(--weight-regular)}
+.pr-label{font-family:var(--font-label);font-size:var(--type-micro);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-accent);font-weight:var(--weight-regular)}
+.pr-smallcaps{font-variant-caps:all-small-caps;letter-spacing:.14em}
+.pr-numeral{font-family:var(--font-display);font-variant-numeric:oldstyle-nums proportional-nums;color:var(--text-accent);font-weight:var(--weight-light)}
+.pr-roman{font-family:var(--font-display);font-style:italic;color:var(--text-accent);letter-spacing:.04em}
+.pr-hairline{border:0;height:1px;background:var(--rule-candle);margin:0}
+.pr-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pr-grain{position:fixed;inset:-50%;pointer-events:none;z-index:var(--z-grain);background-image:var(--grain);opacity:var(--grain-opacity);mix-blend-mode:overlay}
+html[data-motion="off"] .pr-grain{opacity:.03}
+/* Reveals: content is never hidden unless motion.js has run and set html.pr-motion-ready */
+html.pr-motion-ready [data-reveal]:not(.is-revealed){opacity:0;filter:blur(var(--reveal-blur));transform:translate3d(0,var(--drift),0)}
+html.pr-motion-ready [data-reveal="scale"]:not(.is-revealed){transform:scale(1.03)}
+html.pr-motion-ready [data-reveal]{transition:opacity var(--dur-reveal) var(--ease),filter var(--dur-reveal) var(--ease),transform var(--dur-reveal) var(--ease);transition-delay:var(--reveal-delay,0ms)}
+html[data-motion="off"] [data-reveal]{opacity:1!important;filter:none!important;transform:none!important}
+@keyframes pr-candle{0%,100%{opacity:.78;transform:scale(1)}38%{opacity:1;transform:scale(1.025)}62%{opacity:.86;transform:scale(1.01)}}
+@keyframes pr-letter{from{opacity:0;filter:blur(6px)}to{opacity:1;filter:blur(0)}}
+@keyframes pr-fade-up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pr-candle-glow{animation:pr-candle var(--glow-cycle) var(--ease) infinite}
+html[data-motion="off"] .pr-candle-glow,html[data-motion="subtle"] .pr-candle-glow{animation:none}
+@media (prefers-reduced-motion:reduce){.pr-candle-glow{animation:none}}
+/* Page dissolve */
+.pr-dissolve{position:fixed;inset:0;background:var(--pr-forest-950);z-index:var(--z-dissolve);pointer-events:none;opacity:0;transition:opacity var(--dur-dissolve) var(--ease-dissolve)}
+.pr-dissolve.is-active{opacity:1}

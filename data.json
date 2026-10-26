@@ -1,0 +1,415 @@
+{
+ "_note": "Single source for roles, awards and programs. Edit here only. FLAGS: (1) Eastman M.Mus. and (2) Songs for a New World 2026 carry an unexplained asterisk on the resume — shown here without it; confirm with Paige. Her phone number is withheld until Paige confirms it may be public. Photo captions were matched to productions by eye from the Media folder; Turn of the Screw stills assumed to be Opera de Montréal 2026 (bilingual surtitles) — confirm. Media #21–35 (contemporary staging with piano) not placed; production unknown.",
+ "person": {
+  "name": "Paige Robinson",
+  "jobTitle": "Soprano",
+  "location": "Rochester, New York",
+  "email": "paige.robinson0@gmail.com",
+  "phone": null,
+  "alumniOf": [
+   "McGill University",
+   "Eastman School of Music"
+  ]
+ },
+ "recent": [
+  {
+   "role": "Flora",
+   "production": "The Turn of the Screw",
+   "company": "Opera de Montréal",
+   "year": "2026",
+   "photo": "images/hover-65.jpg"
+  },
+  {
+   "role": "Lucia",
+   "production": "The Rape of Lucretia",
+   "company": "Opera McGill",
+   "year": "2026",
+   "photo": "images/hover-42.jpg"
+  },
+  {
+   "role": "Gherardino, Lauretta (Cover)",
+   "production": "Gianni Schicchi",
+   "company": "Opera 5",
+   "year": "2026",
+   "photo": "images/hover-79.jpg"
+  }
+ ],
+ "credits": [
+  {
+   "year": "2026",
+   "roles": [
+    {
+     "role": "Gherardino, Lauretta (Cover)",
+     "production": "Gianni Schicchi",
+     "company": "Opera 5",
+     "kind": "opera",
+     "photo": "images/hover-79.jpg"
+    },
+    {
+     "role": "Suor Osmina, Prima Cercatrici",
+     "production": "Suor Angelica",
+     "company": "Opera 5",
+     "kind": "opera",
+     "photo": "images/hover-76.jpg"
+    },
+    {
+     "role": "Flora",
+     "production": "The Turn of the Screw",
+     "company": "Opera de Montréal",
+     "kind": "opera",
+     "photo": "images/hover-65.jpg"
+    },
+    {
+     "role": "Lucia",
+     "production": "The Rape of Lucretia",
+     "company": "Opera McGill",
+     "kind": "opera",
+     "photo": "images/hover-42.jpg"
+    },
+    {
+     "role": "Woman 2",
+     "production": "Songs for a New World",
+     "company": "Eastman Opera Theatre",
+     "kind": "mt",
+     "flag": "Resume asterisk on 2026 — unexplained, confirm"
+    }
+   ]
+  },
+  {
+   "year": "2025",
+   "roles": [
+    {
+     "role": "Miss Silverpeal",
+     "production": "Der Schauspieldirektor",
+     "company": "Opera McGill",
+     "kind": "opera"
+    },
+    {
+     "role": "Chorus",
+     "production": "Ariapalooza",
+     "company": "Opera McGill",
+     "kind": "opera"
+    },
+    {
+     "role": "Clara",
+     "production": "The Light in the Piazza",
+     "company": "Opera McGill",
+     "kind": "mt",
+     "photo": "images/hover-15.jpg"
+    }
+   ]
+  },
+  {
+   "year": "2024",
+   "roles": [
+    {
+     "role": "Chorus",
+     "production": "Dialogues of the Carmelites",
+     "company": "Opera McGill",
+     "kind": "opera"
+    },
+    {
+     "role": "Flora",
+     "production": "The Turn of the Screw",
+     "company": "Opera 5",
+     "kind": "opera"
+    },
+    {
+     "role": "Esprit",
+     "production": "Cendrillon",
+     "company": "Opera McGill",
+     "kind": "opera"
+    }
+   ]
+  },
+  {
+   "year": "2019",
+   "roles": [
+    {
+     "role": "Ralph",
+     "production": "Mystery on the Docks",
+     "company": "Mt. Royal Vocal Academy",
+     "kind": "opera"
+    }
+   ]
+  }
+ ],
+ "competitions": [
+  {
+   "text": "NATS National Chicago Competition",
+   "detail": "3rd place, scholarship recipient, 2022"
+  },
+  {
+   "text": "Calgary Contemporary Competition",
+   "detail": "1st place, scholarship recipient, 2021"
+  },
+  {
+   "text": "NATS Calgary Competition",
+   "detail": "1st place, scholarship recipient, 2018, 2019, 2022"
+  },
+  {
+   "text": "Calgary Performing Arts Festival",
+   "detail": "Gold seal winner, scholarship recipient, 2015 to 2022"
+  }
+ ],
+ "awards": [
+  {
+   "text": "Jacqueline Desmarais Foundation for Young Canadian Opera Singers",
+   "meta": "2026"
+  },
+  {
+   "text": "Art Song Foundation of Canada",
+   "meta": "2026"
+  },
+  {
+   "text": "Burns Award",
+   "meta": "2022 to 2026"
+  },
+  {
+   "text": "Martha Schiller Memorial Award",
+   "meta": "2024"
+  },
+  {
+   "text": "Robert N. C. Tennant Award",
+   "meta": "2023"
+  },
+  {
+   "text": "Alexander Rutherford Award",
+   "meta": "2022"
+  },
+  {
+   "text": "NATS National Chicago Competition, scholarship for third place",
+   "meta": "2022"
+  },
+  {
+   "text": "NATS competition scholarship",
+   "meta": "2018, 2019, 2022"
+  },
+  {
+   "text": "Calgary Performing Arts Festival scholarship",
+   "meta": "2019, 2022"
+  }
+ ],
+ "programs": [
+  {
+   "text": "Franz Schubert Institut",
+   "meta": "2026"
+  },
+  {
+   "text": "Lachine International Vocal Academy",
+   "meta": "2025 and 2026"
+  },
+  {
+   "text": "Opera 5 Internship Program",
+   "meta": "2024 and 2026"
+  },
+  {
+   "text": "Mount Royal Vocal Academy",
+   "meta": "2017 to 2019"
+  }
+ ],
+ "education": [
+  {
+   "text": "M.Mus. Performance and Literature",
+   "detail": "The University of Rochester, Eastman School of Music",
+   "meta": "2028",
+   "flag": "Resume asterisk — unexplained, confirm"
+  },
+  {
+   "text": "B.Mus. Vocal Performance",
+   "detail": "McGill University, Montréal, Québec",
+   "meta": "2026"
+  }
+ ],
+ "personae": [
+  {
+   "label": "Teachers",
+   "names": [
+    {
+     "name": "Kathryn Cowdrick",
+     "note": "current"
+    },
+    "Margaret GeorgeHahle",
+    "Rachel Hop",
+    "Jessica Lutzak",
+    "Dr. Tracy Smith Bessette"
+   ]
+  },
+  {
+   "label": "Coaches",
+   "names": [
+    "Martin Dubé",
+    "Michael McMahon"
+   ]
+  },
+  {
+   "label": "Conductors",
+   "names": [
+    "Stephen Hargreaves",
+    "Henry Kennedy",
+    "Evan Mitchell",
+    "Jonathan Monro"
+   ]
+  },
+  {
+   "label": "Directors",
+   "names": [
+    "David Gately",
+    "Patrick Hansen",
+    "David Lefkowich",
+    "Thomas Lussier",
+    "Amanda Smith"
+   ]
+  }
+ ],
+ "skills": [
+  {
+   "text": "Dance",
+   "detail": "waltz, jazz, contemporary"
+  },
+  {
+   "text": "Stage management"
+  },
+  {
+   "text": "Set building"
+  },
+  {
+   "text": "Improv"
+  },
+  {
+   "text": "Stage combat",
+   "detail": "hand to hand, sword fighting"
+  }
+ ],
+ "stills": [
+  {
+   "src": "images/still-63.jpg",
+   "production": "The Turn of the Screw",
+   "year": "2026",
+   "alt": "Flora holds a doll in a pool of light on a darkened stage",
+   "focal": "45% 45%",
+   "width": "100%",
+   "align": "center"
+  },
+  {
+   "src": "images/still-40.jpg",
+   "production": "The Rape of Lucretia",
+   "year": "2026",
+   "alt": "Lucia, in pale blue, holds white flowers beside Lucretia",
+   "focal": "72% 30%",
+   "width": "74%",
+   "align": "right"
+  },
+  {
+   "src": "images/still-17.jpg",
+   "production": "The Light in the Piazza",
+   "year": "2025",
+   "alt": "Clara in a white dress, lit against black",
+   "focal": "45% 30%",
+   "width": "86%",
+   "align": "left"
+  },
+  {
+   "src": "images/still-74.jpg",
+   "production": "Suor Angelica",
+   "year": "2026",
+   "alt": "Two sisters in white habits face one another",
+   "focal": "40% 30%",
+   "width": "66%",
+   "align": "right"
+  },
+  {
+   "src": "images/still-02.jpg",
+   "production": "The Light in the Piazza",
+   "year": "2025",
+   "alt": "Clara and Fabrizio stand apart on a dark stage",
+   "focal": "55% 30%",
+   "width": "90%",
+   "align": "left"
+  },
+  {
+   "src": "images/still-62.jpg",
+   "production": "The Turn of the Screw",
+   "year": "2026",
+   "alt": "Flora with her doll, the orchestra behind",
+   "focal": "55% 40%",
+   "width": "72%",
+   "align": "right"
+  },
+  {
+   "src": "images/still-47.jpg",
+   "production": "The Rape of Lucretia",
+   "year": "2026",
+   "alt": "The final tableau among fallen statues and petals",
+   "focal": "55% 60%",
+   "width": "100%",
+   "align": "center"
+  },
+  {
+   "src": "images/still-81.jpg",
+   "production": "Gianni Schicchi",
+   "year": "2026",
+   "alt": "The relatives gather around the bed",
+   "focal": "65% 40%",
+   "width": "70%",
+   "align": "left"
+  },
+  {
+   "src": "images/still-16.jpg",
+   "production": "The Light in the Piazza",
+   "year": "2025",
+   "alt": "Two figures kneel together under blue light",
+   "focal": "40% 60%",
+   "width": "82%",
+   "align": "right"
+  },
+  {
+   "src": "images/still-12.jpg",
+   "production": "The Light in the Piazza",
+   "year": "2025",
+   "alt": "Clara with a bouquet, turning from a cloaked figure",
+   "focal": "75% 35%",
+   "width": "68%",
+   "align": "left"
+  },
+  {
+   "src": "images/still-83.jpg",
+   "production": "Suor Angelica",
+   "year": "2026",
+   "alt": "The sisters stand in rows under a dark vault",
+   "focal": "50% 40%",
+   "width": "88%",
+   "align": "right"
+  },
+  {
+   "src": "images/still-73.jpg",
+   "production": "In recital",
+   "year": "",
+   "alt": "Paige sings beside a grand piano in daylight",
+   "focal": "60% 35%",
+   "width": "76%",
+   "align": "left"
+  }
+ ],
+ "audio": [
+  {
+   "title": "Audio excerpt",
+   "detail": "Title, composer and work — not yet supplied"
+  },
+  {
+   "title": "Audio excerpt",
+   "detail": "Title, composer and work — not yet supplied"
+  },
+  {
+   "title": "Audio excerpt",
+   "detail": "Title, composer and work — not yet supplied"
+  }
+ ],
+ "closing": {
+  "src": "images/still-02.jpg",
+  "alt": "Paige as Clara in The Light in the Piazza, standing apart from Fabrizio on a dark stage",
+  "focal": "50% 50%"
+ },
+ "_season_help": "Season: one entry per performance or engagement, any order — the page sorts by date and moves past dates into 'Earlier this season' automatically. Fields: date (YYYY-MM-DD, required), time (HH:MM, 24h, optional), title (production or concert, required), role, company, venue, city, kind ('opera' | 'mt' | 'concert' | 'recital'), link (tickets or details URL), note (one short line). Leave the list empty and the page shows its placeholder.",
+ "season": []
+}

@@ -1,0 +1,8 @@
+# Local and editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+_preview*.html
+# Vercel CLI link folder (created on first deploy)
+.vercel

@@ -1,0 +1,22 @@
+/* Paige Robinson — motion tokens. Slow, deliberate, nothing bouncy. */
+:root{
+--ease:cubic-bezier(.2,.7,.2,1); /* @kind other */
+--ease-dissolve:cubic-bezier(.4,0,.2,1); /* @kind other */
+--dur-hover:400ms; /* @kind other */
+--dur-hover-fast:300ms; /* @kind other */
+--dur-hover-slow:500ms; /* @kind other */
+--dur-dissolve:600ms; /* @kind other */
+--dur-reveal:1200ms; /* @kind other */
+--dur-reveal-short:900ms; /* @kind other */
+--dur-reveal-long:1800ms; /* @kind other */
+--dur-letter:1400ms; /* @kind other */
+--stagger:150ms; /* @kind other */
+--letter-step:70ms; /* @kind other */
+--drift:10px; /* @kind spacing */
+--reveal-blur:8px; /* @kind spacing */
+--glow-cycle:8s; /* @kind other */
+--parallax-depth:.18; /* @kind other */
+}
+html[data-motion="subtle"]{--drift:0px; /* @kind spacing */--reveal-blur:0px; /* @kind spacing */--dur-reveal:900ms; /* @kind other */--parallax-depth:0; /* @kind other */}
+html[data-motion="off"]{--drift:0px; /* @kind spacing */--reveal-blur:0px; /* @kind spacing */--dur-reveal:0ms; /* @kind other */--dur-dissolve:0ms; /* @kind other */--parallax-depth:0; /* @kind other */}
+@media (prefers-reduced-motion:reduce){:root{--drift:0px; /* @kind spacing */--reveal-blur:0px; /* @kind spacing */--dur-reveal:0ms; /* @kind other */--dur-dissolve:0ms; /* @kind other */--parallax-depth:0; /* @kind other */}}

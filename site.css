@@ -1,0 +1,404 @@
+/* Paige Robinson — site layer. Page layouts built on the design system (_ds/…/styles.css).
+   Colour, type, spacing and motion values come from the DS tokens; only layout lives here. */
+:root{
+--rail-width:220px; /* @kind spacing */
+--still-ratio:2.39/1;
+/* ── Palette (60/30/10 + metallic), chosen 2026-10-26 ──
+   60  Ivory     #F5EFE6  page ground
+   30  Emerald   #0C3E40  hero, rail, bands, footer — measured from her gown (hue ≈183°)
+   10  Mulberry  #6B1E3F  text accents on ivory only (never large blocks beside emerald: 1.06:1, reads muddy)
+   +   Champagne #D8BF8F  labels and hairlines on emerald
+   Contrast: emerald/ivory 10.3, mulberry/ivory 9.8, champagne/emerald 6.6. */
+--pr-forest:#0C3E40;          /* gown emerald (keeps the DS token name) */
+--pr-velvet:#134F52;          /* raised emerald */
+--pr-moss:#1E6B6A;            /* emerald light: glows, hairlines */
+--pr-forest-700:#0A3537;
+--pr-forest-800:#082C2E;
+--pr-forest-900:#062224;
+--pr-forest-950:#031416;
+--pr-moss-60:rgba(30,107,106,.6);
+--pr-sand:#D8BF8F;            /* champagne */
+--pr-sand-60:rgba(216,191,143,.6);--pr-sand-35:rgba(216,191,143,.35);--pr-sand-18:rgba(216,191,143,.18);--pr-sand-08:rgba(216,191,143,.08);
+--pr-cream:#F5EFE6;           /* ivory */
+--pr-cream-100:rgba(245,239,230,1);--pr-cream-92:rgba(245,239,230,.92);--pr-cream-85:rgba(245,239,230,.85);--pr-cream-40:rgba(245,239,230,.4);--pr-cream-12:rgba(245,239,230,.12);
+--rail-bg:#072F31;            /* emerald, one step toward black */
+--paper:#F5EFE6;
+--paper-edge:#EAE1D3;
+--pr-mulberry:#6B1E3F;
+/* Photo vignettes in neutral black, not green */
+--vignette:radial-gradient(ellipse 75% 70% at 50% 45%,rgba(0,0,0,0) 40%,rgba(0,0,0,.4) 75%,rgba(0,0,0,.8) 100%);
+/* Emerald "velvet" for the screening room */
+--velvet:radial-gradient(ellipse 70% 90% at 50% 20%,var(--pr-moss) 0%,var(--pr-velvet) 40%,var(--pr-forest-800) 100%);
+}
+
+/* Emerald band: Home statement, Roles honours, About personae. */
+.band--forest{position:relative;background:radial-gradient(ellipse 60% 70% at 50% 0%,rgba(30,107,106,.45),rgba(19,79,82,.15) 55%,rgba(12,62,64,0) 85%),linear-gradient(180deg,var(--pr-forest),var(--pr-forest-800));isolation:isolate}
+.band--forest .site-note,.band--forest .pr-plain,.band--forest .pr-plain__item{border-color:rgba(216,191,143,.28)}
+
+/* ───────── Rail (kept from the approved export) ───────── */
+.pr-rail.site-rail{width:var(--rail-width);align-items:flex-start;padding:40px 28px 32px;gap:44px;background:var(--rail-bg);border-right:1px solid var(--pr-moss-60)}
+.site-rail__brand{display:flex;flex-direction:column;gap:8px}
+.site-rail__name{font-family:var(--font-serif);font-size:24px;line-height:1.15;color:var(--pr-cream)}
+.site-rail__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;width:100%}
+.site-rail__link{display:block;padding:9px 0 9px 14px;border-left:1px solid var(--pr-moss-60);font-size:15px;color:var(--text-muted);transition:color var(--dur-hover) var(--ease),border-color var(--dur-hover) var(--ease)}
+.site-rail__link:hover{color:var(--pr-sand);border-left-color:var(--pr-sand-60)}
+.site-rail__link[aria-current="page"]{border-left-color:var(--pr-sand);color:var(--pr-cream)}
+.site-rail__foot{margin-top:auto;display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--text-muted);line-height:1.5}
+.site-rail__foot a{color:var(--text-body);overflow-wrap:anywhere}
+
+/* ───────── Mobile bar + overlay ───────── */
+.site-mname{font-family:var(--font-serif);font-size:19px;color:var(--pr-cream);line-height:1}
+.site-mname span{display:block;font-family:var(--font-label);font-size:9.5px;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--pr-sand);margin-top:6px}
+.pr-mnav{background:var(--rail-bg);border-bottom:1px solid var(--pr-moss-60)}
+.pr-overlay__close{background:none;border:0;color:var(--pr-cream);font-family:var(--font-label);font-size:11px;letter-spacing:.3em;text-transform:uppercase;padding:14px 0 14px 14px;min-height:44px;cursor:pointer;display:flex;align-items:center;gap:10px}
+.pr-overlay__close b{font-family:var(--font-serif);font-weight:300;font-size:24px;letter-spacing:0;color:var(--pr-sand)}
+html.menu-open{overflow:hidden}
+
+/* ───────── Page frame ───────── */
+/* Cream paper, warming slightly toward the edges. Fixed, so it stays put while text moves. */
+body{background:radial-gradient(ellipse 90% 85% at 58% 42%,var(--paper) 40%,var(--paper-edge) 100%) fixed var(--paper)}
+.site-main{display:block}
+.site-section{padding:var(--section-gap) var(--gutter)}
+.site-wrap{max-width:var(--content-max);margin:0 auto}
+.site-head{padding:clamp(112px,14vh,168px) var(--gutter) clamp(48px,8vh,96px)}
+.site-head .pr-pagetitle__title{font-style:italic}
+.site-eyebrow-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.site-note{display:flex;flex-direction:column;gap:10px;padding:24px 0;border-top:1px solid var(--rule-candle);border-bottom:1px solid var(--rule-candle)}
+.site-note__kind{font-family:var(--font-label);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--pr-sand-60)}
+.site-note__text{font-family:var(--font-serif);font-style:italic;font-size:var(--type-lead);line-height:1.5;color:var(--text-muted)}
+.site-sechead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:clamp(24px,4vw,40px)}
+.site-sechead h2:not(.pr-eyebrow){font-size:var(--type-h2)}
+
+/* ───────── I · Home: Overture hero ───────── */
+/* Stage is darkened to the photo's own black (≈rgb 5,6,9) so the figure dissolves in without a visible box,
+   then opens to forest green toward the foot of the hero. */
+/* An emerald halo behind her, picking up the gown */
+.home-hero{min-height:100svh;background:radial-gradient(ellipse 34% 58% at 50% 42%,rgba(30,107,106,.55) 0%,rgba(19,79,82,.35) 45%,rgba(2,10,11,0) 100%),radial-gradient(ellipse 70% 60% at 50% 38%,#030A0B 0%,#020B0C 55%,var(--pr-forest-950) 100%)}
+.home-hero .pr-hero__glow{background:radial-gradient(ellipse 46% 40% at 50% 58%,rgba(30,107,106,.42) 0%,rgba(19,79,82,.2) 45%,rgba(12,62,64,0) 72%),radial-gradient(ellipse 22% 16% at 50% 56%,rgba(216,191,143,.10),rgba(216,191,143,0) 70%)}
+.home-hero .pr-hero__name{text-shadow:0 0 70px rgba(30,107,106,.55),0 0 24px rgba(216,191,143,.12)}
+.home-hero .pr-hero__vig{background:linear-gradient(180deg,rgba(12,62,64,0) 70%,var(--pr-forest) 100%),radial-gradient(ellipse 80% 75% at 50% 42%,rgba(2,10,11,0) 45%,rgba(2,10,11,.55) 82%,rgba(2,10,11,.85) 100%),linear-gradient(180deg,rgba(2,10,11,.6) 0%,rgba(2,10,11,0) 18%)}
+/* The photo keeps its own 2:3 box (centred) so its edges can be dissolved into the dark */
+.home-hero .pr-hero__media{inset:0 auto;left:50%;translate:-50% 0;height:100%;aspect-ratio:1066/1600;
+  -webkit-mask-image:radial-gradient(ellipse 52% 56% at 50% 40%,#000 62%,transparent 100%);mask-image:radial-gradient(ellipse 52% 56% at 50% 40%,#000 62%,transparent 100%)}
+.home-hero .pr-hero__media img{object-fit:cover;object-position:50% 0;filter:brightness(.76) saturate(.6) contrast(1.06)}
+.home-hero .pr-hero__media::after{content:"";position:absolute;inset:0;background:var(--pr-forest);mix-blend-mode:color;opacity:.22;pointer-events:none}
+.home-hero .pr-hero__title{padding-bottom:clamp(96px,15vh,150px)}
+.home-hero .pr-hero__name{font-size:clamp(3.5rem,8.6vw,9.5rem)}
+.pr-hero__glow.pr-candle-glow{transform-origin:50% 70%}
+@media (max-width:899px){
+  .home-hero .pr-hero__media{inset:0;translate:none;aspect-ratio:auto;width:100%;-webkit-mask-image:none;mask-image:none}
+  .home-hero .pr-hero__media img{object-position:50% 12%}
+}
+
+/* Statement column */
+.home-statement{max-width:var(--measure-narrow);margin:0 auto;display:flex;flex-direction:column;gap:22px;text-align:center;align-items:center}
+.home-statement .site-note{text-align:center;width:100%}
+.home-creds{font-size:var(--type-small);color:var(--text-muted);line-height:1.7;max-width:30rem}
+
+/* Recent roles: huge lines */
+.home-recent{max-width:var(--content-max);margin:0 auto}
+.pr-recent__line[data-photo]{cursor:default}
+.pr-recent__co{font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:1.0625rem;color:var(--text-muted);flex-basis:100%;margin-top:6px}
+
+/* Closing still with grand link */
+.site-closing{position:relative;min-height:min(86vh,820px);display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate;background:var(--pr-forest-950)}
+.site-closing .pr-still__layer{z-index:-3}
+.site-closing .pr-still__img{filter:brightness(.55)} /* darkened only enough to carry the link; natural colour */
+.site-closing .pr-still__vignette{z-index:-2}
+.site-closing .pr-still__duotone{z-index:-2}
+.site-closing .pr-spot{z-index:-1}
+.site-closing::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(2,10,11,.5) 0%,rgba(2,10,11,0) 18%,rgba(6,34,36,0) 80%,var(--pr-forest-900) 100%)}
+.site-closing__inner{padding:var(--section-gap) var(--gutter)}
+
+/* ───────── II · Roles ───────── */
+.roles-list{max-width:var(--content-max);margin:0 auto}
+.pr-credit[data-photo]{cursor:default}
+.pr-hoverphoto{width:180px}
+.roles-after{max-width:var(--content-max);margin:var(--section-gap) auto 0}
+.roles-after__title{font-size:var(--type-h2);margin-bottom:clamp(8px,2vw,16px)}
+
+/* ───────── III · Photos: stills sequence ───────── */
+.stills{position:relative;display:flex;flex-direction:column;gap:var(--still-gap);padding:0 var(--gutter) var(--section-gap)}
+/* Photos show in their natural colour: no tint, no desaturation (the landing hero is the one treated image) */
+.pr-still__img,.pr-still__media:hover .pr-still__img{filter:none}
+.pr-still__cap{font-size:14px}
+.pr-still__cap-prod,.pr-still__cap-year{font-size:1.1875rem}
+.pr-still__cap-idx{font-size:11px;color:var(--pr-sand)}
+.stills__inner{max-width:88rem;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:var(--still-gap);padding-top:clamp(48px,8vh,96px)}
+.pr-still__media{aspect-ratio:var(--still-ratio)}
+@media (max-width:640px){:root{--still-ratio:16/9}} /* a 2.39 strip is too thin to read on a phone */
+.pr-still__media--button:focus-visible{outline:1px solid var(--pr-sand);outline-offset:6px}
+.photos-screen,.photos-audio,.photos-headshots{max-width:68rem;margin:0 auto}
+.site-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px}
+.site-placeholder .site-note__text{font-size:var(--type-small);font-style:normal;font-family:var(--font-sans)}
+/* Studio headshots: kept small, shown in true colour */
+.headshots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,40px);max-width:44rem}
+.headshots figure{margin:0;display:flex;flex-direction:column;gap:12px}
+.headshots__frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--pr-forest-950)}
+.headshots__frame img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;}
+.headshots figcaption{font-size:13px;color:var(--text-muted);display:flex;justify-content:space-between;gap:12px}
+
+/* Lightbox image */
+.pr-lightbox__media img{display:block;width:100%;height:100%;max-height:calc(100svh - 190px);object-fit:contain}
+.pr-lightbox__cap{display:flex;gap:14px;align-items:baseline;justify-content:center;flex-wrap:wrap;text-align:center}
+
+/* ───────── IV · About: portrait ───────── */
+.about-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,40%);gap:clamp(40px,7vw,120px);align-items:start;max-width:var(--content-max);margin:0 auto}
+.about-text{display:flex;flex-direction:column;gap:28px;max-width:var(--measure-narrow);padding-top:clamp(0px,6vh,64px)}
+.about-lede{font-family:var(--font-serif);font-weight:300;font-size:var(--type-lead);line-height:1.5;color:var(--text-primary)}
+.about-portrait{position:relative;margin:0}
+.about-portrait::before{content:"";position:absolute;inset:0;transform:translate(clamp(14px,1.6vw,22px),clamp(14px,1.6vw,22px));border:1px solid var(--pr-sand);pointer-events:none}
+.about-portrait__frame{position:relative;aspect-ratio:2/3;overflow:hidden;background:var(--pr-forest-950)}
+.about-portrait__frame img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.about-portrait figcaption{margin-top:clamp(28px,3vw,40px);font-size:13px;color:var(--text-muted)}
+.about-personae,.about-lists{max-width:var(--content-max);margin:0 auto}
+.about-personae__title{text-align:center;font-style:italic;font-size:var(--type-h2);margin-bottom:clamp(40px,6vw,72px)}
+.about-lists{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:56px clamp(40px,7vw,120px)}
+@media (max-width:899px){.about-top{grid-template-columns:1fr}.about-portrait{max-width:420px;order:-1;margin-right:22px}}
+
+/* ───────── V · Contact ───────── */
+.contact{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(56px,10vh,112px);padding:clamp(120px,16vh,180px) var(--gutter) var(--section-gap);}
+.contact .pr-grand--email{font-size:clamp(1.9rem,5.6vw,5.5rem)}
+.contact-form{width:100%;max-width:40rem;display:flex;flex-direction:column;gap:36px}
+.contact-form__row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr));gap:36px}
+.contact-form__foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.contact-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.contact-status{font-family:var(--font-serif);font-style:italic;font-size:var(--type-lead);color:var(--text-primary);text-align:center}
+
+/* ───────── 404 ───────── */
+.nf{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;padding:120px var(--gutter);text-align:center;background:radial-gradient(ellipse 50% 40% at 50% 50%,rgba(30,107,106,.14),rgba(30,107,106,0) 70%)}
+
+/* ───────── Panel placements ───────── */
+/* Closing still on Home: no duotone */
+.site-closing .pr-still__duotone{display:none}
+/* Screening room: an emerald house around the screen */
+.pr-screen__house{background:var(--velvet);border-color:var(--pr-sand-35)}
+.pr-screen__house::before{border-color:rgba(216,191,143,.22)}
+/* Contact keeps a green glow behind the address, softened for the cream page */
+.contact{background:radial-gradient(ellipse 55% 42% at 50% 30%,rgba(30,107,106,.2),rgba(30,107,106,.06) 55%,rgba(30,107,106,0) 80%)}
+/* Footer: a deep emerald floor with a champagne hairline */
+.pr-footer{background:var(--pr-forest-900);border-top-color:var(--pr-sand-35)}
+/* Roles honours block becomes its own velvet band */
+.roles-band{padding:var(--section-gap) var(--gutter)}
+.roles-band .roles-after{margin-top:0}
+
+/* Old-style 0 reads as "o" — the address must be copied exactly */
+a[href^="mailto:"]{font-variant-numeric:lining-nums}
+
+/* Footer sits inside the railed page */
+.pr-footer{margin-top:0}
+
+/* ───────── Light pages ─────────
+   Everything inside .pr-page sits on ivory: emerald text, mulberry accents. The design system reads its
+   colours from tokens, so re-pointing the tokens here re-colours every component at once.
+   Dark panels (hero, emerald bands, closing still, screening room, footer) restore the dark tokens below. */
+.pr-page{
+--pr-cream:#0C3E40;--pr-cream-100:#0C3E40;--pr-cream-92:rgba(12,62,64,.92);--pr-cream-85:rgba(12,62,64,.84);--pr-cream-40:rgba(12,62,64,.4);--pr-cream-12:rgba(12,62,64,.14);
+--pr-sand:var(--pr-mulberry);--pr-sand-60:rgba(107,30,63,.6);--pr-sand-35:rgba(107,30,63,.35);--pr-sand-18:rgba(107,30,63,.18);--pr-sand-08:rgba(107,30,63,.06);
+--pr-velvet:#ECE4D7;--pr-moss-60:rgba(30,107,106,.45);
+--surface-page:var(--paper);--surface-raised:#ECE4D7;--surface-field:#ECE4D7;
+--text-primary:#0C3E40;--text-body:rgba(12,62,64,.92);--text-muted:rgba(12,62,64,.84);--text-dimmed:rgba(12,62,64,.4);--text-accent:var(--pr-mulberry);
+--rule-candle:rgba(107,30,63,.3);--rule-candle-strong:var(--pr-mulberry);--focus-ring:var(--pr-mulberry);--glow-candle:rgba(107,30,63,.1);
+color:var(--text-body)}
+.pr-page .pr-field__input:focus{background:linear-gradient(180deg,rgba(107,30,63,0),rgba(107,30,63,.05))}
+.pr-page ::selection{background:var(--pr-mulberry);color:var(--paper)}
+.pr-dissolve{background:var(--paper)}
+
+/* Dark panels inside the light pages */
+.home-hero,.band--forest,.site-closing,.pr-screen__house,.pr-footer{
+--pr-cream:#F5EFE6;--pr-cream-100:rgba(245,239,230,1);--pr-cream-92:rgba(245,239,230,.92);--pr-cream-85:rgba(245,239,230,.85);--pr-cream-40:rgba(245,239,230,.4);--pr-cream-12:rgba(245,239,230,.12);
+--pr-sand:#D8BF8F;--pr-sand-60:rgba(216,191,143,.6);--pr-sand-35:rgba(216,191,143,.35);--pr-sand-18:rgba(216,191,143,.18);--pr-sand-08:rgba(216,191,143,.08);
+--pr-velvet:#134F52;--pr-moss-60:rgba(30,107,106,.6);
+--surface-page:#0C3E40;--surface-raised:#134F52;--surface-field:#134F52;
+--text-primary:#F5EFE6;--text-body:rgba(245,239,230,.92);--text-muted:rgba(245,239,230,.85);--text-dimmed:rgba(245,239,230,.4);--text-accent:#D8BF8F;
+--rule-candle:rgba(216,191,143,.35);--rule-candle-strong:#D8BF8F;--focus-ring:#1E6B6A;--glow-candle:rgba(216,191,143,.18);
+color:var(--text-body)}
+
+/* ───────── Landing → Home: the emerald iris ─────────
+   Leaving the landing, a soft emerald vignette closes in from the edges toward her while the photo drifts
+   closer, like house lights dimming to a spotlight. Home then opens from the centre outward and settles.
+   The iris is a radial mask whose radius (--iris) is animated; arrival is pure CSS, so a failed script can
+   never leave the page covered. */
+@property --iris{syntax:'<percentage>';inherits:false;initial-value:110%}
+.fog{position:fixed;inset:0;z-index:120;pointer-events:none;visibility:hidden;--iris:110%;
+  --iris-ease:cubic-bezier(.65,0,.35,1);
+  background:radial-gradient(ellipse 90% 80% at 50% 45%,var(--pr-velvet) 0%,var(--pr-forest) 55%,var(--pr-forest-800) 100%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 42%,transparent var(--iris),#000 calc(var(--iris) + 22%));
+  mask-image:radial-gradient(ellipse at 50% 42%,transparent var(--iris),#000 calc(var(--iris) + 22%))}
+.fog i{display:none}
+/* Leaving: the iris closes */
+.fog.is-rising{visibility:visible;animation:iris-close 1300ms var(--iris-ease) forwards}
+@keyframes iris-close{from{--iris:110%}to{--iris:-25%}}
+.home-hero .pr-hero__media{transition:scale 1400ms cubic-bezier(.65,0,.35,1)}
+.home-hero.is-fogging .pr-hero__media{scale:1.08}
+.home-hero.is-fogging .pr-hero__title,.home-hero.is-fogging .pr-hero__enter{transition:opacity 700ms cubic-bezier(.45,0,.25,1);opacity:0}
+/* Arriving: the iris opens from the centre and the page settles in */
+html.fog-in .fog{visibility:visible;--iris:-25%;animation:iris-open 1500ms var(--iris-ease) 80ms forwards}
+@keyframes iris-open{0%{--iris:-25%;visibility:visible}99%{visibility:visible}100%{--iris:110%;visibility:hidden}}
+html.fog-in .pr-page{animation:page-settle 1700ms cubic-bezier(.22,1,.36,1) both}
+@keyframes page-settle{from{transform:scale(1.025);opacity:.6}to{transform:none;opacity:1}}
+html[data-motion="off"] .fog{display:none}
+@media (prefers-reduced-motion:reduce){.fog{display:none}}
+
+/* Landing stands alone: no rail, full bleed */
+.landing .pr-page{padding-left:0}
+.landing .home-hero{min-height:100svh}
+
+/* ───────── Home: featured photo ───────── */
+.home-feature{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,44%);align-items:center;gap:clamp(32px,6vw,96px);padding:clamp(96px,12vh,140px) var(--gutter) clamp(64px,10vh,120px);overflow:hidden}
+.home-feature__text{display:flex;flex-direction:column;gap:26px;max-width:34rem;justify-self:end}
+.home-feature__name{font-family:var(--font-serif);font-weight:300;font-style:italic;font-size:var(--type-h1);line-height:1.04;color:var(--text-primary)}
+.home-feature__text .site-note{text-align:left}
+.home-feature__links{display:flex;gap:28px;flex-wrap:wrap}
+.home-feature__photo{position:relative;margin:0;isolation:isolate}
+/* emerald halo behind her, picking up the gown */
+.home-feature__photo::before{content:"";position:absolute;inset:-12% -18%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 45% 50% at 50% 50%,rgba(30,107,106,.65),rgba(19,79,82,.25) 55%,rgba(12,62,64,0) 75%)}
+/* The frame (photo + glow) fades out softly on every side, so the studio black melts into the band */
+.home-feature__frame{position:relative;
+  /* Feather only the four edges (two linear masks intersected), so the photo keeps its full frame */
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(180deg,transparent,#000 10%,#000 90%,transparent);mask-composite:intersect}
+.home-feature__photo img{display:block;width:100%;aspect-ratio:1066/1600;object-fit:cover}
+/* A faint emerald light in the black around her (screen only lifts the darks; she stays natural) */
+.home-feature__frame::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+  background:radial-gradient(ellipse 75% 70% at 50% 45%,rgba(30,107,106,0) 60%,rgba(30,107,106,.22) 88%,rgba(19,79,82,.35) 100%)}
+@media (max-width:899px){
+  .home-feature{grid-template-columns:1fr;min-height:0;padding-top:96px}
+  .home-feature__photo{order:-1;max-width:420px;justify-self:center;width:100%}
+  .home-feature__text{justify-self:start}
+}
+
+/* ───────── Dividers ─────────
+   The stave: five fine hairlines (a strip of music staff) fading out at both ends, with a small diamond
+   note on the middle line. Mulberry on ivory, champagne on emerald (it follows --pr-sand in each scope). */
+.stave{position:relative;display:block;width:min(220px,50%);height:25px;margin:0 auto clamp(40px,6vw,72px);flex:none;
+  background:repeating-linear-gradient(180deg,var(--pr-sand-60) 0 1px,transparent 1px 6px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 32%,#000 68%,transparent);mask-image:linear-gradient(90deg,transparent,#000 32%,#000 68%,transparent)}
+.stave::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;background:var(--pr-sand);transform:translate(-50%,-50%) rotate(45deg)}
+.contact .stave{margin:0 auto}
+/* Dark bands get a champagne hairline where they meet the ivory, like the footer */
+.band--forest{box-shadow:inset 0 1px var(--pr-sand-35),inset 0 -1px var(--pr-sand-35)}
+/* An ivory section that follows a dark band: room to breathe, then the stave */
+.site-section--after{padding-top:clamp(56px,8vw,104px)}
+/* Closing still: the words sit in the empty dark above the figures, clear of Paige */
+.site-closing{align-items:flex-start}
+.site-closing__inner{padding-top:clamp(48px,9vh,96px)}
+@media (max-width:899px){.site-closing .pr-still__img{object-position:82% 30%!important}} /* keep Paige in frame on narrow screens */
+
+/* ───────── PR monogram ─────────
+   Roman P, upright R set lower-right across it. A stroke in the ground colour, painted under the R,
+   cuts a hairline gap where the letters cross — set --mono-ground to whatever sits behind the mark. */
+.mono-mark{display:block;flex:none;height:auto;overflow:visible}
+.mono-mark__p{fill:var(--pr-cream)}
+.mono-mark__r{fill:var(--pr-sand);stroke:var(--mono-ground,var(--pr-forest));stroke-width:2.4;stroke-linejoin:round;paint-order:stroke}
+.mono-mark__d{fill:var(--pr-sand)}
+.mono-mark--rail{width:46px;margin-bottom:14px;--mono-ground:var(--rail-bg)}
+.site-mname{display:flex;align-items:center;gap:12px}
+.mono-mark--sm{width:28px;--mono-ground:var(--rail-bg)}
+.pr-overlay .mono-mark--sm{--mono-ground:#04161A}
+.pr-footer__brand{display:flex;align-items:center;gap:14px}
+.mono-mark--foot{width:28px;--mono-ground:var(--pr-forest-900)}
+.mono-mark--hero{width:clamp(52px,4.6vw,68px);margin-bottom:6px;--mono-ground:#020B0C}
+.mono-mark--nf{width:84px;--mono-ground:var(--paper)}
+
+/* ───────── Small ornaments ─────────
+   One motif throughout: the stave's diamond note. */
+/* before section labels */
+.site-sechead .pr-eyebrow::before,.site-eyebrow-row>.pr-eyebrow::before,.home-feature__text>.pr-eyebrow::before{content:"";display:inline-block;width:6px;height:6px;background:currentColor;transform:rotate(45deg);margin-right:14px;vertical-align:.18em}
+/* where each Roles year and each Honours list begins, a diamond sits on the start of the rule */
+.pr-year,.pr-plain:not(.pr-plain--stacked){position:relative}
+.pr-year::before,.pr-plain:not(.pr-plain--stacked)::before{content:"";position:absolute;left:0;top:-4px;width:7px;height:7px;background:var(--pr-sand);transform:rotate(45deg)}
+/* film-still captions open with a short hairline */
+.pr-still__cap::before{content:"";flex:none;align-self:center;width:28px;height:1px;background:var(--pr-sand-60)}
+/* Landing: the monogram sits in the top-left corner, off the photo */
+.mono-mark--corner{position:absolute;top:clamp(22px,4vh,40px);left:clamp(22px,3vw,44px);width:clamp(40px,3.4vw,52px);z-index:2;--mono-ground:#020B0C}
+
+/* Home feature fills exactly one screen and centres vertically at any aspect ratio:
+   equal padding top and bottom, and the photo sized from the screen height so it never overflows. */
+.home-feature{--feat-pad:clamp(40px,7vh,88px);min-height:100svh;padding-top:var(--feat-pad);padding-bottom:var(--feat-pad);align-items:center;align-content:center}
+.home-feature__photo{justify-self:center;width:100%;display:flex;justify-content:center}
+.home-feature__frame{width:min(100%,calc((100svh - 2 * var(--feat-pad)) * 1066 / 1600));aspect-ratio:1066/1600}
+.home-feature__frame img{height:100%}
+@media (max-width:899px){
+  .home-feature{min-height:0;padding-top:96px;padding-bottom:64px}
+  .home-feature__frame{width:100%}
+}
+/* About portrait: the offset outline traces the photo only, so the caption sits clear beneath it */
+.about-portrait::before{bottom:auto;aspect-ratio:2/3}
+.about-portrait figcaption{margin-top:calc(clamp(14px,1.6vw,22px) + 18px)}
+
+/* ───────── Season (calendar) ─────────
+   Program-book listing: month heads, a large mulberry day numeral, production in italics,
+   venue and time, then Details / Add to calendar. */
+.season{max-width:var(--content-max);margin:0 auto}
+.season__month{display:flex;align-items:center;gap:14px;margin:clamp(28px,4vw,48px) 0 0;padding-bottom:14px;border-bottom:1px solid var(--rule-candle);
+  font-family:var(--font-label);font-size:var(--type-label);font-weight:400;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--text-accent)}
+.season__month::before{content:"";width:6px;height:6px;background:currentColor;transform:rotate(45deg);flex:none}
+.season__list>.season__month:first-child{margin-top:0}
+.gig{display:grid;grid-template-columns:clamp(84px,9vw,128px) minmax(0,1.4fr) minmax(0,1fr) auto;gap:10px clamp(20px,3.5vw,48px);align-items:baseline;
+  padding:clamp(22px,3vw,34px) 0;border-bottom:1px solid var(--pr-cream-12)}
+.gig__date{display:flex;flex-direction:column;gap:6px}
+.gig__day{font-family:var(--font-serif);font-weight:300;font-size:clamp(2.6rem,4.6vw,4.25rem);line-height:.9;color:var(--text-accent);font-variant-numeric:lining-nums}
+.gig__mon{font-family:var(--font-label);font-size:var(--type-micro);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-muted)}
+.gig__main{display:flex;flex-direction:column;gap:6px}
+.gig__title{font-family:var(--font-serif);font-style:italic;font-weight:300;font-size:var(--type-h2);line-height:1.12;color:var(--text-primary)}
+.gig__role{font-family:var(--font-serif);font-size:var(--type-lead);color:var(--text-body)}
+.gig__co{font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:1.0625rem;color:var(--text-muted)}
+.gig__where{display:flex;flex-direction:column;gap:6px;font-size:var(--type-small);color:var(--text-muted)}
+.gig__time{font-family:var(--font-serif);font-size:1.125rem;color:var(--text-body)}
+.gig__note{font-style:italic}
+.gig__acts{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.gig__acts .pr-btn{font-size:10.5px;min-height:36px}
+.gig--placeholder{opacity:.75}
+.gig--placeholder .gig__title{color:var(--text-muted)}
+.season__list--past .gig{opacity:.72}
+.season__list--past .gig__day{color:var(--pr-sand)}
+@media (max-width:760px){
+  .gig{grid-template-columns:72px minmax(0,1fr)}
+  .gig__where,.gig__acts{grid-column:2}
+  .gig__acts{flex-direction:row;align-items:center;gap:20px}
+}
+/* Home: "Next performance" only appears once a real date exists */
+.home-next{max-width:var(--content-max);margin:0 auto}
+
+/* ───────── Between pages: a focus-pull ─────────
+   Cross-document view transitions. The rail holds perfectly still; the old page softens and dissolves,
+   the new one comes into focus with a few pixels of rise, and the rail's sand marker glides to the new page.
+   Browsers without support fall back to motion.js's soft dissolve. The landing → Home iris skips this. */
+@view-transition{navigation:auto}
+.pr-rail{view-transition-name:rail}
+.pr-mnav{view-transition-name:mbar}
+.site-rail__marker{view-transition-name:rail-marker}
+::view-transition-group(rail),::view-transition-group(mbar){animation:none}
+::view-transition-old(rail),::view-transition-new(rail),::view-transition-old(mbar),::view-transition-new(mbar){animation:none}
+::view-transition-old(root){animation:vt-out 380ms cubic-bezier(.4,0,.2,1) both}
+::view-transition-new(root){animation:vt-in 760ms cubic-bezier(.22,1,.36,1) 140ms both}
+::view-transition-group(rail-marker){animation-duration:640ms;animation-timing-function:cubic-bezier(.65,0,.35,1)}
+@keyframes vt-out{to{opacity:0;filter:blur(6px)}}
+@keyframes vt-in{from{opacity:0;filter:blur(8px);transform:translateY(10px)}}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+
+/* The current-page marker is its own element so it can glide between items */
+.site-rail__list>li{position:relative}
+.site-rail__link[aria-current="page"]{border-left-color:transparent}
+.site-rail__marker{position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--pr-sand);pointer-events:none}
+/* Home feature photo ~15% larger: a wider column, and the photo reaches evenly into the padding above and
+   below (negative margins of half the extra height), so the section stays one screen tall and centred. */
+@media (min-width:900px){
+  .home-feature{grid-template-columns:minmax(0,1fr) minmax(0,50%)}
+  .home-feature__frame{width:min(100%,calc((100svh - 2 * var(--feat-pad)) * 1.15 * 1066 / 1600))}
+  .home-feature__photo{margin-block:calc((100svh - 2 * var(--feat-pad)) * -.075)}
+}
+
+/* ───────── Stage frame (replaces the cursor photo) ─────────
+   A fixed photo window beside the role lines; hovering a line cross-fades it to that production.
+   Same offset hairline frame as the About portrait. Hidden on phones. */
+.roles-stage{display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,24vw,340px);gap:clamp(32px,5vw,80px);align-items:start}
+.stage-photo{position:sticky;top:clamp(72px,12vh,120px);margin:0 clamp(14px,1.6vw,22px) 0 0}
+.stage-photo::before{content:"";position:absolute;top:0;left:0;right:0;aspect-ratio:4/5;transform:translate(clamp(10px,1.2vw,16px),clamp(10px,1.2vw,16px));border:1px solid var(--pr-sand);pointer-events:none}
+.stage-photo__frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--pr-forest-950)}
+.stage-photo__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);
+  transition:opacity 700ms cubic-bezier(.45,0,.25,1),transform 1400ms cubic-bezier(.22,1,.36,1)}
+.stage-photo__frame img.is-on{opacity:1;transform:none}
+.stage-photo figcaption{margin-top:calc(clamp(10px,1.2vw,16px) + 16px);font-family:var(--font-serif);font-style:italic;font-size:1.0625rem;color:var(--text-muted);min-height:1.5em}
+@media (max-width:899px){.roles-stage{grid-template-columns:1fr}.stage-photo{display:none}}

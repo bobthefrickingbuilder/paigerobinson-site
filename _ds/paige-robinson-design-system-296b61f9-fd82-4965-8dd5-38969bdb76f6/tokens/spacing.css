@@ -1,0 +1,14 @@
+/* Paige Robinson — spacing, layout, z-index. Generous darkness. */
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;--space-11:192px;--space-12:256px;
+--section-gap:clamp(96px,16vh,192px); /* @kind spacing */
+--still-gap:clamp(96px,18vh,220px); /* @kind spacing */
+--rail-width:88px; /* @kind spacing */
+--measure-narrow:34rem; /* @kind spacing */   /* statement, bio */
+--measure-text:40rem; /* @kind spacing */
+--content-max:76rem; /* @kind spacing */
+--gutter:clamp(20px,5vw,72px); /* @kind spacing */
+--hairline:1px; /* @kind spacing */
+--radius-none:0; /* @kind radius */          /* no rounded corners anywhere */
+--z-base:0; /* @kind other */--z-raised:10; /* @kind other */--z-cursor-light:20; /* @kind other */--z-rail:40; /* @kind other */--z-overlay:60; /* @kind other */--z-lightbox:80; /* @kind other */--z-grain:90; /* @kind other */--z-dissolve:100; /* @kind other */
+}
