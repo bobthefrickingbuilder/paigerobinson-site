@@ -964,132 +964,120 @@
    ]
   },
   {
-   "slug": "to-be-confirmed",
-   "production": "Production to be confirmed",
+   "slug": "misc",
+   "production": "Miscellaneous",
    "role": "",
    "company": "",
    "year": "",
    "kind": "",
-   "placeholder": true,
    "focal": "45% 35%",
    "photos": [
     {
-     "src": "images/projects/to-be-confirmed/01.jpg",
-     "thumb": "images/projects/to-be-confirmed/01-t.jpg",
+     "src": "images/projects/misc/01.jpg",
+     "thumb": "images/projects/misc/01-t.jpg",
      "w": 1350,
      "h": 1800,
      "media": 21
     },
     {
-     "src": "images/projects/to-be-confirmed/02.jpg",
-     "thumb": "images/projects/to-be-confirmed/02-t.jpg",
+     "src": "images/projects/misc/02.jpg",
+     "thumb": "images/projects/misc/02-t.jpg",
      "w": 1350,
      "h": 1800,
      "media": 22
     },
     {
-     "src": "images/projects/to-be-confirmed/03.jpg",
-     "thumb": "images/projects/to-be-confirmed/03-t.jpg",
+     "src": "images/projects/misc/03.jpg",
+     "thumb": "images/projects/misc/03-t.jpg",
      "w": 1800,
      "h": 1200,
      "media": 23
     },
     {
-     "src": "images/projects/to-be-confirmed/04.jpg",
-     "thumb": "images/projects/to-be-confirmed/04-t.jpg",
+     "src": "images/projects/misc/04.jpg",
+     "thumb": "images/projects/misc/04-t.jpg",
      "w": 1200,
      "h": 1800,
      "media": 24
     },
     {
-     "src": "images/projects/to-be-confirmed/05.jpg",
-     "thumb": "images/projects/to-be-confirmed/05-t.jpg",
+     "src": "images/projects/misc/05.jpg",
+     "thumb": "images/projects/misc/05-t.jpg",
      "w": 1350,
      "h": 1800,
      "media": 25
     },
     {
-     "src": "images/projects/to-be-confirmed/06.jpg",
-     "thumb": "images/projects/to-be-confirmed/06-t.jpg",
+     "src": "images/projects/misc/06.jpg",
+     "thumb": "images/projects/misc/06-t.jpg",
      "w": 1200,
      "h": 1800,
      "media": 26
     },
     {
-     "src": "images/projects/to-be-confirmed/07.jpg",
-     "thumb": "images/projects/to-be-confirmed/07-t.jpg",
+     "src": "images/projects/misc/07.jpg",
+     "thumb": "images/projects/misc/07-t.jpg",
      "w": 1800,
      "h": 1200,
      "media": 27
     },
     {
-     "src": "images/projects/to-be-confirmed/08.jpg",
-     "thumb": "images/projects/to-be-confirmed/08-t.jpg",
+     "src": "images/projects/misc/08.jpg",
+     "thumb": "images/projects/misc/08-t.jpg",
      "w": 1800,
      "h": 1200,
      "media": 28
     },
     {
-     "src": "images/projects/to-be-confirmed/09.jpg",
-     "thumb": "images/projects/to-be-confirmed/09-t.jpg",
+     "src": "images/projects/misc/09.jpg",
+     "thumb": "images/projects/misc/09-t.jpg",
      "w": 1200,
      "h": 1800,
      "media": 29
     },
     {
-     "src": "images/projects/to-be-confirmed/10.jpg",
-     "thumb": "images/projects/to-be-confirmed/10-t.jpg",
+     "src": "images/projects/misc/10.jpg",
+     "thumb": "images/projects/misc/10-t.jpg",
      "w": 1800,
      "h": 1200,
      "media": 30
     },
     {
-     "src": "images/projects/to-be-confirmed/11.jpg",
-     "thumb": "images/projects/to-be-confirmed/11-t.jpg",
+     "src": "images/projects/misc/11.jpg",
+     "thumb": "images/projects/misc/11-t.jpg",
      "w": 1800,
      "h": 1200,
      "media": 31
     },
     {
-     "src": "images/projects/to-be-confirmed/12.jpg",
-     "thumb": "images/projects/to-be-confirmed/12-t.jpg",
+     "src": "images/projects/misc/12.jpg",
+     "thumb": "images/projects/misc/12-t.jpg",
      "w": 1200,
      "h": 1800,
      "media": 32
     },
     {
-     "src": "images/projects/to-be-confirmed/13.jpg",
-     "thumb": "images/projects/to-be-confirmed/13-t.jpg",
+     "src": "images/projects/misc/13.jpg",
+     "thumb": "images/projects/misc/13-t.jpg",
      "w": 1800,
      "h": 1200,
      "media": 33
     },
     {
-     "src": "images/projects/to-be-confirmed/14.jpg",
-     "thumb": "images/projects/to-be-confirmed/14-t.jpg",
+     "src": "images/projects/misc/14.jpg",
+     "thumb": "images/projects/misc/14-t.jpg",
      "w": 1800,
      "h": 1200,
      "media": 34,
      "lead": true
     },
     {
-     "src": "images/projects/to-be-confirmed/15.jpg",
-     "thumb": "images/projects/to-be-confirmed/15-t.jpg",
+     "src": "images/projects/misc/15.jpg",
+     "thumb": "images/projects/misc/15-t.jpg",
      "w": 1200,
      "h": 1800,
      "media": 35
-    }
-   ]
-  },
-  {
-   "slug": "recital",
-   "production": "In recital",
-   "role": "",
-   "company": "",
-   "year": "",
-   "kind": "recital",
-   "focal": "60% 35%",
-   "photos": [
+    },
     {
      "src": "images/projects/recital/01.jpg",
      "thumb": "images/projects/recital/01-t.jpg",
@@ -1102,11 +1090,10 @@
      "thumb": "images/projects/recital/02-t.jpg",
      "w": 1800,
      "h": 1197,
-     "media": 73,
-     "lead": true
+     "media": 73
     }
    ]
   }
  ],
- "_projects_help": "Photos page, one chapter per project, newest first. Each project: production, role, company, year, kind, focal (letterbox crop of the lead still), photos[] with src (full), thumb, w, h; the photo marked lead opens the chapter. 'media' is the photo's position in the Media folder, for reference. A project with placeholder:true is shown as 'to be confirmed'."
+ "_projects_help": "Photos page, one chapter per project, newest first. Each project: production, role, company, year, kind, focal (letterbox crop of the lead still), photos[] with src (full), thumb, w, h; the photo marked lead opens the chapter. 'media' is the photo's position in the Media folder, for reference."
 }

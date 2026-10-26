@@ -71,7 +71,7 @@
       var roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'], k = 0;
       return d.projects.map(function (p, pi) {
         var label = p.production + (p.year ? ', ' + p.year : '');
-        var alt = function (n) { return p.placeholder ? 'Production photo ' + n + ', production to be confirmed' : 'Production photo ' + n + ' from ' + p.production + (p.company ? ' (' + p.company + (p.year ? ', ' + p.year : '') + ')' : ''); };
+        var alt = function (n) { return p.company ? 'Production photo ' + n + ' from ' + p.production + ' (' + p.company + (p.year ? ', ' + p.year : '') + ')' : 'Photo ' + n + ' of Paige Robinson, ' + p.production.toLowerCase(); };
         var lead = p.photos.filter(function (ph) { return ph.lead; })[0] || p.photos[0];
         var shots = [lead].concat(p.photos.filter(function (ph) { return ph !== lead; }));
         var meta = [p.role, p.company, p.year].filter(Boolean).map(esc).join(' · ');
