@@ -2,9 +2,9 @@
 <!-- Replace DOMAIN with the production domain once chosen. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://DOMAIN/</loc></url>
-  <url><loc>https://DOMAIN/home</loc></url>
-  <url><loc>https://DOMAIN/season</loc></url>
-  <url><loc>https://DOMAIN/photos</loc></url>
-  <url><loc>https://DOMAIN/about</loc></url>
-  <url><loc>https://DOMAIN/contact</loc></url>
+  <url><loc>https://DOMAIN/home.html</loc></url>
+  <url><loc>https://DOMAIN/season.html</loc></url>
+  <url><loc>https://DOMAIN/photos.html</loc></url>
+  <url><loc>https://DOMAIN/about.html</loc></url>
+  <url><loc>https://DOMAIN/contact.html</loc></url>
 </urlset>

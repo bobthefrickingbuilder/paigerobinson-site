@@ -6,3 +6,5 @@ desktop.ini
 _preview*.html
 # Vercel CLI link folder (created on first deploy)
 .vercel
+
+.vercel

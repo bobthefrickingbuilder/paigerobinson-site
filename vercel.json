@@ -1,10 +1,13 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "redirects": [
     {
       "source": "/roles",
-      "destination": "/about#roles",
+      "destination": "/about.html#roles",
+      "permanent": false
+    },
+    {
+      "source": "/roles.html",
+      "destination": "/about.html#roles",
       "permanent": false
     }
   ]
