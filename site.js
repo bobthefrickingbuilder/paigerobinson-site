@@ -354,6 +354,24 @@
     btn.addEventListener('click', function () { setTimeout(function () { var a = $('a', nav); if (a) a.focus({ preventScroll: true }); }, 700); });
   }
 
+  /* Press photos: copy the image itself to the clipboard (as PNG, the format browsers accept), or download the file */
+  function bindCopyImage() {
+    $all('[data-copy-img]').forEach(function (btn) {
+      if (btn.__c) return; btn.__c = 1;
+      if (!(navigator.clipboard && window.ClipboardItem)) { btn.hidden = true; return; }
+      btn.addEventListener('click', function () {
+        var src = btn.getAttribute('data-copy-img');
+        var png = fetch(src).then(function (r) { return r.blob(); }).then(function (b) { return createImageBitmap(b); }).then(function (bmp) {
+          var c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height; c.getContext('2d').drawImage(bmp, 0, 0);
+          return new Promise(function (res) { c.toBlob(res, 'image/png'); });
+        });
+        var say = function (t) { btn.textContent = t; btn.classList.add('is-done'); setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('is-done'); }, 2200); };
+        btn.textContent = 'Copying';
+        navigator.clipboard.write([new ClipboardItem({ 'image/png': png })]).then(function () { say('Copied'); }, function () { say('Not copied'); });
+      });
+    });
+  }
+
   var lightboxItems = [];
   function render(d) {
     gigs = []; lightboxItems = [];
@@ -583,7 +601,7 @@
   }
 
   function init() {
-    bindEnter(); bindCursor(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
+    bindEnter(); bindCopyImage(); bindCursor(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
     if ($('[data-render]')) fetch('data.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(render).then(glideToHash).catch(function () {
       $all('[data-render]').forEach(function (h) { if (!h.children.length) h.innerHTML = '<p class="site-note__text">Content could not be loaded.</p>'; });
       glideToHash();

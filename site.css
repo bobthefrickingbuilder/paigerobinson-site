@@ -586,3 +586,24 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .to-index:hover,.to-index:focus-visible{color:#F5EFE6;border-color:var(--pr-sand)}
 .to-index__mark{width:6px;height:6px;background:currentColor;transform:rotate(45deg);transition:translate 300ms var(--ease,ease)}
 .to-index:hover .to-index__mark{translate:0 -3px}
+
+/* Press photos (Photos page): portraits with Copy and Download, shown on hover or focus (always shown on touch screens) */
+.press-photos{max-width:88rem;margin:0 auto}
+.press-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.6vw,24px)}
+.press-ph{position:relative;margin:0}
+.press-ph__frame{aspect-ratio:2/3;overflow:hidden;background:var(--pr-forest-950)}
+.press-ph__frame img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1400ms cubic-bezier(.22,1,.36,1),filter 600ms var(--ease,ease)}
+.press-ph__actions{position:absolute;left:0;right:0;top:0;aspect-ratio:2/3;display:flex;align-items:flex-end;justify-content:center;gap:8px;padding:16px;
+  background:linear-gradient(to top,rgba(6,28,29,.72),rgba(6,28,29,0) 45%);opacity:0;transition:opacity 400ms var(--ease,ease)}
+.press-ph:hover .press-ph__actions,.press-ph:focus-within .press-ph__actions{opacity:1}
+.press-ph:hover .press-ph__frame img,.press-ph:focus-within .press-ph__frame img{transform:scale(1.035)}
+.press-ph__btn{font:inherit;font-family:var(--font-label);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#F5EFE6;background:rgba(12,62,64,.55);
+  border:1px solid rgba(216,191,143,.6);padding:10px 14px 9px;cursor:pointer;text-decoration:none;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  translate:0 8px;transition:translate 500ms cubic-bezier(.22,1,.36,1),background 200ms,border-color 200ms,color 200ms}
+.press-ph:hover .press-ph__btn,.press-ph:focus-within .press-ph__btn{translate:0 0}
+.press-ph__btn:hover,.press-ph__btn:focus-visible,.press-ph__btn.is-done{background:#D8BF8F;border-color:#D8BF8F;color:#0C3E40;outline:none}
+.press-ph__btn[hidden]{display:none}
+.press-ph figcaption{margin-top:12px;font-family:var(--font-label);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--text-muted)}
+@media (max-width:900px){.press-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (hover:none){.press-ph__actions{position:static;aspect-ratio:auto;background:none;opacity:1;justify-content:flex-start;padding:10px 0 0}
+  .press-ph__btn{translate:none;color:var(--text-accent);background:none;border-color:currentColor;backdrop-filter:none}}
