@@ -1,5 +1,5 @@
 {
- "_note": "Single source for roles, awards and programs. Edit here only. FLAGS: (1) Eastman M.Mus. and (2) Songs for a New World 2026 carry an unexplained asterisk on the resume — shown here without it; confirm with Paige. Her phone number is withheld until Paige confirms it may be public. Photo captions were matched to productions by eye from the Media folder; Turn of the Screw stills assumed to be Opera de Montréal 2026 (bilingual surtitles) — confirm. Media #21–35 (contemporary staging with piano) not placed; production unknown.",
+ "_note": "Single source for roles, awards, programmes, photos, audio and biographies. Edit here only.",
  "person": {
   "name": "Paige Robinson",
   "jobTitle": "Soprano",
@@ -70,8 +70,7 @@
      "role": "Woman 2",
      "production": "Songs for a New World",
      "company": "Eastman Opera Theatre",
-     "kind": "mt",
-     "flag": "Resume asterisk on 2026 — unexplained, confirm"
+     "kind": "mt"
     }
    ]
   },
@@ -212,8 +211,7 @@
   {
    "text": "M.Mus. Performance and Literature",
    "detail": "The University of Rochester, Eastman School of Music",
-   "meta": "2028",
-   "flag": "Resume asterisk — unexplained, confirm"
+   "meta": "2028"
   },
   {
    "text": "B.Mus. Vocal Performance",
