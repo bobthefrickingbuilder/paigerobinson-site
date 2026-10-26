@@ -494,3 +494,33 @@ html.fog-in .pr-page{transform-origin:50% 0}
 /* Screening room caption */
 .pr-screen__cap{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:center;margin:0;font-size:14px;color:var(--text-muted)}
 .pr-screen__cap .pr-still__cap-year{font-family:var(--font-sans);font-size:13px;letter-spacing:.04em}
+
+/* ───────── Audio excerpts and the volume knob ───────── */
+.aud{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;border-bottom:1px solid var(--rule-candle)}
+.aud .pr-audio__btn{border-bottom:0}
+.aud .pr-audio__pause{display:none}
+.aud.is-playing .pr-audio__tri{display:none}
+.aud.is-playing .pr-audio__pause{display:block}
+.aud.is-active .pr-audio__title{color:var(--text-accent)}
+.aud.is-active .pr-audio__mark{border-color:var(--text-accent)}
+.aud__time{font-variant-numeric:lining-nums tabular-nums}
+/* progress: a hairline drawn along the bottom of the playing row */
+.aud__prog{position:absolute;left:0;right:0;bottom:-1px;height:1px;pointer-events:none}
+.aud__prog i{display:block;height:100%;background:var(--text-accent);transform-origin:left;transform:scaleX(0);transition:transform 250ms linear}
+/* the knob: hidden until its clip plays, then grows in beside the row */
+.knob{position:relative;width:0;height:64px;opacity:0;scale:.6;margin-left:0;cursor:grab;touch-action:none;outline-offset:4px;border-radius:50%;
+  transition:width 600ms cubic-bezier(.22,1,.36,1),margin-left 600ms cubic-bezier(.22,1,.36,1),opacity 500ms ease,scale 600ms cubic-bezier(.22,1,.36,1)}
+.aud.is-active .knob{width:64px;margin-left:clamp(10px,2vw,22px);opacity:1;scale:1}
+.knob.is-turning{cursor:grabbing}
+.knob:focus-visible{outline:1px solid var(--text-accent)}
+.knob svg{display:block;width:64px;height:64px;overflow:visible}
+.knob__ticks line{stroke:var(--text-muted);stroke-width:1;opacity:.55}
+.knob__track{fill:none;stroke:var(--rule-candle);stroke-width:3}
+.knob__level{fill:none;stroke:var(--text-accent);stroke-width:3;stroke-linecap:round;transition:stroke-dasharray 120ms ease}
+.knob__face{fill:var(--surface-raised);stroke:var(--rule-candle);stroke-width:1}
+.knob__pointer{transition:transform 120ms ease}
+.knob__pointer path{fill:var(--text-accent)}
+.knob.is-turning .knob__level,.knob.is-turning .knob__pointer{transition:none}
+.knob__val{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-label);font-size:11px;letter-spacing:.06em;color:var(--text-body);font-variant-numeric:lining-nums tabular-nums;pointer-events:none}
+@media (max-width:640px){.knob{height:52px}.knob svg{width:52px;height:52px}.aud.is-active .knob{width:52px}}
+@media (prefers-reduced-motion:reduce){.knob{transition:none}}

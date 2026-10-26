@@ -393,16 +393,25 @@
  ],
  "audio": [
   {
-   "title": "Audio excerpt",
-   "detail": "Title, composer and work — not yet supplied"
+   "title": "Heart, we will forget him",
+   "composer": "Aaron Copland",
+   "work": "Twelve Poems of Emily Dickinson",
+   "src": "audio/heart-we-will-forget-him.mp3",
+   "duration": "0:50"
   },
   {
-   "title": "Audio excerpt",
-   "detail": "Title, composer and work — not yet supplied"
+   "title": "Suleika I",
+   "composer": "Franz Schubert",
+   "work": "",
+   "src": "audio/suleika-i.mp3",
+   "duration": "0:32"
   },
   {
-   "title": "Audio excerpt",
-   "detail": "Title, composer and work — not yet supplied"
+   "title": "Take me back",
+   "composer": "Ned Rorem",
+   "work": "Our Town",
+   "src": "audio/take-me-back.mp3",
+   "duration": "0:21"
   }
  ],
  "closing": {

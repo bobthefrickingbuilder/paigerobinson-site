@@ -112,10 +112,12 @@
     audio: function (d) {
       var roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi'];
       return d.audio.map(function (a, i) {
-        return '<li><button type="button" class="pr-audio__btn" disabled aria-label="' + esc(a.title) + ', not yet available">' +
-          '<span class="pr-audio__num">' + roman[i] + '</span><span class="pr-audio__mark" aria-hidden="true"><span class="pr-audio__tri"></span></span>' +
-          '<span><span class="pr-audio__title">' + esc(a.title) + '</span><span class="pr-audio__detail">' + esc(a.detail) + '</span></span>' +
-          '<span class="pr-audio__len">—</span></button></li>';
+        var detail = [a.composer, a.work].filter(Boolean).map(esc).join(' · ');
+        return '<li class="aud" data-aud="' + i + '"><button type="button" class="pr-audio__btn aud__play" data-src="' + esc(a.src) + '" aria-pressed="false" aria-label="Play ' + esc(a.title) + '">' +
+          '<span class="pr-audio__num">' + roman[i] + '</span><span class="pr-audio__mark" aria-hidden="true"><span class="pr-audio__tri"></span><span class="pr-audio__pause"></span></span>' +
+          '<span><span class="pr-audio__title">' + esc(a.title) + '</span><span class="pr-audio__detail">' + detail + '</span></span>' +
+          '<span class="pr-audio__len aud__time">' + esc(a.duration || '') + '</span></button>' + knobHTML() +
+          '<span class="aud__prog" aria-hidden="true"><i></i></span></li>';
       }).join('');
     },
     /* Season: upcoming dates grouped by month; placeholders until real dates are added to data.json */
@@ -203,6 +205,114 @@
     });
   }
 
+  /* ───── Audio: one clip at a time, with a volume knob ─────
+     The knob (a 270° dial: ticks, a filled arc, the diamond as pointer) grows in beside a clip once it plays.
+     Turn it by dragging around it, the scroll wheel, or arrow keys. Volume is shared by all clips and remembered.
+     Starting any clip fades out the one playing; the YouTube video joins in through its iframe API. */
+  var ARC = 2 * Math.PI * 24, SWEEP = ARC * 0.75;
+  function knobHTML() {
+    var ticks = '';
+    for (var t = 0; t <= 10; t++) { ticks += '<line x1="32" y1="2.5" x2="32" y2="' + (t % 5 ? '5.5' : '7') + '" transform="rotate(' + (-135 + t * 27) + ' 32 32)"/>'; }
+    return '<div class="knob" role="slider" tabindex="-1" aria-label="Volume" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" aria-valuetext="80%" aria-hidden="true">' +
+      '<svg viewBox="0 0 64 64" aria-hidden="true"><g class="knob__ticks">' + ticks + '</g>' +
+      '<circle class="knob__track" cx="32" cy="32" r="24" stroke-dasharray="' + SWEEP.toFixed(2) + ' ' + ARC.toFixed(2) + '" transform="rotate(135 32 32)"/>' +
+      '<circle class="knob__level" cx="32" cy="32" r="24" stroke-dasharray="0 ' + ARC.toFixed(2) + '" transform="rotate(135 32 32)"/>' +
+      '<circle class="knob__face" cx="32" cy="32" r="17"/>' +
+      '<g class="knob__pointer"><path d="M32 4.5 L35.2 8 L32 11.5 L28.8 8 Z"/></g></svg>' +
+      '<span class="knob__val">80</span></div>';
+  }
+  function bindAudio() {
+    var list = $('.pr-audio'); if (!list || list.__a || !$('.aud', list)) return; list.__a = 1;
+    var vol = 0.8, current = null;
+    try { var sv = parseFloat(localStorage.getItem('pr-volume')); if (sv >= 0 && sv <= 1) vol = sv; } catch (e) {}
+    function gain(v) { return v * v; }                      /* perceptual curve, so the knob feels even */
+    function clock(t) { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ':' + pad(t % 60); }
+    function paintKnobs() {
+      $all('.knob', list).forEach(function (k) {
+        $('.knob__level', k).setAttribute('stroke-dasharray', (SWEEP * vol).toFixed(2) + ' ' + ARC.toFixed(2));
+        $('.knob__pointer', k).setAttribute('transform', 'rotate(' + (-135 + 270 * vol).toFixed(1) + ' 32 32)');
+        var pc = Math.round(vol * 100); $('.knob__val', k).textContent = pc;
+        k.setAttribute('aria-valuenow', pc); k.setAttribute('aria-valuetext', pc + '%');
+      });
+    }
+    function setVol(v) {
+      vol = Math.max(0, Math.min(1, v)); paintKnobs();
+      if (current && !current.fading) current.audio.volume = gain(vol);
+      try { localStorage.setItem('pr-volume', vol.toFixed(3)); } catch (e) {}
+    }
+    function fadeOut(item, then) {
+      item.fading = true; var a = item.audio, from = a.volume, t0 = performance.now();
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / 350); a.volume = from * (1 - k);
+        if (k < 1) requestAnimationFrame(step); else { a.pause(); item.fading = false; if (then) then(); }
+      })(t0);
+    }
+    function ui(item, state) {           /* state: playing | paused | stopped */
+      var li = item.li, btn = $('.aud__play', li), title = $('.pr-audio__title', li).textContent, knob = $('.knob', li);
+      li.classList.toggle('is-playing', state === 'playing');
+      li.classList.toggle('is-active', state !== 'stopped');
+      btn.setAttribute('aria-pressed', state === 'playing' ? 'true' : 'false');
+      btn.setAttribute('aria-label', (state === 'playing' ? 'Pause ' : 'Play ') + title);
+      knob.setAttribute('aria-hidden', state === 'stopped' ? 'true' : 'false'); knob.tabIndex = state === 'stopped' ? -1 : 0;
+    }
+    function stop(item, quiet) {
+      if (!item) return;
+      var done = function () { item.audio.currentTime = 0; ui(item, 'stopped'); $('.aud__time', item.li).textContent = item.len; $('.aud__prog i', item.li).style.transform = 'scaleX(0)'; };
+      if (quiet || item.audio.paused) { item.audio.pause(); done(); } else fadeOut(item, done);
+      if (current === item) current = null;
+    }
+    function bindKnob(k) {
+      var drag = false;
+      function fromPointer(e) {
+        var r = k.getBoundingClientRect(), dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
+        var ang = Math.atan2(dx, -dy) * 180 / Math.PI;      /* 0 at the top, clockwise positive */
+        setVol((Math.max(-135, Math.min(135, ang)) + 135) / 270);
+      }
+      function end() { drag = false; k.classList.remove('is-turning'); }
+      k.addEventListener('pointerdown', function (e) { drag = true; k.setPointerCapture(e.pointerId); k.classList.add('is-turning'); fromPointer(e); e.preventDefault(); });
+      k.addEventListener('pointermove', function (e) { if (drag) fromPointer(e); });
+      k.addEventListener('pointerup', end); k.addEventListener('pointercancel', end);
+      k.addEventListener('wheel', function (e) { e.preventDefault(); setVol(vol - Math.sign(e.deltaY) * 0.04); }, { passive: false });
+      k.addEventListener('keydown', function (e) {
+        var step = { ArrowUp: .05, ArrowRight: .05, ArrowDown: -.05, ArrowLeft: -.05, PageUp: .2, PageDown: -.2 }[e.key];
+        if (step) { setVol(vol + step); e.preventDefault(); }
+        else if (e.key === 'Home') { setVol(0); e.preventDefault(); } else if (e.key === 'End') { setVol(1); e.preventDefault(); }
+      });
+    }
+    /* YouTube: pause it when a clip starts; stop the clip when the video starts */
+    var yt = $('iframe[src*="youtube"]'), ytOrigin = 'https://www.youtube-nocookie.com';
+    function pauseVideo() { if (yt && yt.contentWindow) yt.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }), ytOrigin); }
+    $all('.aud', list).forEach(function (li) {
+      var btn = $('.aud__play', li), audio = new Audio(); audio.preload = 'metadata'; audio.src = btn.getAttribute('data-src');
+      var item = { li: li, audio: audio, len: $('.aud__time', li).textContent, fading: false };
+      audio.addEventListener('timeupdate', function () {
+        if (!audio.duration || !li.classList.contains('is-active')) return;   /* a stopped row keeps its plain length */
+        $('.aud__time', li).textContent = clock(audio.currentTime) + ' / ' + clock(audio.duration);
+        $('.aud__prog i', li).style.transform = 'scaleX(' + (audio.currentTime / audio.duration).toFixed(4) + ')';
+      });
+      audio.addEventListener('ended', function () { stop(item, true); });
+      btn.addEventListener('click', function () {
+        if (current === item && !audio.paused) { fadeOut(item, function () { ui(item, 'paused'); }); return; }
+        if (current && current !== item) stop(current);
+        pauseVideo();
+        current = item; audio.volume = gain(vol);
+        var go = audio.play(); if (go && go.catch) go.catch(function () { ui(item, 'paused'); });
+        ui(item, 'playing');
+      });
+      bindKnob($('.knob', li));
+    });
+    if (yt) {
+      var listen = function () { if (yt.contentWindow) yt.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 'pr-yt', channel: 'widget' }), ytOrigin); };
+      yt.addEventListener('load', function () { listen(); setTimeout(listen, 600); });
+      window.addEventListener('message', function (e) {
+        if (e.origin !== ytOrigin) return;
+        var data; try { data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data; } catch (err) { return; }
+        if (data && data.info && data.info.playerState === 1 && current) stop(current);   /* 1 = playing */
+      });
+    }
+    paintKnobs();
+  }
+
   var lightboxItems = [];
   function render(d) {
     gigs = []; lightboxItems = [];
@@ -215,6 +325,7 @@
     $all('[data-season-past],[data-next]').forEach(function (sec) { var h = $('[data-render]', sec); sec.hidden = !(h && h.innerHTML.trim()); });
     if (d.stills && $('[data-render="stills"]')) bindLightbox(d.stills);
     if (lightboxItems.length) bindLightbox(lightboxItems);
+    bindAudio();
     bindStage();
     bindFilter();
     if (window.PRMotion) window.PRMotion.refresh();
@@ -384,7 +495,7 @@
       var view = t.closest('[data-cursor-label]');
       c.classList.toggle('is-field', !!t.closest('input,textarea,select'));
       c.classList.toggle('is-view', !!view);
-      c.classList.toggle('is-link', !view && !!t.closest('a[href],button,label,[role="button"]'));
+      c.classList.toggle('is-link', !view && !!t.closest('a[href],button,label,[role="button"],[role="slider"]'));
       c.classList.toggle('is-dark', !!t.closest(DARK));
       if (view) label.textContent = view.getAttribute('data-cursor-label');
       var logo = t.closest('.site-rail__brand,.site-mname');
