@@ -326,7 +326,7 @@
     var label = $('.cursor__label', c), dot = $('.cursor__dot', c), x = 0, y = 0, raf = 0, target = null, dock = null;
     /* Logo dock: the monogram's diamond (6.41 units wide, centred at 37.62, 88.5 in its viewBox) slides 5.4 units
        left in CSS; the cursor's diamond is drawn to the matching spot 5.4 units right and shrinks to the same size. */
-    var D = { cx: 37.62, cy: 88.5, w: 6.41, shift: 5.4, pull: 0.08 };
+    var D = { cx: 37.62, cy: 88.5, w: 6.41, shift: 5.4, pull: 0.025 }, lockTimer = 0;
     function docking() {
       if (!dock) { dot.style.translate = ''; dot.style.scale = ''; return; }
       var m = dock.getScreenCTM(); if (!m) return;
@@ -348,7 +348,11 @@
       if (view) label.textContent = view.getAttribute('data-cursor-label');
       var logo = t.closest('.site-rail__brand,.site-mname');
       dock = logo ? $('.mono-mark', logo) : null;
+      var was = c.classList.contains('is-docked');
       c.classList.toggle('is-docked', !!dock);
+      /* once the dot has eased into the slot, hold it there firmly */
+      if (dock && !was) { clearTimeout(lockTimer); lockTimer = setTimeout(function () { c.classList.add('is-locked'); }, 620); }
+      if (!dock) { clearTimeout(lockTimer); c.classList.remove('is-locked'); }
     }
     try { var last = JSON.parse(sessionStorage.getItem('pr-cursor') || 'null'); if (last) { x = last.x; y = last.y; place(); c.classList.remove('is-out'); read(document.elementFromPoint(x, y)); } } catch (e) {}
     document.addEventListener('pointermove', function (e) {

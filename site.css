@@ -452,3 +452,5 @@ html.has-cursor .site-mname:hover .mono-mark__d{transform:translateX(-5.4px)}
 .cursor__dot{transition:background-color 300ms ease,opacity 300ms ease,translate 600ms cubic-bezier(.22,1,.36,1),scale 600ms cubic-bezier(.22,1,.36,1)}
 .cursor.is-docked .cursor__dot{opacity:1}
 .cursor.is-docked .cursor__ring{width:40px;height:40px;margin:-20px 0 0 -20px;background:transparent;opacity:.45}
+/* settled in the slot: near-instant follow so it reads as locked to the logo, not floating */
+.cursor.is-locked .cursor__dot{transition-duration:300ms,300ms,90ms,600ms}
