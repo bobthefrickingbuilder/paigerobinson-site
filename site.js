@@ -374,6 +374,21 @@
     });
   }
 
+  /* Home: a scroll cue rises in after three seconds at the top of the page, leaves once the visitor scrolls,
+     and glides to the next visible section when clicked */
+  function bindScrollCue() {
+    var cue = $('.scroll-cue'); if (!cue || cue.__s) return; cue.__s = 1;
+    var ready = false;
+    function update() { cue.classList.toggle('is-shown', ready && window.scrollY < 60); }
+    setTimeout(function () { ready = true; update(); }, 3000);
+    window.addEventListener('scroll', update, { passive: true });
+    cue.addEventListener('click', function () {
+      var next = cue.closest('section').nextElementSibling;
+      while (next && (next.hidden || next.tagName !== 'SECTION')) next = next.nextElementSibling;
+      if (next) next.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
   var lightboxItems = [];
   function render(d) {
     gigs = []; lightboxItems = [];
@@ -603,7 +618,7 @@
   }
 
   function init() {
-    bindEnter(); bindCopyImage(); bindCursor(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
+    bindEnter(); bindCopyImage(); bindScrollCue(); bindCursor(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
     if ($('[data-render]')) fetch('data.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(render).then(glideToHash).catch(function () {
       $all('[data-render]').forEach(function (h) { if (!h.children.length) h.innerHTML = '<p class="site-note__text">Content could not be loaded.</p>'; });
       glideToHash();

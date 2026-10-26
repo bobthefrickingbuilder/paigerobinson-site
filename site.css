@@ -630,3 +630,23 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .photos-top .proj-index a{padding-top:clamp(7px,1.3vh,13px);padding-bottom:clamp(7px,1.3vh,13px)}
 .photos-top .proj-index__title{font-size:clamp(1.25rem,1rem + .9vw,1.625rem);line-height:1.2}
 .photos-top__grid{padding-bottom:clamp(28px,4.5vh,48px)}
+
+/* Home scroll cue: a champagne ring (the cursor's shape) whose diamond drifts downward; fixed to the foot of the first screen */
+.scroll-cue{position:fixed;left:50%;bottom:clamp(18px,4vh,40px);z-index:30;translate:-50% 16px;width:52px;height:52px;padding:0;border:0;background:none;cursor:pointer;
+  opacity:0;pointer-events:none;transition:opacity 900ms var(--ease,ease),translate 1100ms cubic-bezier(.22,1,.36,1)}
+@media (min-width:900px){.scroll-cue{left:calc(var(--rail-width) + (100% - var(--rail-width)) / 2)}}
+.scroll-cue.is-shown{opacity:1;translate:-50% 0;pointer-events:auto}
+.scroll-cue__ring{position:absolute;inset:0;border:1px solid rgba(216,191,143,.55);border-radius:50%;overflow:hidden;transition:border-color 300ms,background 300ms,scale 500ms cubic-bezier(.22,1,.36,1)}
+.scroll-cue__gem{position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:#D8BF8F;rotate:45deg;animation:cue-drift 2.4s cubic-bezier(.45,0,.2,1) infinite}
+@keyframes cue-drift{0%{translate:0 -14px;opacity:0}25%{opacity:1}70%{opacity:1}100%{translate:0 14px;opacity:0}}
+.scroll-cue:hover .scroll-cue__ring,.scroll-cue:focus-visible .scroll-cue__ring{border-color:#D8BF8F;background:rgba(216,191,143,.1);scale:1.08}
+.scroll-cue:focus-visible{outline:none}
+.scroll-cue:focus-visible .scroll-cue__ring{box-shadow:0 0 0 3px rgba(216,191,143,.35)}
+@media (prefers-reduced-motion:reduce){.scroll-cue__gem{animation:none}}
+
+/* Photos opening, revised: the title above, then the index with a landscape photo the same height beside it.
+   The whole block centres in the first screen, keeping the "Press photos" heading at the fold */
+.photos-top__grid{display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,5vh,56px)}
+.photos-top__index{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,40%);gap:clamp(32px,4.5vw,72px);align-items:stretch}
+.photos-top__photo img{object-position:74% 35%}
+@media (max-width:899px){.photos-top__index{grid-template-columns:1fr}}
