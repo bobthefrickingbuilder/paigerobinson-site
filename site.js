@@ -349,10 +349,13 @@
   /* Photos: the "Index" button appears once the project list has scrolled away, and leads back to it */
   function bindToIndex() {
     var btn = $('.to-index'), nav = $('#index'); if (!btn || !nav || btn.__t) return; btn.__t = 1;
-    if (!('IntersectionObserver' in window)) { btn.classList.add('is-shown'); return; }
-    new IntersectionObserver(function (es) {
-      var e = es[0]; btn.classList.toggle('is-shown', !e.isIntersecting && e.boundingClientRect.top < 0);
-    }).observe(nav);
+    /* shows once the first photos below the index (the press photos) come into view */
+    var mark = $('#press .press-grid') || $('#press') || nav;
+    function update() {
+      var r = mark.getBoundingClientRect();
+      btn.classList.toggle('is-shown', mark === nav ? r.bottom < 0 : r.top < window.innerHeight * 0.8);
+    }
+    window.addEventListener('scroll', update, { passive: true }); window.addEventListener('resize', update); update();
     btn.addEventListener('click', function () { setTimeout(function () { var a = $('a', nav); if (a) a.focus({ preventScroll: true }); }, 700); });
   }
 
