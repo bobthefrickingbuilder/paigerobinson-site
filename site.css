@@ -557,3 +557,12 @@ html.fog-in .pr-page{transform-origin:50% 0}
   .about-text{padding-top:0}
   .about-portrait{position:sticky;top:clamp(32px,6vh,64px)}
 }
+
+/* Footer social icons: line glyphs in champagne, brightening to ivory on hover */
+.pr-footer__socials{display:inline-flex;align-items:center;gap:6px}
+.pr-footer__icon{display:inline-grid;place-items:center;width:40px;height:40px;color:var(--pr-sand);opacity:.78;transition:opacity var(--dur-hover,200ms) var(--ease,ease),color var(--dur-hover,200ms) var(--ease,ease),translate 300ms var(--ease,ease)}
+.pr-footer__icon[hidden]{display:none}
+.pr-footer__icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linejoin:round;stroke-linecap:round}
+.pr-footer__icon svg .fill{fill:currentColor;stroke:none}
+.pr-footer__icon:hover,.pr-footer__icon:focus-visible{opacity:1;color:var(--pr-cream,#F5EFE6);translate:0 -2px}
+.pr-footer__icon:focus-visible{outline:1px solid var(--pr-sand);outline-offset:2px}
