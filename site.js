@@ -48,6 +48,16 @@
       return T.plain('Competitions', d.competitions.map(function (c) { return { text: c.text, detail: c.detail }; })) +
         T.plain('Scholarships and Awards', d.awards) + T.plain('Programs', d.programs);
     },
+    /* Biography: *asterisks* mark titles, shown in italics; the press block offers each version for copying */
+    bio: function (d) { return bioParas(d.bio.long); },
+    bioPress: function (d) {
+      return [['Short', d.bio.short], ['Long', d.bio.long]].map(function (v) {
+        var words = v[1].join(' ').split(/\s+/).length;
+        return '<article class="bio-copy" data-bio="' + v[0].toLowerCase() + '"><header class="bio-copy__head"><h3 class="bio-copy__title">' + v[0] +
+          '</h3><span class="bio-copy__words">' + words + ' words</span><button type="button" class="bio-copy__btn">Copy</button></header>' +
+          '<div class="bio-copy__text">' + bioParas(v[1]) + '</div></article>';
+      }).join('');
+    },
     about: function (d) { return T.plain('Education', d.education, true) + T.plain('Skills', d.skills, true); },
     personae: function (d) {
       return '<div class="pr-personae" data-stagger="150">' + d.personae.map(function (g) {
@@ -313,6 +323,27 @@
     paintKnobs();
   }
 
+  function bioParas(list) { return list.map(function (p) { return '<p>' + esc(p).replace(/\*([^*]+)\*/g, '<cite>$1</cite>') + '</p>'; }).join(''); }
+  /* Copy a biography as rich text (titles stay italic in Word or Docs) with a plain-text fallback */
+  function bindBioCopy() {
+    $all('.bio-copy').forEach(function (art) {
+      var btn = $('.bio-copy__btn', art); if (!btn || btn.__b) return; btn.__b = 1;
+      btn.addEventListener('click', function () {
+        var paras = $all('.bio-copy__text p', art), plain = paras.map(function (p) { return p.textContent; }).join('\n\n');
+        var html = paras.map(function (p) { return '<p>' + p.innerHTML.replace(/<(\/?)cite>/g, '<$1i>') + '</p>'; }).join('');
+        var done = function () { btn.textContent = 'Copied'; btn.classList.add('is-done'); setTimeout(function () { btn.textContent = 'Copy'; btn.classList.remove('is-done'); }, 2200); };
+        var fallback = function () {
+          var t = document.createElement('textarea'); t.value = plain; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+          document.body.appendChild(t); t.select(); try { document.execCommand('copy'); done(); } catch (e) {} t.remove();
+        };
+        if (navigator.clipboard && window.ClipboardItem) {
+          navigator.clipboard.write([new ClipboardItem({ 'text/plain': new Blob([plain], { type: 'text/plain' }), 'text/html': new Blob([html], { type: 'text/html' }) })]).then(done, fallback);
+        } else if (navigator.clipboard) navigator.clipboard.writeText(plain).then(done, fallback);
+        else fallback();
+      });
+    });
+  }
+
   var lightboxItems = [];
   function render(d) {
     gigs = []; lightboxItems = [];
@@ -326,6 +357,7 @@
     if (d.stills && $('[data-render="stills"]')) bindLightbox(d.stills);
     if (lightboxItems.length) bindLightbox(lightboxItems);
     bindAudio();
+    bindBioCopy();
     bindStage();
     bindFilter();
     if (window.PRMotion) window.PRMotion.refresh();

@@ -532,3 +532,21 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .listen__sub{margin:0 0 clamp(10px,1.4vw,16px);color:var(--text-muted)}
 .listen__audio .pr-audio{margin:0}
 @media (max-width:1100px){.listen__grid{grid-template-columns:1fr}}
+
+/* Biography (About): the long version opens the page; both versions sit below with copy buttons */
+.about-bio{display:flex;flex-direction:column;gap:1.1em}
+.about-bio p{margin:0;font-size:var(--type-body,17px);line-height:1.7;color:var(--text-primary)}
+.about-bio p:first-child{font-family:var(--font-serif);font-weight:300;font-size:var(--type-lead);line-height:1.5}
+.about-bio cite,.bio-copy cite{font-style:italic}
+.bio-press{max-width:var(--content-max);margin:0 auto}
+.bio-press__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(28px,4vw,64px);align-items:start}
+.bio-copy{border-top:1px solid var(--rule-candle);padding-top:clamp(16px,2vw,22px)}
+.bio-copy__head{display:flex;align-items:baseline;gap:14px;margin-bottom:clamp(14px,1.8vw,20px)}
+.bio-copy__title{margin:0;font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:var(--type-h3,24px)}
+.bio-copy__words{font-family:var(--font-label);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--text-muted)}
+.bio-copy__btn{margin-left:auto;font:inherit;font-family:var(--font-label);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--text-accent);background:none;border:1px solid currentColor;padding:9px 16px 8px;cursor:pointer;transition:background var(--dur-hover,200ms) var(--ease,ease),color var(--dur-hover,200ms) var(--ease,ease)}
+.bio-copy__btn:hover,.bio-copy__btn.is-done{background:var(--text-accent);color:var(--surface-page,#F5EFE6)}
+.bio-copy__btn:focus-visible{outline:2px solid var(--text-accent);outline-offset:3px}
+.bio-copy__text p{margin:0 0 1em;font-size:15px;line-height:1.7;color:var(--text-primary)}
+.bio-copy__text p:last-child{margin-bottom:0}
+@media (max-width:899px){.bio-press__grid{grid-template-columns:1fr}}
