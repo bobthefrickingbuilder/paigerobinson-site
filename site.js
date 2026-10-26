@@ -315,41 +315,40 @@
   }
 
   /* ───── Custom cursor ─────
-     Diamond dot that tracks exactly, thin ring that trails. Mulberry on ivory, champagne over dark panels and
-     photos; grows over links and buttons; shows a word over stills; steps aside for form fields. */
+     A diamond dot inside a thin ring, moving as one piece exactly with the pointer. Mulberry on ivory,
+     champagne over dark panels and photos; the ring grows over links and buttons, shows a word over
+     stills, and steps aside for form fields. The last position carries over between pages. */
   function bindCursor() {
     if (!fine || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var c = document.createElement('div'); c.className = 'cursor is-out'; c.setAttribute('aria-hidden', 'true');
     c.innerHTML = '<span class="cursor__dot"></span><span class="cursor__ring"><span class="cursor__label"></span></span>';
     document.body.appendChild(c); html.classList.add('has-cursor');
-    var dot = $('.cursor__dot', c), ring = $('.cursor__ring', c), label = $('.cursor__label', c);
-    var x = -100, y = -100, rx = -100, ry = -100, raf = 0;
+    var label = $('.cursor__label', c), x = 0, y = 0, raf = 0, target = null;
     var DARK = '.home-hero,.band--forest,.site-closing,.pr-screen__house,.pr-footer,.pr-rail,.pr-mnav,.pr-overlay,.pr-lightbox,.pr-still__media,.stage-photo__frame,.headshots__frame,.about-portrait__frame,.home-feature__frame,.fog';
-    function loop() {
-      rx += (x - rx) * 0.18; ry += (y - ry) * 0.18;
-      ring.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)';
-      raf = Math.abs(x - rx) + Math.abs(y - ry) > 0.3 ? requestAnimationFrame(loop) : 0;
+    function place() { raf = 0; c.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)'; }
+    function read(t) {
+      if (!t || !t.closest) return;
+      var view = t.closest('[data-cursor-label]');
+      c.classList.toggle('is-field', !!t.closest('input,textarea,select'));
+      c.classList.toggle('is-view', !!view);
+      c.classList.toggle('is-link', !view && !!t.closest('a[href],button,label,[role="button"]'));
+      c.classList.toggle('is-dark', !!t.closest(DARK));
+      if (view) label.textContent = view.getAttribute('data-cursor-label');
     }
+    try { var last = JSON.parse(sessionStorage.getItem('pr-cursor') || 'null'); if (last) { x = last.x; y = last.y; place(); c.classList.remove('is-out'); read(document.elementFromPoint(x, y)); } } catch (e) {}
     document.addEventListener('pointermove', function (e) {
       if (e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') return;
-      x = e.clientX; y = e.clientY;
-      dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
-      if (c.classList.contains('is-out')) { rx = x; ry = y; c.classList.remove('is-out'); }
-      var t = e.target.closest ? e.target : null;
-      var field = t && t.closest('input,textarea,select');
-      var view = t && t.closest('[data-cursor-label]');
-      var link = t && t.closest('a[href],button,label,[role="button"]');
-      c.classList.toggle('is-field', !!field);
-      c.classList.toggle('is-view', !!view);
-      c.classList.toggle('is-link', !!link && !view);
-      c.classList.toggle('is-dark', !!(t && t.closest(DARK)));
-      if (view) label.textContent = view.getAttribute('data-cursor-label');
-      if (!raf) raf = requestAnimationFrame(loop);
+      x = e.clientX; y = e.clientY; c.classList.remove('is-out');
+      if (e.target !== target) { target = e.target; read(target); }
+      if (!raf) raf = requestAnimationFrame(place);
     }, { passive: true });
+    /* content scrolls under a still pointer: re-read what is beneath it */
+    window.addEventListener('scroll', function () { if (!c.classList.contains('is-out')) { target = document.elementFromPoint(x, y); read(target); } }, { passive: true });
     document.addEventListener('pointerdown', function () { c.classList.add('is-down'); });
     document.addEventListener('pointerup', function () { c.classList.remove('is-down'); });
     document.documentElement.addEventListener('pointerleave', function () { c.classList.add('is-out'); });
     window.addEventListener('blur', function () { c.classList.add('is-out'); });
+    window.addEventListener('pagehide', function () { try { sessionStorage.setItem('pr-cursor', JSON.stringify({ x: x, y: y })); } catch (e) {} });
   }
 
   function init() {

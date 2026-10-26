@@ -417,15 +417,16 @@ html[data-motion="off"] .fog{display:none}
 .gig:hover .gig__title{color:var(--text-accent)}
 
 /* ───────── Custom cursor ─────────
-   A diamond dot (the stave's note) with a thin trailing ring. Mulberry on ivory, champagne on dark panels.
+   A diamond dot (the stave's note) inside a thin ring; the two move as one piece, exactly with the pointer. Mulberry on ivory, champagne on dark panels.
    It grows over links and buttons and shows a word over stills. Mouse/trackpad only; form fields keep the
    normal text cursor. The native cursor is hidden only once site.js has started it (html.has-cursor). */
 html.has-cursor,html.has-cursor *{cursor:none!important}
 html.has-cursor input,html.has-cursor textarea{cursor:text!important}
 html.has-cursor select{cursor:auto!important}
-.cursor{position:fixed;left:0;top:0;z-index:140;pointer-events:none;--c:var(--pr-mulberry);transition:opacity 300ms ease}
+.cursor{position:fixed;left:0;top:0;width:0;height:0;z-index:140;pointer-events:none;--c:var(--pr-mulberry);transition:opacity 300ms ease;will-change:transform;view-transition-name:cursor}
+::view-transition-group(cursor){animation:none}
 .cursor.is-dark{--c:#D8BF8F}
-.cursor__dot,.cursor__ring{position:fixed;left:0;top:0;will-change:transform}
+.cursor__dot,.cursor__ring{position:absolute;left:0;top:0}
 .cursor__dot{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:var(--c);rotate:45deg;transition:background-color 300ms ease,opacity 300ms ease}
 .cursor__ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--c);border-radius:50%;display:flex;align-items:center;justify-content:center;
   transition:width 500ms cubic-bezier(.22,1,.36,1),height 500ms cubic-bezier(.22,1,.36,1),margin 500ms cubic-bezier(.22,1,.36,1),background-color 400ms ease,border-color 300ms ease,opacity 300ms ease,scale 200ms ease}
