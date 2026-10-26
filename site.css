@@ -550,3 +550,10 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .bio-copy__text p{margin:0 0 1em;font-size:15px;line-height:1.7;color:var(--text-primary)}
 .bio-copy__text p:last-child{margin-bottom:0}
 @media (max-width:899px){.bio-press__grid{grid-template-columns:1fr}}
+
+/* About opening: less air above, and the portrait lines up with the title and travels beside the biography */
+@media (min-width:900px){
+  .about-head{padding-top:clamp(48px,7vh,80px)}
+  .about-text{padding-top:0}
+  .about-portrait{position:sticky;top:clamp(32px,6vh,64px)}
+}
