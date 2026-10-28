@@ -39,6 +39,12 @@
    "year": "2026",
    "roles": [
     {
+     "role": "Woman 2",
+     "production": "Songs for a New World",
+     "company": "Eastman Opera Theatre",
+     "kind": "mt"
+    },
+    {
      "role": "Gherardino, Lauretta (Cover)",
      "production": "Gianni Schicchi",
      "company": "Opera 5",
@@ -65,12 +71,6 @@
      "company": "Opera McGill",
      "kind": "opera",
      "photo": "images/hover-42.jpg"
-    },
-    {
-     "role": "Woman 2",
-     "production": "Songs for a New World",
-     "company": "Eastman Opera Theatre",
-     "kind": "mt"
     }
    ]
   },
@@ -102,15 +102,15 @@
    "year": "2024",
    "roles": [
     {
-     "role": "Chorus",
-     "production": "Dialogues of the Carmelites",
-     "company": "Opera McGill",
-     "kind": "opera"
-    },
-    {
      "role": "Flora",
      "production": "The Turn of the Screw",
      "company": "Opera 5",
+     "kind": "opera"
+    },
+    {
+     "role": "Chorus",
+     "production": "Dialogues of the Carmelites",
+     "company": "Opera McGill",
      "kind": "opera"
     },
     {
