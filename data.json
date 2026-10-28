@@ -411,7 +411,53 @@
   "focal": "50% 50%"
  },
  "_season_help": "Season: one entry per performance or engagement, any order — the page sorts by date and moves past dates into 'Earlier this season' automatically. Fields: date (YYYY-MM-DD, required), time (HH:MM, 24h, optional), title (production or concert, required), role, company, venue, city, kind ('opera' | 'mt' | 'concert' | 'recital'), link (tickets or details URL), note (one short line). Leave the list empty and the page shows its placeholder.",
- "season": [],
+ "season": [
+  {
+   "date": "2026-12-10",
+   "time": "19:30",
+   "title": "Songs for a New World",
+   "role": "Woman 2",
+   "company": "Eastman Opera Theatre",
+   "venue": "Sloan Performing Arts Center",
+   "city": "Rochester, NY",
+   "kind": "mt",
+   "link": "https://www.esm.rochester.edu/esm-event/eastman-opera-theatre-presents-songs-for-a-new-world-1995/"
+  },
+  {
+   "date": "2026-12-11",
+   "time": "19:30",
+   "title": "Songs for a New World",
+   "role": "Woman 2",
+   "company": "Eastman Opera Theatre",
+   "venue": "Sloan Performing Arts Center",
+   "city": "Rochester, NY",
+   "kind": "mt",
+   "link": "https://www.esm.rochester.edu/esm-event/eastman-opera-theatre-presents-songs-for-a-new-world-1995/"
+  },
+  {
+   "date": "2026-12-12",
+   "time": "19:30",
+   "title": "Songs for a New World",
+   "role": "Woman 2",
+   "company": "Eastman Opera Theatre",
+   "venue": "Sloan Performing Arts Center",
+   "city": "Rochester, NY",
+   "kind": "mt",
+   "link": "https://www.esm.rochester.edu/esm-event/eastman-opera-theatre-presents-songs-for-a-new-world-1995/"
+  },
+  {
+   "date": "2026-12-13",
+   "time": "14:30",
+   "title": "Songs for a New World",
+   "role": "Woman 2",
+   "company": "Eastman Opera Theatre",
+   "venue": "Sloan Performing Arts Center",
+   "city": "Rochester, NY",
+   "kind": "mt",
+   "link": "https://www.esm.rochester.edu/esm-event/eastman-opera-theatre-presents-songs-for-a-new-world-1995/",
+   "note": "Matinee"
+  }
+ ],
  "projects": [
   {
    "slug": "turn-of-the-screw",
