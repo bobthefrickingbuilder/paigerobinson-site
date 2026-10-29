@@ -566,6 +566,7 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .pr-footer__icon svg .fill{fill:currentColor;stroke:none}
 .pr-footer__icon:hover,.pr-footer__icon:focus-visible{opacity:1;color:var(--pr-cream,#F5EFE6);translate:0 -2px}
 .pr-footer__icon:focus-visible{outline:1px solid var(--pr-sand);outline-offset:2px}
+.pr-footer__social:focus-visible{color:var(--pr-sand);outline:1px solid var(--pr-sand);outline-offset:2px}
 
 /* Smooth in-page scrolling everywhere (anchors, skip link, the Index button), unless the visitor prefers less motion */
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
