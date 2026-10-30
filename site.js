@@ -27,7 +27,7 @@
           '<ul class="pr-year__lines" data-stagger="150">' + y.roles.map(function (r) {
             var kind = r.kind === 'mt' ? 'Musical Theatre' : 'Opera';
             return '<li class="pr-credit pr-line" data-reveal data-kind="' + esc(r.kind) + '"' + (r.photo ? ' data-photo="' + esc(r.photo) + '" data-caption="' + esc(r.production + ' · ' + y.year) + '"' : '') + '>' +
-              '<span class="pr-credit__role">' + esc(r.role) + '</span>' +
+              '<span class="pr-credit__role"><span class="pr-credit__text">' + esc(r.role) + '</span></span>' +
               '<span class="pr-credit__meta"><cite class="pr-credit__prod">' + esc(r.production) + '</cite>' +
               '<span class="pr-credit__co">' + esc(r.company) + '</span>' +
               '<span class="pr-credit__kind">' + kind + '</span></span></li>';
