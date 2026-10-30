@@ -417,45 +417,6 @@ html[data-motion="off"] .fog{display:none}
 .gig .gig__title{transition:color var(--dur-hover) var(--ease)}
 .gig:hover .gig__title{color:var(--text-accent)}
 
-/* ───────── Custom cursor ─────────
-   A diamond dot (the stave's note) inside a thin ring; the two move as one piece, exactly with the pointer. Mulberry on ivory, champagne on dark panels.
-   It grows over links and buttons and shows a word over stills. Mouse/trackpad only; form fields keep the
-   normal text cursor. The native cursor is hidden only once site.js has started it (html.has-cursor). */
-html.has-cursor,html.has-cursor *{cursor:none!important}
-html.has-cursor input,html.has-cursor textarea{cursor:text!important}
-html.has-cursor select{cursor:auto!important}
-.cursor{position:fixed;left:0;top:0;width:0;height:0;z-index:140;pointer-events:none;--c:var(--pr-mulberry);transition:opacity 300ms ease;will-change:transform;view-transition-name:cursor}
-::view-transition-group(cursor){animation:none}
-.cursor.is-dark{--c:#D8BF8F}
-.cursor__dot,.cursor__ring{position:absolute;left:0;top:0}
-.cursor__dot{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:var(--c);rotate:45deg;transition:background-color 300ms ease,opacity 300ms ease}
-.cursor__ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--c);border-radius:50%;display:flex;align-items:center;justify-content:center;
-  transition:width 500ms cubic-bezier(.22,1,.36,1),height 500ms cubic-bezier(.22,1,.36,1),margin 500ms cubic-bezier(.22,1,.36,1),background-color 400ms ease,border-color 300ms ease,opacity 300ms ease,scale 200ms ease}
-.cursor__label{font-family:var(--font-label);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--c);opacity:0;padding-left:.28em;transition:opacity 300ms ease}
-.cursor.is-link .cursor__ring{width:54px;height:54px;margin:-27px 0 0 -27px;background:color-mix(in srgb,var(--c) 10%,transparent)}
-.cursor.is-link .cursor__dot{opacity:0}
-.cursor.is-view .cursor__ring{width:88px;height:88px;margin:-44px 0 0 -44px;background:color-mix(in srgb,#031416 35%,transparent)}
-.cursor.is-view .cursor__label{opacity:1}
-.cursor.is-view .cursor__dot{opacity:0}
-.cursor.is-down .cursor__ring{scale:.86}
-.cursor.is-field,.cursor.is-out{opacity:0}
-@media (hover:none),(pointer:coarse){.cursor{display:none}}
-
-/* ───────── Logo dock ─────────
-   Hovering the PR monogram (where it's a link), its diamond eases left and the cursor's diamond detaches
-   from the ring and is drawn into the space beside it, so the pair sits centred under the letters.
-   Lengths on the SVG diamond are in the logo's own units (it is 6.4 units wide). */
-.mono-mark__d{transition:transform 600ms cubic-bezier(.22,1,.36,1)}
-html.has-cursor .site-rail__brand:hover .mono-mark__d,
-html.has-cursor .site-mname:hover .mono-mark__d{transform:translateX(-5.4px)}
-/* the dot's own offset and size animate only when they change (docking and release); ordinary tracking
-   moves the whole .cursor, so the dot never lags the ring */
-.cursor__dot{transition:background-color 300ms ease,opacity 300ms ease,translate 600ms cubic-bezier(.22,1,.36,1),scale 600ms cubic-bezier(.22,1,.36,1)}
-.cursor.is-docked .cursor__dot{opacity:1}
-.cursor.is-docked .cursor__ring{width:40px;height:40px;margin:-20px 0 0 -20px;background:transparent;opacity:.45}
-/* settled in the slot: near-instant follow so it reads as locked to the logo, not floating */
-.cursor.is-locked .cursor__dot{transition-duration:300ms,300ms,90ms,600ms}
-
 /* Enter: centred with the translate property so the fade-up animation (which animates transform) can never
    pull it off-centre; the extra left padding balances the trailing letter-spacing so the word sits dead centre */
 .pr-hero__enter{transform:none;translate:-50% 0;padding-left:calc(12px + .34em)}
@@ -634,7 +595,7 @@ html.fog-in .pr-page{transform-origin:50% 0}
 .photos-top .proj-index__title{font-size:clamp(1.25rem,1rem + .9vw,1.625rem);line-height:1.2}
 .photos-top__grid{padding-bottom:clamp(28px,4.5vh,48px)}
 
-/* Home scroll cue: a champagne ring (the cursor's shape) whose diamond drifts downward; fixed to the foot of the first screen */
+/* Home scroll cue: a champagne ring whose diamond drifts downward; fixed to the foot of the first screen */
 .scroll-cue{position:fixed;left:50%;bottom:clamp(18px,4vh,40px);z-index:30;translate:-50% 16px;width:52px;height:52px;padding:0;border:0;background:none;cursor:pointer;
   opacity:0;pointer-events:none;transition:opacity 900ms var(--ease,ease),translate 1100ms cubic-bezier(.22,1,.36,1)}
 @media (min-width:900px){.scroll-cue{left:calc(var(--rail-width) + (100% - var(--rail-width)) / 2)}}

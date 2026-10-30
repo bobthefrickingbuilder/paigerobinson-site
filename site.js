@@ -3,7 +3,6 @@
    hover photo, credit filter, lightbox and contact form. Static markup stays usable without it. */
 (function () {
   var html = document.documentElement;
-  var fine = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function pad(n) { return (n < 10 ? '0' : '') + n; }
@@ -97,11 +96,11 @@
           var i = k++;
           lightboxItems.push({ src: ph.src, alt: alt(n + 1), production: p.production, year: p.year, n: n + 1, of: shots.length });
           if (n === 0) {
-            html += '<figure class="pr-still proj__lead" data-reveal><button type="button" class="pr-still__media pr-still__media--button" data-cursor data-cursor-label="View" data-parallax-root data-shot="' + i + '" aria-label="Open ' + esc(label) + ', photo 1 of ' + shots.length + '">' +
+            html += '<figure class="pr-still proj__lead" data-reveal><button type="button" class="pr-still__media pr-still__media--button" data-cursor data-parallax-root data-shot="' + i + '" aria-label="Open ' + esc(label) + ', photo 1 of ' + shots.length + '">' +
               '<span class="pr-still__layer" data-depth=".18"><img class="pr-still__img" src="' + esc(ph.src) + '" alt="' + esc(alt(1)) + '" style="object-position:' + esc(p.focal || '50% 40%') + '" loading="' + (pi ? 'lazy' : 'eager') + '" decoding="async"></span>' +
               '<span class="pr-still__vignette"></span><span class="pr-spot"></span></button></figure><div class="proj__grid">';
           } else {
-            html += '<button type="button" class="proj__ph" style="--r:' + (ph.w / ph.h).toFixed(4) + '" data-cursor-label="View" data-shot="' + i + '" aria-label="Open ' + esc(label) + ', photo ' + (n + 1) + ' of ' + shots.length + '">' +
+            html += '<button type="button" class="proj__ph" style="--r:' + (ph.w / ph.h).toFixed(4) + '" data-shot="' + i + '" aria-label="Open ' + esc(label) + ', photo ' + (n + 1) + ' of ' + shots.length + '">' +
               '<img src="' + esc(ph.thumb) + '" alt="' + esc(alt(n + 1)) + '" width="' + ph.w + '" height="' + ph.h + '" loading="lazy" decoding="async"></button>';
           }
         });
@@ -113,7 +112,7 @@
       return d.stills.map(function (s, i) {
         var label = s.production + (s.year ? ', ' + s.year : '');
         return '<figure class="pr-still pr-still--' + esc(s.align) + '" style="width:' + esc(s.width) + '" data-reveal>' +
-          '<button type="button" class="pr-still__media pr-still__media--button" data-cursor data-cursor-label="View" data-parallax-root data-still="' + i + '" aria-label="Open still ' + (i + 1) + ' of ' + n + ': ' + esc(label) + '">' +
+          '<button type="button" class="pr-still__media pr-still__media--button" data-cursor data-parallax-root data-still="' + i + '" aria-label="Open still ' + (i + 1) + ' of ' + n + ': ' + esc(label) + '">' +
           '<span class="pr-still__layer" data-depth=".18"><img class="pr-still__img" src="' + esc(s.src) + '" alt="' + esc(s.alt) + '" style="object-position:' + esc(s.focal) + '" loading="' + (i < 2 ? 'eager' : 'lazy') + '" decoding="async"></span>' +
           '<span class="pr-still__vignette"></span><span class="pr-spot"></span></button>' +
           '<figcaption class="pr-still__cap"><cite class="pr-still__cap-prod">' + esc(s.production) + '</cite>' +
@@ -547,64 +546,6 @@
     window.addEventListener('pageshow', function (e) { if (e.persisted) { fog.classList.remove('is-rising'); if (hero) hero.classList.remove('is-fogging'); } });
   }
 
-  /* ───── Custom cursor ─────
-     A diamond dot inside a thin ring, moving as one piece exactly with the pointer. Mulberry on ivory,
-     champagne over dark panels and photos; the ring grows over links and buttons, shows a word over
-     stills, and steps aside for form fields. The last position carries over between pages. */
-  function bindCursor() {
-    if (!fine || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var c = document.createElement('div'); c.className = 'cursor is-out'; c.setAttribute('aria-hidden', 'true');
-    c.innerHTML = '<span class="cursor__dot"></span><span class="cursor__ring"><span class="cursor__label"></span></span>';
-    document.body.appendChild(c); html.classList.add('has-cursor');
-    var label = $('.cursor__label', c), dot = $('.cursor__dot', c), x = 0, y = 0, raf = 0, target = null, dock = null;
-    /* Logo dock: the monogram's diamond (6.41 units wide, centred at 37.62, 88.5 in its viewBox) slides 5.4 units
-       left in CSS; the cursor's diamond is drawn to the matching spot 5.4 units right and shrinks to the same size. */
-    var D = { cx: 37.62, cy: 88.5, w: 6.41, shift: 5.4, pull: 0.025 }, lockTimer = 0;
-    function docking() {
-      if (!dock) { dot.style.translate = ''; dot.style.scale = ''; return; }
-      var m = dock.getScreenCTM(); if (!m) return;
-      var sx = m.a * (D.cx + D.shift) + m.c * D.cy + m.e, sy = m.b * (D.cx + D.shift) + m.d * D.cy + m.f;
-      /* sit in the slot, leaning a few pixels toward the pointer */
-      var dx = (sx - x) * (1 - D.pull), dy = (sy - y) * (1 - D.pull);
-      dot.style.translate = dx.toFixed(1) + 'px ' + dy.toFixed(1) + 'px';
-      dot.style.scale = (D.w * m.a / (7 * Math.SQRT2)).toFixed(3);
-    }
-    var DARK = '.home-hero,.band--forest,.site-closing,.pr-screen__house,.pr-footer,.pr-rail,.pr-mnav,.pr-overlay,.pr-lightbox,.pr-still__media,.stage-photo__frame,.headshots__frame,.about-portrait__frame,.home-feature__frame,.fog';
-    function place() { raf = 0; c.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)'; docking(); }
-    function read(t) {
-      if (!t || !t.closest) return;
-      var view = t.closest('[data-cursor-label]');
-      c.classList.toggle('is-field', !!t.closest('input,textarea,select'));
-      c.classList.toggle('is-view', !!view);
-      c.classList.toggle('is-link', !view && !!t.closest('a[href],button,label,[role="button"],[role="slider"]'));
-      c.classList.toggle('is-dark', !!t.closest(DARK));
-      if (view) label.textContent = view.getAttribute('data-cursor-label');
-      var logo = t.closest('.site-rail__brand,.site-mname');
-      dock = logo ? $('.mono-mark', logo) : null;
-      var was = c.classList.contains('is-docked');
-      c.classList.toggle('is-docked', !!dock);
-      /* once the dot has eased into the slot, hold it there firmly */
-      if (dock && !was) { clearTimeout(lockTimer); lockTimer = setTimeout(function () { c.classList.add('is-locked'); }, 620); }
-      if (!dock) { clearTimeout(lockTimer); c.classList.remove('is-locked'); }
-    }
-    try { var last = JSON.parse(sessionStorage.getItem('pr-cursor') || 'null'); if (last) { x = last.x; y = last.y; place(); c.classList.remove('is-out'); read(document.elementFromPoint(x, y)); } } catch (e) {}
-    document.addEventListener('pointermove', function (e) {
-      if (e.pointerType && e.pointerType !== 'mouse' && e.pointerType !== 'pen') return;
-      x = e.clientX; y = e.clientY; c.classList.remove('is-out');
-      if (e.target !== target) { target = e.target; read(target); }
-      if (!raf) raf = requestAnimationFrame(place);
-    }, { passive: true });
-    /* content scrolls under a still pointer: re-read what is beneath it */
-    window.addEventListener('scroll', function () { if (!c.classList.contains('is-out')) { target = document.elementFromPoint(x, y); read(target); } }, { passive: true });
-    document.addEventListener('pointerdown', function () { c.classList.add('is-down'); });
-    document.addEventListener('pointerup', function () { c.classList.remove('is-down'); });
-    document.documentElement.addEventListener('pointerleave', function () { c.classList.add('is-out'); });
-    window.addEventListener('blur', function () { c.classList.add('is-out'); });
-    /* an embedded video has its own pointer: step aside rather than freeze at the frame's edge */
-    document.addEventListener('pointerover', function (e) { if (e.target.tagName === 'IFRAME') c.classList.add('is-out'); });
-    window.addEventListener('pagehide', function () { try { sessionStorage.setItem('pr-cursor', JSON.stringify({ x: x, y: y })); } catch (e) {} });
-  }
-
   /* Arriving with a #section (Home → About's roles, a link to one project): start at the top, then glide down
      once the page has rendered, instead of jumping */
   var arrive = (location.hash || '').slice(1);
@@ -621,7 +562,7 @@
   }
 
   function init() {
-    bindEnter(); bindCopyImage(); bindScrollCue(); bindCursor(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
+    bindEnter(); bindCopyImage(); bindScrollCue(); bindMenu(); bindCalendar(); bindSwitch(); bindForm(); bindFilter();
     if ($('[data-render]')) fetch('data.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(render).then(glideToHash).catch(function () {
       $all('[data-render]').forEach(function (h) { if (!h.children.length) h.innerHTML = '<p class="site-note__text">Content could not be loaded.</p>'; });
       glideToHash();
