@@ -113,6 +113,9 @@ body{background:radial-gradient(ellipse 90% 85% at 58% 42%,var(--paper) 40%,var(
 /* ───────── II · Roles ───────── */
 .roles-list{max-width:var(--content-max);margin:0 auto}
 .pr-credit[data-photo]{cursor:default}
+/* pointing at the list leaves every role at full strength (only the filter dims lines); a role underlines when it has a photo to show */
+.pr-lines:hover .pr-credit.is-revealed:not(.is-muted){opacity:1}
+@media (hover:hover) and (min-width:900px){.pr-credit[data-photo]:not(.is-muted):hover .pr-credit__role{text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:var(--text-accent);text-underline-offset:.14em}}
 .pr-hoverphoto{width:180px}
 .roles-after{max-width:var(--content-max);margin:var(--section-gap) auto 0}
 .roles-after__title{font-size:var(--type-h2);margin-bottom:clamp(8px,2vw,16px)}
