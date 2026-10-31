@@ -17,4 +17,4 @@ All roles, honours, stills, season dates and personae live in **`data.json`**. E
 - After changing CSS or JS, bump the `?v=N` on the asset links in every page so browsers fetch the new files.
 
 ## Before launch
-Replace `DOMAIN` in `sitemap.xml` and `robots.txt`. Open items for Paige: the two résumé asterisks, whether to publish her phone number, bio and statement, social links, video and audio, and season dates.
+Open items for Paige: the two résumé asterisks, whether to publish her phone number, bio and statement, social links, video and audio, and season dates.

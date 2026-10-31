@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-# Replace DOMAIN with the production domain once chosen.
-Sitemap: https://DOMAIN/sitemap.xml
+Sitemap: https://paigerobinson.ca/sitemap.xml
