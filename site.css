@@ -617,7 +617,7 @@ html.fog-in .pr-page{transform-origin:50% 0}
    The whole block centres in the first screen, keeping the "Press photos" heading at the fold */
 .photos-top__grid{display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,5vh,56px)}
 .photos-top__index{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,40%);gap:clamp(32px,4.5vw,72px);align-items:stretch}
-.photos-top__photo img{object-position:74% 35%}
+.photos-top__photo img{object-position:66% 20%}
 @media (max-width:899px){.photos-top__index{grid-template-columns:1fr}}
 /* the stave between Press photos and the first production sits midway */
 #press{padding-bottom:0}
