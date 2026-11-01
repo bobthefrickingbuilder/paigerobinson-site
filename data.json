@@ -549,75 +549,75 @@
    "num": "ii"
   },
   {
-   "slug": "coc-free-concerts",
+   "slug": "coc-amphitheatre",
    "num": "",
-   "production": "Free Concert Series",
-   "role": "Richard Bradshaw Amphitheatre",
+   "production": "Richard Bradshaw Amphitheatre",
+   "role": "",
    "company": "Canadian Opera Company",
    "year": "",
    "kind": "recital",
    "focal": "50% 55%",
    "photos": [
     {
-     "src": "images/projects/coc-free-concerts/01.jpg",
-     "thumb": "images/projects/coc-free-concerts/01-t.jpg",
+     "src": "images/projects/coc-amphitheatre/01.jpg",
+     "thumb": "images/projects/coc-amphitheatre/01-t.jpg",
      "w": 1197,
      "h": 1800,
      "media": 72
     },
     {
-     "src": "images/projects/coc-free-concerts/02.jpg",
-     "thumb": "images/projects/coc-free-concerts/02-t.jpg",
+     "src": "images/projects/coc-amphitheatre/02.jpg",
+     "thumb": "images/projects/coc-amphitheatre/02-t.jpg",
      "w": 1800,
      "h": 1197,
      "media": 73
     },
     {
-     "src": "images/projects/coc-free-concerts/03.jpg",
-     "thumb": "images/projects/coc-free-concerts/03-t.jpg",
+     "src": "images/projects/coc-amphitheatre/03.jpg",
+     "thumb": "images/projects/coc-amphitheatre/03-t.jpg",
      "w": 1067,
      "h": 1600,
      "new": 24
     },
     {
-     "src": "images/projects/coc-free-concerts/04.jpg",
-     "thumb": "images/projects/coc-free-concerts/04-t.jpg",
+     "src": "images/projects/coc-amphitheatre/04.jpg",
+     "thumb": "images/projects/coc-amphitheatre/04-t.jpg",
      "w": 1600,
      "h": 1077,
      "new": 25,
      "lead": true
     },
     {
-     "src": "images/projects/coc-free-concerts/05.jpg",
-     "thumb": "images/projects/coc-free-concerts/05-t.jpg",
+     "src": "images/projects/coc-amphitheatre/05.jpg",
+     "thumb": "images/projects/coc-amphitheatre/05-t.jpg",
      "w": 1600,
      "h": 1067,
      "new": 26
     },
     {
-     "src": "images/projects/coc-free-concerts/06.jpg",
-     "thumb": "images/projects/coc-free-concerts/06-t.jpg",
+     "src": "images/projects/coc-amphitheatre/06.jpg",
+     "thumb": "images/projects/coc-amphitheatre/06-t.jpg",
      "w": 1067,
      "h": 1600,
      "new": 27
     },
     {
-     "src": "images/projects/coc-free-concerts/07.jpg",
-     "thumb": "images/projects/coc-free-concerts/07-t.jpg",
+     "src": "images/projects/coc-amphitheatre/07.jpg",
+     "thumb": "images/projects/coc-amphitheatre/07-t.jpg",
      "w": 1067,
      "h": 1600,
      "new": 28
     },
     {
-     "src": "images/projects/coc-free-concerts/08.jpg",
-     "thumb": "images/projects/coc-free-concerts/08-t.jpg",
+     "src": "images/projects/coc-amphitheatre/08.jpg",
+     "thumb": "images/projects/coc-amphitheatre/08-t.jpg",
      "w": 1115,
      "h": 1600,
      "new": 29
     },
     {
-     "src": "images/projects/coc-free-concerts/09.jpg",
-     "thumb": "images/projects/coc-free-concerts/09-t.jpg",
+     "src": "images/projects/coc-amphitheatre/09.jpg",
+     "thumb": "images/projects/coc-amphitheatre/09-t.jpg",
      "w": 1600,
      "h": 1067,
      "new": 30
