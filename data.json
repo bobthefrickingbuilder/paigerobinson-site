@@ -460,6 +460,171 @@
  ],
  "projects": [
   {
+   "slug": "suor-angelica",
+   "production": "Suor Angelica",
+   "role": "Suor Osmina, Prima Cercatrici",
+   "company": "Opera 5",
+   "year": "2026",
+   "kind": "opera",
+   "focal": "40% 30%",
+   "photos": [
+    {
+     "src": "images/projects/suor-angelica/01.jpg",
+     "thumb": "images/projects/suor-angelica/01-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 74,
+     "lead": true
+    },
+    {
+     "src": "images/projects/suor-angelica/02.jpg",
+     "thumb": "images/projects/suor-angelica/02-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 75
+    },
+    {
+     "src": "images/projects/suor-angelica/03.jpg",
+     "thumb": "images/projects/suor-angelica/03-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 76
+    },
+    {
+     "src": "images/projects/suor-angelica/04.jpg",
+     "thumb": "images/projects/suor-angelica/04-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 78
+    },
+    {
+     "src": "images/projects/suor-angelica/07.jpg",
+     "thumb": "images/projects/suor-angelica/07-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 83
+    },
+    {
+     "src": "images/projects/suor-angelica/08.jpg",
+     "thumb": "images/projects/suor-angelica/08-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 85
+    }
+   ],
+   "num": "i"
+  },
+  {
+   "slug": "gianni-schicchi",
+   "production": "Gianni Schicchi",
+   "role": "Gherardino, Lauretta (Cover)",
+   "company": "Opera 5",
+   "year": "2026",
+   "kind": "opera",
+   "focal": "65% 40%",
+   "photos": [
+    {
+     "src": "images/projects/gianni-schicchi/02.jpg",
+     "thumb": "images/projects/gianni-schicchi/02-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 79
+    },
+    {
+     "src": "images/projects/gianni-schicchi/03.jpg",
+     "thumb": "images/projects/gianni-schicchi/03-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 81,
+     "lead": true
+    },
+    {
+     "src": "images/projects/gianni-schicchi/04.jpg",
+     "thumb": "images/projects/gianni-schicchi/04-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "media": 84
+    }
+   ],
+   "num": "ii"
+  },
+  {
+   "slug": "coc-free-concerts",
+   "num": "",
+   "production": "Free Concert Series",
+   "role": "Richard Bradshaw Amphitheatre",
+   "company": "Canadian Opera Company",
+   "year": "",
+   "kind": "recital",
+   "focal": "50% 55%",
+   "photos": [
+    {
+     "src": "images/projects/coc-free-concerts/01.jpg",
+     "thumb": "images/projects/coc-free-concerts/01-t.jpg",
+     "w": 1197,
+     "h": 1800,
+     "media": 72
+    },
+    {
+     "src": "images/projects/coc-free-concerts/02.jpg",
+     "thumb": "images/projects/coc-free-concerts/02-t.jpg",
+     "w": 1800,
+     "h": 1197,
+     "media": 73
+    },
+    {
+     "src": "images/projects/coc-free-concerts/03.jpg",
+     "thumb": "images/projects/coc-free-concerts/03-t.jpg",
+     "w": 1067,
+     "h": 1600,
+     "new": 24
+    },
+    {
+     "src": "images/projects/coc-free-concerts/04.jpg",
+     "thumb": "images/projects/coc-free-concerts/04-t.jpg",
+     "w": 1600,
+     "h": 1077,
+     "new": 25,
+     "lead": true
+    },
+    {
+     "src": "images/projects/coc-free-concerts/05.jpg",
+     "thumb": "images/projects/coc-free-concerts/05-t.jpg",
+     "w": 1600,
+     "h": 1067,
+     "new": 26
+    },
+    {
+     "src": "images/projects/coc-free-concerts/06.jpg",
+     "thumb": "images/projects/coc-free-concerts/06-t.jpg",
+     "w": 1067,
+     "h": 1600,
+     "new": 27
+    },
+    {
+     "src": "images/projects/coc-free-concerts/07.jpg",
+     "thumb": "images/projects/coc-free-concerts/07-t.jpg",
+     "w": 1067,
+     "h": 1600,
+     "new": 28
+    },
+    {
+     "src": "images/projects/coc-free-concerts/08.jpg",
+     "thumb": "images/projects/coc-free-concerts/08-t.jpg",
+     "w": 1115,
+     "h": 1600,
+     "new": 29
+    },
+    {
+     "src": "images/projects/coc-free-concerts/09.jpg",
+     "thumb": "images/projects/coc-free-concerts/09-t.jpg",
+     "w": 1600,
+     "h": 1067,
+     "new": 30
+    }
+   ]
+  },
+  {
    "slug": "turn-of-the-screw",
    "production": "The Turn of the Screw",
    "role": "Flora",
@@ -609,7 +774,8 @@
      "h": 1800,
      "media": 71
     }
-   ]
+   ],
+   "num": "iii"
   },
   {
    "slug": "rape-of-lucretia",
@@ -690,93 +856,125 @@
      "w": 1200,
      "h": 1800,
      "media": 45
-    }
-   ]
-  },
-  {
-   "slug": "suor-angelica",
-   "production": "Suor Angelica",
-   "role": "Suor Osmina, Prima Cercatrici",
-   "company": "Opera 5",
-   "year": "2026",
-   "kind": "opera",
-   "focal": "40% 30%",
-   "photos": [
+    },
     {
-     "src": "images/projects/suor-angelica/01.jpg",
-     "thumb": "images/projects/suor-angelica/01-t.jpg",
+     "src": "images/projects/rape-of-lucretia/11.jpg",
+     "thumb": "images/projects/rape-of-lucretia/11-t.jpg",
      "w": 1600,
      "h": 1066,
-     "media": 74,
+     "new": 43
+    }
+   ],
+   "num": "iv"
+  },
+  {
+   "slug": "the-impresario",
+   "num": "v",
+   "production": "The Impresario",
+   "role": "Miss Silverpeal",
+   "company": "Opera McGill",
+   "year": "2025",
+   "kind": "opera",
+   "focal": "45% 35%",
+   "photos": [
+    {
+     "src": "images/projects/the-impresario/01.jpg",
+     "thumb": "images/projects/the-impresario/01-t.jpg",
+     "w": 1350,
+     "h": 1800,
+     "media": 21
+    },
+    {
+     "src": "images/projects/the-impresario/02.jpg",
+     "thumb": "images/projects/the-impresario/02-t.jpg",
+     "w": 1350,
+     "h": 1800,
+     "media": 22
+    },
+    {
+     "src": "images/projects/the-impresario/04.jpg",
+     "thumb": "images/projects/the-impresario/04-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 24
+    },
+    {
+     "src": "images/projects/the-impresario/05.jpg",
+     "thumb": "images/projects/the-impresario/05-t.jpg",
+     "w": 1350,
+     "h": 1800,
+     "media": 25
+    },
+    {
+     "src": "images/projects/the-impresario/06.jpg",
+     "thumb": "images/projects/the-impresario/06-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 26
+    },
+    {
+     "src": "images/projects/the-impresario/07.jpg",
+     "thumb": "images/projects/the-impresario/07-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 27
+    },
+    {
+     "src": "images/projects/the-impresario/08.jpg",
+     "thumb": "images/projects/the-impresario/08-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 28
+    },
+    {
+     "src": "images/projects/the-impresario/09.jpg",
+     "thumb": "images/projects/the-impresario/09-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 29
+    },
+    {
+     "src": "images/projects/the-impresario/10.jpg",
+     "thumb": "images/projects/the-impresario/10-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 30
+    },
+    {
+     "src": "images/projects/the-impresario/11.jpg",
+     "thumb": "images/projects/the-impresario/11-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 31
+    },
+    {
+     "src": "images/projects/the-impresario/12.jpg",
+     "thumb": "images/projects/the-impresario/12-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 32
+    },
+    {
+     "src": "images/projects/the-impresario/13.jpg",
+     "thumb": "images/projects/the-impresario/13-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 33
+    },
+    {
+     "src": "images/projects/the-impresario/14.jpg",
+     "thumb": "images/projects/the-impresario/14-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "media": 34,
      "lead": true
     },
     {
-     "src": "images/projects/suor-angelica/02.jpg",
-     "thumb": "images/projects/suor-angelica/02-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 75
-    },
-    {
-     "src": "images/projects/suor-angelica/03.jpg",
-     "thumb": "images/projects/suor-angelica/03-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 76
-    },
-    {
-     "src": "images/projects/suor-angelica/04.jpg",
-     "thumb": "images/projects/suor-angelica/04-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 78
-    },
-    {
-     "src": "images/projects/suor-angelica/07.jpg",
-     "thumb": "images/projects/suor-angelica/07-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 83
-    },
-    {
-     "src": "images/projects/suor-angelica/08.jpg",
-     "thumb": "images/projects/suor-angelica/08-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 85
-    }
-   ]
-  },
-  {
-   "slug": "gianni-schicchi",
-   "production": "Gianni Schicchi",
-   "role": "Gherardino, Lauretta (Cover)",
-   "company": "Opera 5",
-   "year": "2026",
-   "kind": "opera",
-   "focal": "65% 40%",
-   "photos": [
-    {
-     "src": "images/projects/gianni-schicchi/02.jpg",
-     "thumb": "images/projects/gianni-schicchi/02-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 79
-    },
-    {
-     "src": "images/projects/gianni-schicchi/03.jpg",
-     "thumb": "images/projects/gianni-schicchi/03-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 81,
-     "lead": true
-    },
-    {
-     "src": "images/projects/gianni-schicchi/04.jpg",
-     "thumb": "images/projects/gianni-schicchi/04-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "media": 84
+     "src": "images/projects/the-impresario/15.jpg",
+     "thumb": "images/projects/the-impresario/15-t.jpg",
+     "w": 1200,
+     "h": 1800,
+     "media": 35
     }
    ]
   },
@@ -922,135 +1120,276 @@
      "w": 1200,
      "h": 1800,
      "media": 20
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/22.jpg",
+     "thumb": "images/projects/light-in-the-piazza/22-t.jpg",
+     "w": 1066,
+     "h": 1600,
+     "new": 31
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/23.jpg",
+     "thumb": "images/projects/light-in-the-piazza/23-t.jpg",
+     "w": 1066,
+     "h": 1600,
+     "new": 32
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/24.jpg",
+     "thumb": "images/projects/light-in-the-piazza/24-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 33
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/25.jpg",
+     "thumb": "images/projects/light-in-the-piazza/25-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 34
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/26.jpg",
+     "thumb": "images/projects/light-in-the-piazza/26-t.jpg",
+     "w": 1066,
+     "h": 1600,
+     "new": 35
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/27.jpg",
+     "thumb": "images/projects/light-in-the-piazza/27-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 36
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/28.jpg",
+     "thumb": "images/projects/light-in-the-piazza/28-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 37
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/29.jpg",
+     "thumb": "images/projects/light-in-the-piazza/29-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 38
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/30.jpg",
+     "thumb": "images/projects/light-in-the-piazza/30-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 39
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/31.jpg",
+     "thumb": "images/projects/light-in-the-piazza/31-t.jpg",
+     "w": 1066,
+     "h": 1600,
+     "new": 40
+    },
+    {
+     "src": "images/projects/light-in-the-piazza/32.jpg",
+     "thumb": "images/projects/light-in-the-piazza/32-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 41
     }
-   ]
+   ],
+   "num": "vi"
   },
   {
-   "slug": "misc",
-   "production": "Miscellaneous",
-   "role": "",
-   "company": "",
-   "year": "",
-   "kind": "",
-   "focal": "45% 35%",
+   "slug": "turn-of-the-screw-2024",
+   "num": "vii",
+   "production": "The Turn of the Screw",
+   "role": "Flora",
+   "company": "Opera 5",
+   "year": "2024",
+   "kind": "opera",
    "photos": [
     {
-     "src": "images/projects/misc/01.jpg",
-     "thumb": "images/projects/misc/01-t.jpg",
-     "w": 1350,
-     "h": 1800,
-     "media": 21
+     "src": "images/projects/turn-of-the-screw-2024/01.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/01-t.jpg",
+     "w": 1600,
+     "h": 1068,
+     "new": 0
     },
     {
-     "src": "images/projects/misc/02.jpg",
-     "thumb": "images/projects/misc/02-t.jpg",
-     "w": 1350,
-     "h": 1800,
-     "media": 22
+     "src": "images/projects/turn-of-the-screw-2024/02.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/02-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 1
     },
     {
-     "src": "images/projects/misc/04.jpg",
-     "thumb": "images/projects/misc/04-t.jpg",
-     "w": 1200,
-     "h": 1800,
-     "media": 24
+     "src": "images/projects/turn-of-the-screw-2024/03.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/03-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 2
     },
     {
-     "src": "images/projects/misc/05.jpg",
-     "thumb": "images/projects/misc/05-t.jpg",
-     "w": 1350,
-     "h": 1800,
-     "media": 25
+     "src": "images/projects/turn-of-the-screw-2024/04.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/04-t.jpg",
+     "w": 1600,
+     "h": 1068,
+     "new": 3
     },
     {
-     "src": "images/projects/misc/06.jpg",
-     "thumb": "images/projects/misc/06-t.jpg",
-     "w": 1200,
-     "h": 1800,
-     "media": 26
+     "src": "images/projects/turn-of-the-screw-2024/05.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/05-t.jpg",
+     "w": 1066,
+     "h": 1600,
+     "new": 4
     },
     {
-     "src": "images/projects/misc/07.jpg",
-     "thumb": "images/projects/misc/07-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 27
+     "src": "images/projects/turn-of-the-screw-2024/06.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/06-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 5
     },
     {
-     "src": "images/projects/misc/08.jpg",
-     "thumb": "images/projects/misc/08-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 28
+     "src": "images/projects/turn-of-the-screw-2024/07.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/07-t.jpg",
+     "w": 1066,
+     "h": 1600,
+     "new": 6
     },
     {
-     "src": "images/projects/misc/09.jpg",
-     "thumb": "images/projects/misc/09-t.jpg",
-     "w": 1200,
-     "h": 1800,
-     "media": 29
+     "src": "images/projects/turn-of-the-screw-2024/08.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/08-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 7
     },
     {
-     "src": "images/projects/misc/10.jpg",
-     "thumb": "images/projects/misc/10-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 30
-    },
-    {
-     "src": "images/projects/misc/11.jpg",
-     "thumb": "images/projects/misc/11-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 31
-    },
-    {
-     "src": "images/projects/misc/12.jpg",
-     "thumb": "images/projects/misc/12-t.jpg",
-     "w": 1200,
-     "h": 1800,
-     "media": 32
-    },
-    {
-     "src": "images/projects/misc/13.jpg",
-     "thumb": "images/projects/misc/13-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 33
-    },
-    {
-     "src": "images/projects/misc/14.jpg",
-     "thumb": "images/projects/misc/14-t.jpg",
-     "w": 1800,
-     "h": 1200,
-     "media": 34,
+     "src": "images/projects/turn-of-the-screw-2024/09.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/09-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 8,
      "lead": true
     },
     {
-     "src": "images/projects/misc/15.jpg",
-     "thumb": "images/projects/misc/15-t.jpg",
+     "src": "images/projects/turn-of-the-screw-2024/10.jpg",
+     "thumb": "images/projects/turn-of-the-screw-2024/10-t.jpg",
+     "w": 1600,
+     "h": 1066,
+     "new": 9
+    }
+   ],
+   "focal": "50% 6%"
+  },
+  {
+   "slug": "cendrillon",
+   "num": "viii",
+   "production": "Cendrillon",
+   "role": "Esprit",
+   "company": "Opera McGill",
+   "year": "2024",
+   "kind": "opera",
+   "photos": [
+    {
+     "src": "images/projects/cendrillon/01.jpg",
+     "thumb": "images/projects/cendrillon/01-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 10
+    },
+    {
+     "src": "images/projects/cendrillon/02.jpg",
+     "thumb": "images/projects/cendrillon/02-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 11
+    },
+    {
+     "src": "images/projects/cendrillon/03.jpg",
+     "thumb": "images/projects/cendrillon/03-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 12
+    },
+    {
+     "src": "images/projects/cendrillon/04.jpg",
+     "thumb": "images/projects/cendrillon/04-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 13
+    },
+    {
+     "src": "images/projects/cendrillon/05.jpg",
+     "thumb": "images/projects/cendrillon/05-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 14
+    },
+    {
+     "src": "images/projects/cendrillon/06.jpg",
+     "thumb": "images/projects/cendrillon/06-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 15,
+     "lead": true
+    },
+    {
+     "src": "images/projects/cendrillon/07.jpg",
+     "thumb": "images/projects/cendrillon/07-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 16
+    },
+    {
+     "src": "images/projects/cendrillon/08.jpg",
+     "thumb": "images/projects/cendrillon/08-t.jpg",
      "w": 1200,
      "h": 1800,
-     "media": 35
+     "new": 17
     },
     {
-     "src": "images/projects/recital/01.jpg",
-     "thumb": "images/projects/recital/01-t.jpg",
-     "w": 1197,
+     "src": "images/projects/cendrillon/09.jpg",
+     "thumb": "images/projects/cendrillon/09-t.jpg",
+     "w": 1200,
      "h": 1800,
-     "media": 72
+     "new": 18
     },
     {
-     "src": "images/projects/recital/02.jpg",
-     "thumb": "images/projects/recital/02-t.jpg",
+     "src": "images/projects/cendrillon/10.jpg",
+     "thumb": "images/projects/cendrillon/10-t.jpg",
      "w": 1800,
-     "h": 1197,
-     "media": 73
+     "h": 1199,
+     "new": 19
+    },
+    {
+     "src": "images/projects/cendrillon/11.jpg",
+     "thumb": "images/projects/cendrillon/11-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 20
+    },
+    {
+     "src": "images/projects/cendrillon/12.jpg",
+     "thumb": "images/projects/cendrillon/12-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 21
+    },
+    {
+     "src": "images/projects/cendrillon/13.jpg",
+     "thumb": "images/projects/cendrillon/13-t.jpg",
+     "w": 1800,
+     "h": 1200,
+     "new": 22
     }
-   ]
+   ],
+   "focal": "50% 45%"
   }
  ],
- "_projects_help": "Photos page, one chapter per project, newest first. Each project: production, role, company, year, kind, focal (letterbox crop of the lead still), photos[] with src (full), thumb, w, h; the photo marked lead opens the chapter. 'media' is the photo's position in the Media folder, for reference.",
+ "_projects_help": "Photos page, one chapter per project, in the order listed. Each project: num (its numeral; empty shows a diamond), production, role, company, year, kind, focal (letterbox crop of the lead still), photos[] with src (full), thumb, w, h; the photo marked lead opens the chapter. A project with no photos shows its title and credit only. 'media' is the photo's position in the Media folder and 'new' its position in the 'new photos' folder, for reference.",
  "bio": {
   "short": [
    "Canadian soprano Paige Robinson moves between opera, art song and musical theatre. In 2026 she sang Flora in Britten's *The Turn of the Screw* with Opera de Montréal, Lucia in Britten's *The Rape of Lucretia* with Opera McGill and Gherardino in Puccini's *Gianni Schicchi* with Opera 5. First trained in Calgary, she holds a Bachelor of Music from McGill University and is studying for a Master of Music at the Eastman School of Music with Kathryn Cowdrick. She is a 2026 award recipient of the Jacqueline Desmarais Foundation for Young Canadian Opera Singers and the Art Song Foundation of Canada."

@@ -625,3 +625,13 @@ html.fog-in .pr-page{transform-origin:50% 0}
 /* Index button: champagne set literally (the light pages remap --pr-sand to mulberry, which vanished on emerald) */
 .to-index{color:#E6D3AC;background:#0C3E40;border-color:rgba(230,211,172,.5)}
 .to-index:hover,.to-index:focus-visible{color:#FFFFFF;border-color:#E6D3AC}
+/* Nine chapters plus Press photos: tighter index rows, so the opening block still fits above the fold */
+.photos-top .proj-index a{padding-top:clamp(4px,.75vh,9px);padding-bottom:clamp(4px,.75vh,9px)}
+.photos-top .proj-index__title{font-size:clamp(1.125rem,.95rem + .6vw,1.4rem)}
+.proj__head:last-child{margin-bottom:0}
+@media (min-width:900px) and (max-height:820px){
+  .photos-top{padding-top:28px}
+  .photos-top__grid{gap:20px;padding-bottom:22px;min-height:calc(100svh - var(--peek) - 28px)}
+  .photos-top .pr-pagetitle__title{font-size:clamp(3rem,8vh,4.5rem)}
+  .photos-top .pr-pagetitle{gap:6px}
+}

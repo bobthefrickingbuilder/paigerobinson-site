@@ -69,26 +69,25 @@
     },
     /* Photos: a program-style contents list, then one chapter per project */
     projectIndex: function (d) {
-      var roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'];
       var press = $('#press .press-ph') ? '<li class="proj-index__press"><a href="#press"><span class="proj-index__num" aria-hidden="true"><span class="proj-index__gem"></span></span>' +
         '<span class="proj-index__title">Press photos</span><span class="proj-index__leader" aria-hidden="true"></span><span class="proj-index__meta">Headshots · portraits</span></a></li>' : '';
-      return '<ol class="proj-index">' + press + d.projects.map(function (p, i) {
-        return '<li><a href="#' + esc(p.slug) + '"><span class="proj-index__num">' + roman[i] + '</span>' +
+      return '<ol class="proj-index">' + press + d.projects.map(function (p) {
+        return '<li><a href="#' + esc(p.slug) + '"><span class="proj-index__num"' + (p.num ? '>' + esc(p.num) : ' aria-hidden="true"><span class="proj-index__gem"></span>') + '</span>' +
           '<cite class="proj-index__title">' + esc(p.production) + '</cite><span class="proj-index__leader" aria-hidden="true"></span>' +
-          '<span class="proj-index__meta">' + (p.year ? esc(p.year) + ' · ' : '') + p.photos.length + '</span></a></li>';
+          '<span class="proj-index__meta">' + [p.year, p.photos.length || ''].filter(Boolean).map(esc).join(' · ') + '</span></a></li>';
       }).join('') + '</ol>';
     },
     projects: function (d) {
-      var roman = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x'], k = 0;
+      var k = 0;
       return d.projects.map(function (p, pi) {
         var label = p.production + (p.year ? ', ' + p.year : '');
         var alt = function (n) { return p.company ? 'Production photo ' + n + ' from ' + p.production + ' (' + p.company + (p.year ? ', ' + p.year : '') + ')' : 'Photo ' + n + ' of Paige Robinson, ' + p.production.toLowerCase(); };
         var lead = p.photos.filter(function (ph) { return ph.lead; })[0] || p.photos[0];
-        var shots = [lead].concat(p.photos.filter(function (ph) { return ph !== lead; }));
+        var shots = lead ? [lead].concat(p.photos.filter(function (ph) { return ph !== lead; })) : [];
         var meta = [p.role, p.company, p.year].filter(Boolean).map(esc).join(' · ');
         var html = (pi ? '<div class="stave" aria-hidden="true"></div>' : '') +
           '<section class="proj" id="' + esc(p.slug) + '" aria-labelledby="' + esc(p.slug) + '-h">' +
-          '<header class="proj__head" data-reveal><span class="proj__num">' + roman[pi] + ' · ' + p.photos.length + ' photos</span>' +
+          '<header class="proj__head" data-reveal><span class="proj__num">' + [p.num, shots.length ? shots.length + ' photos' : ''].filter(Boolean).map(esc).join(' · ') + '</span>' +
           '<h2 class="proj__title" id="' + esc(p.slug) + '-h"><cite>' + esc(p.production) + '</cite></h2>' +
           (meta ? '<p class="proj__meta">' + meta + '</p>' : '') +
           (p.placeholder ? '<p class="site-note__kind">Placeholder · Title, role and year to be supplied</p>' : '') + '</header>';
@@ -104,7 +103,7 @@
               '<img src="' + esc(ph.thumb) + '" alt="' + esc(alt(n + 1)) + '" width="' + ph.w + '" height="' + ph.h + '" loading="lazy" decoding="async"></button>';
           }
         });
-        return html + '</div></section>';
+        return html + (shots.length ? '</div>' : '') + '</section>';
       }).join('');
     },
     stills: function (d) {
