@@ -1136,32 +1136,11 @@
      "new": 32
     },
     {
-     "src": "images/projects/light-in-the-piazza/24.jpg",
-     "thumb": "images/projects/light-in-the-piazza/24-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "new": 33
-    },
-    {
      "src": "images/projects/light-in-the-piazza/25.jpg",
      "thumb": "images/projects/light-in-the-piazza/25-t.jpg",
      "w": 1600,
      "h": 1066,
      "new": 34
-    },
-    {
-     "src": "images/projects/light-in-the-piazza/26.jpg",
-     "thumb": "images/projects/light-in-the-piazza/26-t.jpg",
-     "w": 1066,
-     "h": 1600,
-     "new": 35
-    },
-    {
-     "src": "images/projects/light-in-the-piazza/27.jpg",
-     "thumb": "images/projects/light-in-the-piazza/27-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "new": 36
     },
     {
      "src": "images/projects/light-in-the-piazza/28.jpg",
@@ -1190,13 +1169,6 @@
      "w": 1066,
      "h": 1600,
      "new": 40
-    },
-    {
-     "src": "images/projects/light-in-the-piazza/32.jpg",
-     "thumb": "images/projects/light-in-the-piazza/32-t.jpg",
-     "w": 1600,
-     "h": 1066,
-     "new": 41
     }
    ],
    "num": "vi"
@@ -1236,7 +1208,8 @@
      "thumb": "images/projects/turn-of-the-screw-2024/04-t.jpg",
      "w": 1600,
      "h": 1068,
-     "new": 3
+     "new": 3,
+     "lead": true
     },
     {
      "src": "images/projects/turn-of-the-screw-2024/05.jpg",
@@ -1271,8 +1244,7 @@
      "thumb": "images/projects/turn-of-the-screw-2024/09-t.jpg",
      "w": 1600,
      "h": 1066,
-     "new": 8,
-     "lead": true
+     "new": 8
     },
     {
      "src": "images/projects/turn-of-the-screw-2024/10.jpg",
@@ -1282,7 +1254,7 @@
      "new": 9
     }
    ],
-   "focal": "50% 6%"
+   "focal": "50% 15%"
   },
   {
    "slug": "cendrillon",
